@@ -1,0 +1,495 @@
+[
+ {
+  "id": "right",
+  "name": "Right-angled triangle (half pyramid)",
+  "blocks": [
+   {
+    "i": [
+     "1",
+     "n",
+     1
+    ],
+    "parts": [
+     [
+      "*",
+      "i"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "invright",
+  "name": "Inverted right triangle",
+  "blocks": [
+   {
+    "i": [
+     "n",
+     "1",
+     -1
+    ],
+    "parts": [
+     [
+      "*",
+      "i"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "mirror",
+  "name": "Mirrored right triangle",
+  "blocks": [
+   {
+    "i": [
+     "1",
+     "n",
+     1
+    ],
+    "parts": [
+     [
+      " ",
+      "n - i"
+     ],
+     [
+      "*",
+      "i"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "invmirror",
+  "name": "Inverted mirrored triangle",
+  "blocks": [
+   {
+    "i": [
+     "n",
+     "1",
+     -1
+    ],
+    "parts": [
+     [
+      " ",
+      "n - i"
+     ],
+     [
+      "*",
+      "i"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "pyramid",
+  "name": "Pyramid",
+  "blocks": [
+   {
+    "i": [
+     "1",
+     "n",
+     1
+    ],
+    "parts": [
+     [
+      " ",
+      "n - i"
+     ],
+     [
+      "*",
+      "2 * i - 1"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "invpyramid",
+  "name": "Inverted pyramid",
+  "blocks": [
+   {
+    "i": [
+     "n",
+     "1",
+     -1
+    ],
+    "parts": [
+     [
+      " ",
+      "n - i"
+     ],
+     [
+      "*",
+      "2 * i - 1"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "diamond",
+  "name": "Diamond",
+  "blocks": [
+   {
+    "i": [
+     "1",
+     "n",
+     1
+    ],
+    "parts": [
+     [
+      " ",
+      "n - i"
+     ],
+     [
+      "*",
+      "2 * i - 1"
+     ]
+    ]
+   },
+   {
+    "i": [
+     "n - 1",
+     "1",
+     -1
+    ],
+    "parts": [
+     [
+      " ",
+      "n - i"
+     ],
+     [
+      "*",
+      "2 * i - 1"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hourglass",
+  "name": "Hourglass (sandglass)",
+  "blocks": [
+   {
+    "i": [
+     "n",
+     "1",
+     -1
+    ],
+    "parts": [
+     [
+      " ",
+      "n - i"
+     ],
+     [
+      "*",
+      "2 * i - 1"
+     ]
+    ]
+   },
+   {
+    "i": [
+     "2",
+     "n",
+     1
+    ],
+    "parts": [
+     [
+      " ",
+      "n - i"
+     ],
+     [
+      "*",
+      "2 * i - 1"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "rhombus",
+  "name": "Rhombus",
+  "blocks": [
+   {
+    "i": [
+     "1",
+     "n",
+     1
+    ],
+    "parts": [
+     [
+      " ",
+      "n - i"
+     ],
+     [
+      "*",
+      "n"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "butterfly",
+  "name": "Butterfly",
+  "blocks": [
+   {
+    "i": [
+     "1",
+     "n",
+     1
+    ],
+    "parts": [
+     [
+      "*",
+      "i"
+     ],
+     [
+      " ",
+      "2 * (n - i)"
+     ],
+     [
+      "*",
+      "i"
+     ]
+    ]
+   },
+   {
+    "i": [
+     "n",
+     "1",
+     -1
+    ],
+    "parts": [
+     [
+      "*",
+      "i"
+     ],
+     [
+      " ",
+      "2 * (n - i)"
+     ],
+     [
+      "*",
+      "i"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "rainbow",
+  "name": "Rainbow (arch)",
+  "blocks": [
+   {
+    "i": [
+     "1",
+     "n",
+     1
+    ],
+    "parts": [
+     [
+      "*",
+      "n - i + 1"
+     ],
+     [
+      " ",
+      "2 * (i - 1)"
+     ],
+     [
+      "*",
+      "n - i + 1"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "heart",
+  "name": "Heart",
+  "minN": 2,
+  "maxN": 3,
+  "blocks": [
+   {
+    "i": [
+     "1",
+     "n",
+     1
+    ],
+    "parts": [
+     [
+      " ",
+      "n - i"
+     ],
+     [
+      "*",
+      "2 * i - 1"
+     ],
+     [
+      " ",
+      "2 * (n - i) + 1"
+     ],
+     [
+      "*",
+      "2 * i - 1"
+     ]
+    ]
+   },
+   {
+    "i": [
+     "0",
+     "2 * n - 1",
+     1
+    ],
+    "parts": [
+     [
+      " ",
+      "i"
+     ],
+     [
+      "*",
+      "4 * n - 1 - 2 * i"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hollowsq",
+  "name": "Hollow square",
+  "minN": 3,
+  "blocks": [
+   {
+    "once": true,
+    "parts": [
+     [
+      "*",
+      "n"
+     ]
+    ]
+   },
+   {
+    "i": [
+     "2",
+     "n - 1",
+     1
+    ],
+    "parts": [
+     [
+      "*",
+      "1"
+     ],
+     [
+      " ",
+      "n - 2"
+     ],
+     [
+      "*",
+      "1"
+     ]
+    ]
+   },
+   {
+    "once": true,
+    "parts": [
+     [
+      "*",
+      "n"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "square",
+  "name": "Solid square",
+  "blocks": [
+   {
+    "i": [
+     "1",
+     "n",
+     1
+    ],
+    "parts": [
+     [
+      "*",
+      "n"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "numtri",
+  "name": "Number triangle",
+  "blocks": [
+   {
+    "i": [
+     "1",
+     "n",
+     1
+    ],
+    "parts": [
+     [
+      "num",
+      "i"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "alphatri",
+  "name": "Alphabet triangle",
+  "blocks": [
+   {
+    "i": [
+     "1",
+     "n",
+     1
+    ],
+    "parts": [
+     [
+      "alpha",
+      "i"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "arrow",
+  "name": "Right arrow (half diamond)",
+  "blocks": [
+   {
+    "i": [
+     "1",
+     "n",
+     1
+    ],
+    "parts": [
+     [
+      "*",
+      "i"
+     ]
+    ]
+   },
+   {
+    "i": [
+     "n - 1",
+     "1",
+     -1
+    ],
+    "parts": [
+     [
+      "*",
+      "i"
+     ]
+    ]
+   }
+  ]
+ }
+]

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Syntaxo Admin — Users, trials & subscriptions</title><script>try{document.documentElement.dataset.theme=localStorage.getItem("cq_theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+  <link rel="stylesheet" href="/styles.css">
+<style>td,th{font-size:.85rem;white-space:nowrap} .wrap{overflow-x:auto} .st-trial{color:#b88c2e}.st-active{color:#22c55e}.st-expired{color:#f87171}</style></head>
+<body><nav class="nav"><div class="inner"><a class="logo" href="/"><b>Syntaxo</b></a><span class="pill">Admin</span></div></nav>
+<main class="container">
+  <h1>Users, trials & subscriptions</h1>
+  <p class="muted">Every learner's access status, revenue and agent report in one place.</p>
+  <form id="f" class="row" style="margin:16px 0"><input class="input" id="k" type="password" placeholder="Admin key" style="max-width:260px"><button class="btn">Load users</button>
+    <span class="muted small">Default key: <code>admin123</code> — set <code>ADMIN_KEY</code> env var in production.</span></form>
+  <div id="out"></div>
+</main>
+<script>
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const key=()=>document.getElementById('k').value;
+async function load(){
+  const r=await fetch('/api/admin/users',{headers:{'x-admin-key':key()}}); const d=await r.json();
+  const out=document.getElementById('out'); if(!r.ok){out.innerHTML=`<div class="error">${esc(d.error)}</div>`;return;}
+  const langs=d.users[0]?Object.keys(d.users[0].skills):[]; const cnt=s=>d.users.filter(u=>u.access===s).length;
+  out.innerHTML=`<div class="grid g4" style="margin-bottom:16px">
+    <div class="card stat"><div class="k">Users</div><div class="v">${d.users.length}</div></div>
+    <div class="card stat"><div class="k">On free trial</div><div class="v st-trial">${cnt('trial')}</div></div>
+    <div class="card stat"><div class="k">Subscribed</div><div class="v st-active">${cnt('active')}</div></div>
+    <div class="card stat"><div class="k">Expired (sales leads)</div><div class="v st-expired">${cnt('expired')}</div></div>
+    <div class="card stat"><div class="k">Revenue</div><div class="v">₹${d.users.reduce((s,u)=>s+u.revenue,0).toLocaleString('en-IN')}</div></div>
+    <div class="card stat"><div class="k">Payments / Email</div><div class="v" style="font-size:1rem">${esc(d.paymentMode)} / ${esc(d.emailMode)}</div></div></div>
+  <div class="card wrap"><table><thead><tr><th>User ID</th><th>Name</th><th>Email</th><th>Mobile</th><th>Access</th><th>Detail</th><th>Revenue</th><th>Test actions</th><th>Agent</th><th>XP</th><th>Games</th><th>Acc.</th><th>Parts</th><th>Engage</th><th>Suggest</th>${langs.map(l=>`<th>${esc(l)}</th>`).join('')}<th>Weak topics</th><th>Last login</th></tr></thead><tbody>
+  ${d.users.map(u=>`<tr><td><b>${esc(u.userId)}</b></td><td>${esc(u.fullName)}<div class="muted small">@${esc(u.username)}</div></td><td>${esc(u.email)}</td><td>${esc(u.mobile||'—')}</td>
+    <td class="st-${u.access}"><b>${esc(u.access)}</b></td><td>${esc(u.accessDetail)}</td><td>₹${u.revenue}</td>
+    <td><button class="btn ghost sm" data-end="${esc(u.userId)}">End access now</button> <button class="btn ghost sm" data-add="${esc(u.userId)}">+30 trial days</button></td>
+    <td>${esc(u.agent)}</td><td>${u.xp}</td><td>${u.games}</td><td>${u.accuracy}%</td><td>${u.levelsPassed}</td><td>${u.engagement}</td><td>${esc(u.suggestedPlan)}</td>${langs.map(l=>`<td>${u.skills[l]}%</td>`).join('')}<td>${esc(u.weak.join(', ')||'—')}</td><td>${u.lastLoginAt?new Date(u.lastLoginAt).toLocaleString():'—'}</td></tr>`).join('')}
+  </tbody></table></div>`;
+  const act=async(id,days)=>{await fetch(`/api/admin/users/${id}/trial`,{method:'POST',headers:{'x-admin-key':key(),'Content-Type':'application/json'},body:JSON.stringify({days})});load();};
+  out.querySelectorAll('[data-end]').forEach(b=>b.onclick=()=>act(b.dataset.end,0));
+  out.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>act(b.dataset.add,30));
+}
+document.getElementById('f').onsubmit=e=>{e.preventDefault();load();};
+</script></body></html>

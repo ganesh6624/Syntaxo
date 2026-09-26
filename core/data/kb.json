@@ -1,0 +1,2011 @@
+{
+ "concepts": [
+  {
+   "id": "variable",
+   "keys": [
+    "variable",
+    "variables",
+    "declare variable",
+    "assign"
+   ],
+   "title": "Variables",
+   "text": "A **variable** is a named box that stores a value in memory. You create it by assigning a value; later you can read or change it.\n- Python is dynamically typed: the type comes from the value (`x = 5`).\n- Java and C++ are statically typed: you declare the type (`int x = 5;`).\n- JavaScript uses `let` (changeable), `const` (cannot be reassigned) and the old `var`.",
+   "code": {
+    "python": "name = \"Asha\"      # str\nage = 21           # int\nage = age + 1      # reassign\nprint(name, age)   # Asha 22",
+    "javascript": "let age = 21;\nconst name = \"Asha\";\nage += 1;\nconsole.log(name, age); // Asha 22",
+    "java": "int age = 21;\nString name = \"Asha\";\nage += 1;\nSystem.out.println(name + \" \" + age); // Asha 22",
+    "cpp": "int age = 21;\nstring name = \"Asha\";\nage += 1;\ncout << name << \" \" << age << endl; // Asha 22",
+    "sql": "-- In SQL, data lives in table columns; many databases also allow session variables:\nSET @bonus = 500;           -- MySQL\nSELECT name, salary + @bonus FROM employees;"
+   }
+  },
+  {
+   "id": "datatypes",
+   "keys": [
+    "data type",
+    "data types",
+    "datatype",
+    "types of data",
+    "primitive",
+    "int float",
+    "boolean",
+    "bool"
+   ],
+   "title": "Data types",
+   "text": "A **data type** says what kind of value a variable holds and which operations are allowed.\n- **Python:** `int`, `float`, `complex`, `bool`, `str`, `list`, `tuple`, `dict`, `set`, `NoneType`. Check with `type(x)`.\n- **JavaScript:** primitives `number`, `bigint`, `string`, `boolean`, `undefined`, `null`, `symbol` + `object` (arrays and functions are objects). Check with `typeof x`.\n- **Java:** 8 primitives `byte short int long float double char boolean` + reference types such as `String`, arrays and classes.\n- **C++:** `int`, `long long`, `float`, `double`, `char`, `bool`, plus `string`, arrays, `vector`, structs and classes.\n- **SQL:** `INT`, `DECIMAL(p,s)`, `VARCHAR(n)`, `CHAR(n)`, `DATE`, `BOOLEAN`, `TEXT`…",
+   "code": {
+    "python": "print(type(10), type(3.5), type(\"hi\"), type(True), type(None))\n# <class 'int'> <class 'float'> <class 'str'> <class 'bool'> <class 'NoneType'>",
+    "javascript": "console.log(typeof 10, typeof \"hi\", typeof true, typeof undefined, typeof null);\n// number string boolean undefined object",
+    "java": "int a = 10; double b = 3.5; char c = 'A'; boolean d = true; String s = \"hi\";",
+    "cpp": "int a = 10; double b = 3.5; char c = 'A'; bool d = true; string s = \"hi\";\ncout << sizeof(int) << endl; // usually 4 (bytes)",
+    "sql": "CREATE TABLE product (\n  id INT PRIMARY KEY,\n  name VARCHAR(50) NOT NULL,\n  price DECIMAL(8,2),\n  added DATE\n);"
+   }
+  },
+  {
+   "id": "operators",
+   "keys": [
+    "operator",
+    "operators",
+    "arithmetic operator",
+    "logical operator",
+    "comparison operator",
+    "relational operator",
+    "modulus",
+    "modulo",
+    "floor division",
+    "exponent",
+    "increment",
+    "precedence",
+    "bitwise"
+   ],
+   "title": "Operators",
+   "text": "**Operators** combine values.\n- Arithmetic: `+ - * /`, remainder `%`, Python also has floor division `//` and power `**`.\n- Comparison: `== != < > <= >=` (JavaScript prefers strict `===` / `!==`).\n- Logical: Python `and or not`; JS/Java/C++ `&& || !`.\n- Assignment: `= += -= *= /=`; JS/Java/C++ have `++` and `--`.\n- **Precedence** (high → low): `**` → unary minus → `* / // %` → `+ -` → comparisons → `not` → `and` → `or`.\n- Integer division differs: Python `7 // 2 = 3` and `7 / 2 = 3.5`; Java/C++ `7 / 2 = 3` for ints; JavaScript `7 / 2 = 3.5`.",
+   "code": {
+    "python": "print(7 / 2, 7 // 2, 7 % 2, 2 ** 3)   # 3.5 3 1 8\nprint(5 > 3 and 2 > 4)               # False\nprint(-7 // 2)                        # -4 (floors toward -infinity)",
+    "javascript": "console.log(7 / 2, Math.floor(7 / 2), 7 % 2, 2 ** 3); // 3.5 3 1 8\nconsole.log(5 == \"5\", 5 === \"5\");                      // true false",
+    "java": "System.out.println(7 / 2);   // 3  (int division)\nSystem.out.println(7 / 2.0); // 3.5\nSystem.out.println(7 % 2);   // 1\nint i = 5; System.out.println(i++ + \" \" + ++i); // 5 7",
+    "cpp": "cout << 7 / 2 << \" \" << 7 / 2.0 << \" \" << 7 % 2 << endl; // 3 3.5 1\nint i = 5; i += 3; cout << i << endl;                    // 8",
+    "sql": "SELECT name, salary * 12 AS yearly\nFROM employees\nWHERE dept = 'IT' AND salary >= 50000;"
+   }
+  },
+  {
+   "id": "io",
+   "keys": [
+    "input",
+    "output",
+    "print",
+    "take input",
+    "user input",
+    "read input",
+    "scanner",
+    "cin",
+    "cout",
+    "console.log",
+    "printf"
+   ],
+   "title": "Input and output",
+   "text": "How each language prints and reads values:\n- **Python:** `print()` to show, `input()` to read (always returns a `str` — convert with `int()` / `float()`).\n- **JavaScript:** `console.log()`; in a browser `prompt()`, in Node use `readline`.\n- **Java:** `System.out.println()`; read with `Scanner sc = new Scanner(System.in)`.\n- **C++:** `cout << x;` and `cin >> x;` from `<iostream>`.",
+   "code": {
+    "python": "name = input(\"Your name: \")\nage = int(input(\"Age: \"))\nprint(\"Hi\", name, \"next year you will be\", age + 1)\nprint(\"a\", \"b\", sep=\"-\", end=\"!\\n\")   # a-b!",
+    "javascript": "console.log(\"Hi\", 42);\nconsole.log(`Template: ${2 + 3}`);   // Template: 5",
+    "java": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        System.out.println(\"Square: \" + n * n);\n    }\n}",
+    "cpp": "#include <iostream>\nusing namespace std;\nint main() {\n    int n;\n    cin >> n;\n    cout << \"Square: \" << n * n << endl;\n}"
+   }
+  },
+  {
+   "id": "typecast",
+   "keys": [
+    "type casting",
+    "typecasting",
+    "type conversion",
+    "convert string to int",
+    "casting",
+    "parseint",
+    "str to int",
+    "int to string",
+    "stoi",
+    "to_string",
+    "integer.parseint"
+   ],
+   "title": "Type conversion (casting)",
+   "text": "**Type conversion** changes a value from one type to another.\n- Implicit: the language converts automatically (e.g. `int + float → float`).\n- Explicit (casting): you ask for it.",
+   "code": {
+    "python": "print(int(\"42\") + 1)     # 43\nprint(str(10) + \"5\")     # 105\nprint(float(\"3.5\"), int(3.99))  # 3.5 3 (truncates)\nprint(list(\"abc\"))       # ['a', 'b', 'c']",
+    "javascript": "console.log(Number(\"42\") + 1, parseInt(\"12px\"), String(10) + 5); // 43 12 \"105\"\nconsole.log(\"5\" * 2, \"5\" + 2);  // 10 \"52\"",
+    "java": "int n = Integer.parseInt(\"42\");\nString s = String.valueOf(10);\ndouble d = 7;          // implicit widening\nint t = (int) 3.99;    // explicit narrowing → 3",
+    "cpp": "int n = stoi(\"42\");\nstring s = to_string(10);\nint t = (int) 3.99;          // 3\ndouble d = static_cast<double>(7) / 2; // 3.5",
+    "sql": "SELECT CAST('42' AS INTEGER) + 1;   -- 43"
+   }
+  },
+  {
+   "id": "comments",
+   "keys": [
+    "comment",
+    "comments",
+    "docstring"
+   ],
+   "title": "Comments",
+   "text": "Comments are notes for humans; the computer ignores them.\n- Python: `# single line`, and `\"\"\"docstrings\"\"\"` for documenting functions.\n- JavaScript / Java / C++: `// single line` and `/* multi-line */`. Java also has `/** Javadoc */`.\n- SQL: `-- single line` and `/* multi-line */`."
+  },
+  {
+   "id": "scope",
+   "keys": [
+    "scope",
+    "global variable",
+    "local variable",
+    "global keyword",
+    "nonlocal",
+    "block scope"
+   ],
+   "title": "Scope (local vs global)",
+   "text": "**Scope** is where a variable can be seen.\n- A variable created inside a function is **local** — it disappears when the function ends.\n- A variable created outside all functions is **global**.\n- Python needs `global x` to reassign a global inside a function (and `nonlocal` for an enclosing function's variable).\n- JS `let`/`const` and Java/C++ variables are **block-scoped** (visible only inside the `{ }` where they were declared).",
+   "code": {
+    "python": "count = 0\ndef bump():\n    global count\n    count += 1\nbump(); bump()\nprint(count)   # 2",
+    "javascript": "let x = 1;\n{ let x = 2; console.log(x); } // 2\nconsole.log(x);                 // 1"
+   }
+  },
+  {
+   "id": "string",
+   "keys": [
+    "string",
+    "strings",
+    "str",
+    "string methods",
+    "string functions",
+    "string built in functions",
+    "text"
+   ],
+   "title": "Strings",
+   "text": "A **string** is a sequence of characters.\n- Index from 0 (`s[0]`); Python also allows negative indexes (`s[-1]` = last char).\n- Strings are **immutable** in Python, Java and JavaScript — methods return a *new* string.\n- Common methods: upper/lower case, trim/strip spaces, replace, split into a list, join, find/indexOf, startswith/endsWith, slicing/substring, length.\n- Ask me about any single method, e.g. *\"what does split do in Python\"*.",
+   "code": {
+    "python": "s = \"  Hello World  \"\nprint(s.strip().upper())      # HELLO WORLD\nprint(s.split())              # ['Hello', 'World']\nprint(\"-\".join([\"a\", \"b\"]))   # a-b\nprint(\"python\"[::-1])         # nohtyp\nprint(len(\"code\"), \"code\".find(\"d\"))  # 4 2",
+    "javascript": "const s = \"  Hello World  \";\nconsole.log(s.trim().toUpperCase());  // HELLO WORLD\nconsole.log(\"a,b,c\".split(\",\"));      // [\"a\",\"b\",\"c\"]\nconsole.log(\"code\".slice(1, 3), \"code\".length); // od 4\nconsole.log([...\"abc\"].reverse().join(\"\"));   // cba",
+    "java": "String s = \"  Hello World  \";\nSystem.out.println(s.trim().toUpperCase());   // HELLO WORLD\nSystem.out.println(\"code\".substring(1, 3));   // od\nSystem.out.println(\"code\".charAt(0) + \" \" + \"code\".length()); // c 4\nSystem.out.println(new StringBuilder(\"abc\").reverse()); // cba",
+    "cpp": "string s = \"Hello World\";\ncout << s.size() << \" \" << s.substr(0, 5) << endl; // 11 Hello\ncout << s.find(\"World\") << endl;                   // 6\nreverse(s.begin(), s.end()); cout << s << endl;    // dlroW olleH",
+    "sql": "SELECT UPPER(name), LENGTH(name), SUBSTR(name, 1, 3), name || '!' FROM users;"
+   }
+  },
+  {
+   "id": "slicing",
+   "keys": [
+    "slicing",
+    "slice",
+    "substring",
+    "substr",
+    "reverse a string",
+    "reverse string"
+   ],
+   "title": "Slicing / substrings",
+   "text": "**Slicing** takes a part of a sequence: `s[start:stop:step]` in Python — `stop` is **excluded**.\n- `s[:3]` first 3, `s[-3:]` last 3, `s[::2]` every 2nd, `s[::-1]` reversed.\n- JavaScript: `s.slice(start, end)`; Java: `s.substring(start, end)`; C++: `s.substr(start, length)` (note: length, not end!).",
+   "code": {
+    "python": "t = \"programming\"\nprint(t[0:3], t[-4:], t[::3], t[::-1])\n# pro ming pgmn gnimmargorp\nnums = [10, 20, 30, 40, 50]\nprint(nums[1:4])   # [20, 30, 40]",
+    "javascript": "const t = \"programming\";\nconsole.log(t.slice(0, 3), t.slice(-4)); // pro ming\nconsole.log([10, 20, 30, 40].slice(1, 3)); // [20, 30]",
+    "java": "String t = \"programming\";\nSystem.out.println(t.substring(0, 3) + \" \" + t.substring(t.length() - 4)); // pro ming",
+    "cpp": "string t = \"programming\";\ncout << t.substr(0, 3) << \" \" << t.substr(t.size() - 4) << endl; // pro ming"
+   }
+  },
+  {
+   "id": "list",
+   "keys": [
+    "list",
+    "lists",
+    "list methods",
+    "python list",
+    "append",
+    "list functions"
+   ],
+   "lang": "python",
+   "title": "Python lists",
+   "text": "A **list** is an ordered, **mutable** collection that can hold mixed types: `[1, \"a\", True]`.\n- Add: `append(x)` (one item), `extend(iterable)` (many), `insert(i, x)`.\n- Remove: `remove(x)` (first match by value), `pop(i)` (by index, returns it), `del lst[i]`, `clear()`.\n- Other: `sort()`, `reverse()`, `index(x)`, `count(x)`, `copy()`; built-ins `len`, `sum`, `min`, `max`, `sorted`.\n- `sort()` changes the list and returns `None`; `sorted(lst)` returns a new list.",
+   "code": {
+    "python": "nums = [4, 1, 3]\nnums.append(10)       # [4, 1, 3, 10]\nnums.extend([7, 8])   # [4, 1, 3, 10, 7, 8]\nnums.insert(0, 99)    # [99, 4, 1, 3, 10, 7, 8]\nnums.remove(3)        # removes value 3\nlast = nums.pop()     # 8\nnums.sort()\nprint(nums, last)     # [1, 4, 7, 10, 99] 8\nprint(sum(nums), max(nums), len(nums))  # 121 99 5"
+   }
+  },
+  {
+   "id": "array",
+   "keys": [
+    "array",
+    "arrays",
+    "array methods",
+    "1d array",
+    "2d array",
+    "matrix",
+    "vector",
+    "arraylist"
+   ],
+   "title": "Arrays",
+   "text": "An **array** stores many values of the same kind under one name, accessed by index (starting at 0).\n- **JavaScript arrays** are dynamic: `push/pop` (end), `unshift/shift` (start), `splice`, `slice`, `map`, `filter`, `reduce`, `find`, `includes`, `indexOf`, `sort`, `join`.\n- **Java arrays** have a fixed size (`int[] a = new int[5]`); use `Arrays.sort`, `Arrays.toString`; for a growable list use `ArrayList`.\n- **C++** raw arrays are fixed (`int a[5]`); prefer `vector<int>` which grows with `push_back`.\n- In **Python** the list plays the role of an array.",
+   "code": {
+    "javascript": "const a = [5, 2, 9];\na.push(4);                        // [5, 2, 9, 4]\nconst doubled = a.map((x) => x * 2); // [10, 4, 18, 8]\nconst big = a.filter((x) => x > 4);  // [5, 9]\nconst total = a.reduce((s, x) => s + x, 0); // 20\na.sort((x, y) => x - y);          // numeric sort! [2, 4, 5, 9]",
+    "java": "int[] a = {5, 2, 9};\nArrays.sort(a);\nSystem.out.println(Arrays.toString(a)); // [2, 5, 9]\nArrayList<Integer> list = new ArrayList<>();\nlist.add(4); list.add(7);\nSystem.out.println(list.size() + \" \" + list.get(0)); // 2 4",
+    "cpp": "vector<int> v = {5, 2, 9};\nv.push_back(4);\nsort(v.begin(), v.end());\nfor (int x : v) cout << x << \" \";   // 2 4 5 9\ncout << \"\\nsize \" << v.size() << endl;",
+    "python": "arr = [5, 2, 9]\narr.append(4)\nprint(sorted(arr))            # [2, 4, 5, 9]\nmatrix = [[1, 2], [3, 4]]\nprint(matrix[1][0])           # 3"
+   }
+  },
+  {
+   "id": "tuple",
+   "keys": [
+    "tuple",
+    "tuples",
+    "packing",
+    "unpacking"
+   ],
+   "title": "Tuples",
+   "text": "A **tuple** is an ordered, **immutable** collection: `(1, 2, 3)`.\n- Faster and safer than a list when data must not change (e.g. coordinates, RGB colours, dictionary keys).\n- Only two methods: `count(x)` and `index(x)`.\n- A one-item tuple needs a comma: `(5,)` — `(5)` is just the number 5.\n- **Packing/unpacking:** `a, b = b, a` swaps two variables.\n- C++ has `pair` and `tuple`; Java has no built-in tuple (use a record/class).",
+   "code": {
+    "python": "point = (3, 4)\nx, y = point               # unpacking\nprint(x + y)               # 7\nt = (1, 2, 2, 3)\nprint(t.count(2), t.index(3))  # 2 3\nsingle = (5,)\nprint(type(single))        # <class 'tuple'>\n# point[0] = 9  -> TypeError: tuple does not support item assignment",
+    "cpp": "pair<string, int> p = {\"Asha\", 90};\ncout << p.first << \" \" << p.second << endl;\nauto t = make_tuple(1, \"x\", 2.5);\ncout << get<1>(t) << endl;  // x"
+   }
+  },
+  {
+   "id": "dict",
+   "keys": [
+    "dictionary",
+    "dictionaries",
+    "dict",
+    "key value",
+    "dict methods",
+    "hashmap",
+    "hash map",
+    "map",
+    "object literal",
+    "unordered_map"
+   ],
+   "title": "Dictionaries / maps",
+   "text": "A **dictionary (map)** stores **key → value** pairs; keys are unique.\n- **Python dict:** `d[key]`, `d.get(key, default)`, `keys()`, `values()`, `items()`, `update()`, `pop(key)`, `setdefault()`. Keys must be immutable (str, int, tuple).\n- **JavaScript:** plain objects `{ name: \"Asha\" }` or `Map` (`set/get/has/delete/size`).\n- **Java:** `HashMap<K,V>` with `put/get/getOrDefault/containsKey/remove`; `TreeMap` keeps keys sorted.\n- **C++:** `map` (sorted) and `unordered_map` (hash, faster average).",
+   "code": {
+    "python": "marks = {\"asha\": 90, \"ravi\": 75}\nmarks[\"meena\"] = 88\nprint(marks.get(\"john\", 0))      # 0 (no KeyError)\nfor name, m in marks.items():\n    print(name, m)\n# count letters\ncount = {}\nfor ch in \"banana\":\n    count[ch] = count.get(ch, 0) + 1\nprint(count)   # {'b': 1, 'a': 3, 'n': 2}",
+    "javascript": "const marks = { asha: 90, ravi: 75 };\nmarks.meena = 88;\nfor (const [k, v] of Object.entries(marks)) console.log(k, v);\nconst m = new Map([[\"a\", 1]]);\nm.set(\"b\", 2); console.log(m.get(\"b\"), m.size); // 2 2",
+    "java": "HashMap<String, Integer> marks = new HashMap<>();\nmarks.put(\"asha\", 90);\nmarks.put(\"ravi\", 75);\nSystem.out.println(marks.getOrDefault(\"john\", 0)); // 0\nfor (Map.Entry<String, Integer> e : marks.entrySet())\n    System.out.println(e.getKey() + \"=\" + e.getValue());",
+    "cpp": "map<string, int> marks;\nmarks[\"asha\"] = 90;\nmarks[\"ravi\"] = 75;\nfor (auto& [name, m] : marks) cout << name << \" \" << m << endl; // sorted by key\ncout << marks.count(\"john\") << endl; // 0"
+   }
+  },
+  {
+   "id": "set",
+   "keys": [
+    "set",
+    "sets",
+    "set methods",
+    "union",
+    "intersection",
+    "hashset",
+    "unique values",
+    "remove duplicates",
+    "duplicates"
+   ],
+   "title": "Sets",
+   "text": "A **set** is an **unordered** collection of **unique** items — perfect for removing duplicates and fast membership tests.\n- Python: `add`, `update`, `remove` (error if missing), `discard` (no error), `pop`, and maths: `|` union, `&` intersection, `-` difference, `^` symmetric difference. Empty set is `set()` — `{}` is an empty *dict*!\n- JavaScript: `new Set()` with `add/has/delete/size`.\n- Java: `HashSet`, sorted `TreeSet`. C++: `set` (sorted), `unordered_set`, `multiset` (allows duplicates).",
+   "code": {
+    "python": "a = {1, 2, 3}\nb = {3, 4}\nprint(a | b, a & b, a - b, a ^ b)  # {1, 2, 3, 4} {3} {1, 2} {1, 2, 4}\nprint(list(set([3, 1, 3, 2, 1])))   # duplicates removed\na.discard(10)                      # no error",
+    "javascript": "const s = new Set([3, 1, 3, 2]);\ns.add(5);\nconsole.log(s.has(3), s.size, [...s]); // true 4 [3, 1, 2, 5]",
+    "java": "Set<Integer> s = new HashSet<>(List.of(3, 1, 3, 2));\nSystem.out.println(s.contains(3) + \" \" + s.size()); // true 3\nSystem.out.println(new TreeSet<>(s));             // [1, 2, 3]",
+    "cpp": "set<int> s = {3, 1, 3, 2};\nfor (int x : s) cout << x << \" \";  // 1 2 3 (sorted, unique)\ncout << s.count(3) << endl;         // 1"
+   }
+  },
+  {
+   "id": "javacollections",
+   "keys": [
+    "arraylist",
+    "arraylist methods",
+    "collections",
+    "collection framework",
+    "linkedlist",
+    "java collections",
+    "list interface"
+   ],
+   "lang": "java",
+   "title": "ArrayList & the Collections framework (Java)",
+   "text": "`ArrayList<T>` is a resizable array. Main methods: `add(x)`, `add(i, x)`, `get(i)`, `set(i, x)`, `remove(i)` / `remove(Object)`, `size()`, `contains(x)`, `indexOf(x)`, `isEmpty()`, `clear()`, `sort(null)`.\n- `Collections` utility methods: `Collections.sort(list)`, `reverse`, `max`, `min`, `frequency`, `shuffle`.\n- Other collections: `LinkedList` (fast insert/remove at ends), `HashSet` (unique), `HashMap` (key → value), `TreeMap`/`TreeSet` (sorted), `ArrayDeque` (stack/queue).\n- Collections hold objects, so use wrapper types: `ArrayList<Integer>`, not `ArrayList<int>`.",
+   "code": {
+    "java": "import java.util.*;\n\nArrayList<Integer> nums = new ArrayList<>(List.of(5, 2, 9));\nnums.add(4);               // [5, 2, 9, 4]\nnums.add(0, 1);            // [1, 5, 2, 9, 4]\nnums.set(1, 7);            // [1, 7, 2, 9, 4]\nnums.remove(Integer.valueOf(9)); // remove by value → [1, 7, 2, 4]\nnums.remove(0);            // remove by index → [7, 2, 4]\nCollections.sort(nums);    // [2, 4, 7]\nSystem.out.println(nums + \" size=\" + nums.size() + \" has 4? \" + nums.contains(4));\n// [2, 4, 7] size=3 has 4? true"
+   }
+  },
+  {
+   "id": "comprehension",
+   "keys": [
+    "list comprehension",
+    "comprehension",
+    "dict comprehension",
+    "set comprehension"
+   ],
+   "lang": "python",
+   "title": "Comprehensions",
+   "text": "A **comprehension** builds a list/dict/set in one readable line: `[expression for item in iterable if condition]`.",
+   "code": {
+    "python": "squares = [x * x for x in range(1, 6)]        # [1, 4, 9, 16, 25]\nevens = [x for x in range(10) if x % 2 == 0]  # [0, 2, 4, 6, 8]\nlengths = {w: len(w) for w in [\"hi\", \"code\"]} # {'hi': 2, 'code': 4}\nunique = {c for c in \"banana\"}               # {'b', 'a', 'n'}"
+   }
+  },
+  {
+   "id": "stackqueue",
+   "keys": [
+    "stack",
+    "queue",
+    "deque",
+    "lifo",
+    "fifo",
+    "priority queue"
+   ],
+   "title": "Stack and queue",
+   "text": "- **Stack** = LIFO (last in, first out) — like a pile of plates. Operations: push, pop, peek/top.\n- **Queue** = FIFO (first in, first out) — like a ticket line. Operations: enqueue, dequeue, front.\n- Python: list as stack (`append`/`pop`), `collections.deque` as queue (`append`/`popleft`).\n- Java: `ArrayDeque` (`push/pop` or `offer/poll`). C++: `stack<int>`, `queue<int>`, `priority_queue<int>`.",
+   "code": {
+    "python": "from collections import deque\nstack = [1, 2]; stack.append(3); print(stack.pop())   # 3\nq = deque([1, 2]); q.append(3); print(q.popleft())    # 1",
+    "cpp": "stack<int> st; st.push(1); st.push(2); cout << st.top() << endl; // 2\nqueue<int> q; q.push(1); q.push(2); cout << q.front() << endl;   // 1",
+    "java": "Deque<Integer> st = new ArrayDeque<>(); st.push(1); st.push(2); System.out.println(st.pop()); // 2\nQueue<Integer> q = new ArrayDeque<>(); q.offer(1); q.offer(2); System.out.println(q.poll()); // 1",
+    "javascript": "const st = [1, 2]; st.push(3); console.log(st.pop());   // 3\nconst q = [1, 2]; q.push(3); console.log(q.shift());    // 1"
+   }
+  },
+  {
+   "id": "conditional",
+   "keys": [
+    "if",
+    "if else",
+    "else if",
+    "elif",
+    "conditional",
+    "conditional statements",
+    "condition",
+    "nested if",
+    "decision making",
+    "if statement"
+   ],
+   "title": "Conditional statements",
+   "text": "**Conditional statements** run code only when a condition is true.\n- Forms: `if`, `if-else`, `if-elif-else` ladder (Python) / `else if` (others), **nested if**, `switch` / `match`, and the **ternary** operator.\n- Python uses indentation and a colon `:`; the others use `( )` around the condition and `{ }` braces.\n- Only the **first** true branch runs.",
+   "code": {
+    "python": "marks = 72\nif marks >= 90:\n    grade = \"A\"\nelif marks >= 60:\n    grade = \"B\"\nelse:\n    grade = \"C\"\nprint(grade)                          # B\nprint(\"pass\" if marks >= 35 else \"fail\")  # ternary",
+    "javascript": "const marks = 72;\nif (marks >= 90) console.log(\"A\");\nelse if (marks >= 60) console.log(\"B\");\nelse console.log(\"C\");\nconsole.log(marks >= 35 ? \"pass\" : \"fail\");",
+    "java": "int marks = 72;\nif (marks >= 90) System.out.println(\"A\");\nelse if (marks >= 60) System.out.println(\"B\");\nelse System.out.println(\"C\");\nString r = marks >= 35 ? \"pass\" : \"fail\";",
+    "cpp": "int marks = 72;\nif (marks >= 90) cout << \"A\";\nelse if (marks >= 60) cout << \"B\";\nelse cout << \"C\";\ncout << (marks >= 35 ? \" pass\" : \" fail\") << endl;",
+    "sql": "SELECT name,\n  CASE WHEN marks >= 90 THEN 'A'\n       WHEN marks >= 60 THEN 'B'\n       ELSE 'C' END AS grade\nFROM students;"
+   }
+  },
+  {
+   "id": "switch",
+   "keys": [
+    "switch",
+    "switch case",
+    "match case",
+    "case statement"
+   ],
+   "title": "switch / match",
+   "text": "`switch` picks a branch by comparing one value against many `case`s. **Remember `break`** in JS/Java/C++ — without it execution *falls through* into the next case. Python 3.10+ has `match`/`case`.",
+   "code": {
+    "python": "day = 3\nmatch day:\n    case 1 | 7:\n        print(\"Weekend\")\n    case 2 | 3 | 4 | 5 | 6:\n        print(\"Weekday\")\n    case _:\n        print(\"Invalid\")",
+    "javascript": "const day = 3;\nswitch (day) {\n  case 1: case 7: console.log(\"Weekend\"); break;\n  default: console.log(\"Weekday\");\n}",
+    "java": "int day = 3;\nswitch (day) {\n    case 1: case 7: System.out.println(\"Weekend\"); break;\n    default: System.out.println(\"Weekday\");\n}",
+    "cpp": "int day = 3;\nswitch (day) {\n    case 1: case 7: cout << \"Weekend\"; break;\n    default: cout << \"Weekday\";\n}"
+   }
+  },
+  {
+   "id": "loops",
+   "keys": [
+    "loop",
+    "loops",
+    "for loop",
+    "while loop",
+    "do while",
+    "iteration",
+    "iterate",
+    "nested loop",
+    "nested loops",
+    "range"
+   ],
+   "title": "Loops",
+   "text": "**Loops** repeat code.\n- `for` — when you know how many times (or to walk over a collection).\n- `while` — repeat while a condition is true (check first).\n- `do-while` (JS/Java/C++) — runs the body **at least once**, checks after.\n- **Nested loops** — a loop inside a loop; the inner loop finishes completely for every outer step (used in patterns and 2-D grids).\n- `break` exits the loop; `continue` skips to the next iteration. Python also has `for…else` (the else runs if no `break` happened).\n- Python `range(start, stop, step)` — `stop` is excluded.",
+   "code": {
+    "python": "for i in range(1, 6):\n    print(i, end=\" \")      # 1 2 3 4 5\nprint()\nn = 5\nwhile n > 0:\n    n -= 2\nprint(n)                   # -1\nfor i in range(1, 4):      # nested: multiplication table\n    for j in range(1, 4):\n        print(i * j, end=\" \")\n    print()",
+    "javascript": "for (let i = 1; i <= 5; i++) process.stdout.write(i + \" \");\nlet n = 5;\nwhile (n > 0) n -= 2;\ndo { console.log(\"runs once\"); } while (false);\nfor (const x of [10, 20]) console.log(x);",
+    "java": "for (int i = 1; i <= 5; i++) System.out.print(i + \" \");\nint n = 5;\nwhile (n > 0) n -= 2;\ndo { System.out.println(\"runs once\"); } while (false);\nfor (int x : new int[]{10, 20}) System.out.println(x);",
+    "cpp": "for (int i = 1; i <= 5; i++) cout << i << \" \";\nint n = 5;\nwhile (n > 0) n -= 2;\ndo { cout << \"runs once\\n\"; } while (false);\nfor (int x : {10, 20}) cout << x << endl;"
+   }
+  },
+  {
+   "id": "breakcontinue",
+   "keys": [
+    "break",
+    "continue",
+    "pass",
+    "jump statement",
+    "jump statements"
+   ],
+   "title": "break, continue and pass",
+   "text": "- `break` — leave the loop immediately.\n- `continue` — skip the rest of this iteration and go to the next one.\n- `pass` (Python only) — do nothing; a placeholder where a statement is required.",
+   "code": {
+    "python": "for i in range(1, 10):\n    if i == 6:\n        break\n    if i % 2 == 0:\n        continue\n    print(i, end=\" \")   # 1 3 5",
+    "javascript": "for (let i = 1; i < 10; i++) {\n  if (i === 6) break;\n  if (i % 2 === 0) continue;\n  console.log(i);   // 1 3 5\n}",
+    "java": "for (int i = 1; i < 10; i++) {\n    if (i == 6) break;\n    if (i % 2 == 0) continue;\n    System.out.print(i + \" \"); // 1 3 5\n}",
+    "cpp": "for (int i = 1; i < 10; i++) {\n    if (i == 6) break;\n    if (i % 2 == 0) continue;\n    cout << i << \" \"; // 1 3 5\n}"
+   }
+  },
+  {
+   "id": "patterns",
+   "keys": [
+    "pattern",
+    "patterns",
+    "pattern problems",
+    "star pattern",
+    "number pattern",
+    "pattern program"
+   ],
+   "title": "How to solve pattern problems",
+   "text": "**Recipe for any pattern:**\n1. The **outer loop** controls the rows (`i` from 1 to n).\n2. For each row, find **how many spaces and how many stars** in terms of `i` and `n` (make a small table for n = 4).\n3. Inner loops (or string repetition) print spaces, then stars; then move to a new line.\n4. Symmetric shapes (diamond, butterfly, hourglass, heart) = an upper half + a lower half.\n\nExample row rules: pyramid → `n-i` spaces + `2i-1` stars; butterfly → `i` stars + `2(n-i)` spaces + `i` stars; rhombus → `n-i` spaces + `n` stars.\n\nAsk me for a specific one, e.g. **\"butterfly pattern in Java\"**, **\"heart pattern in C++\"**, **\"rhombus pattern in Python\"**."
+  },
+  {
+   "id": "function",
+   "keys": [
+    "function",
+    "functions",
+    "method",
+    "methods",
+    "def",
+    "return",
+    "parameter",
+    "argument",
+    "arguments",
+    "parameters",
+    "call a function"
+   ],
+   "title": "Functions",
+   "text": "A **function** (called a **method** in Java) is a named, reusable block of code. You **define** it once and **call** it many times.\n- **Parameters** are the names in the definition; **arguments** are the values you pass.\n- `return` sends a value back (a function without `return` gives `None` in Python / `undefined` in JS / `void` in Java & C++).\n- Benefits: reuse, readability, easier testing.\n- Ask me for **\"types of functions\"** to see every kind.",
+   "code": {
+    "python": "def area(length, width=1):     # width has a default value\n    return length * width\n\nprint(area(5, 3))   # 15\nprint(area(4))      # 4",
+    "javascript": "function area(length, width = 1) {\n  return length * width;\n}\nconst square = (s) => s * s;   // arrow function\nconsole.log(area(5, 3), square(4)); // 15 16",
+    "java": "static int area(int length, int width) {\n    return length * width;\n}\n// call: area(5, 3) → 15",
+    "cpp": "int area(int length, int width = 1) {\n    return length * width;\n}\n// call: area(5, 3) → 15, area(4) → 4"
+   }
+  },
+  {
+   "id": "functiontypes",
+   "keys": [
+    "types of functions",
+    "type of functions",
+    "kinds of functions",
+    "function types",
+    "types of methods",
+    "types of function"
+   ],
+   "title": "Types of functions",
+   "text": "**By who wrote it**\n- **Built-in** — provided by the language (`len`, `print`, `Math.max`, `strlen`).\n- **User-defined** — written by you.\n\n**By arguments & return value** (the classic 4 types)\n1. No arguments, no return value\n2. Arguments, no return value\n3. No arguments, returns a value\n4. Arguments **and** returns a value\n\n**Special kinds**\n- **Default / keyword arguments** (Python, JS, C++), **variable-length** arguments (`*args`, `**kwargs`, JS `...rest`, Java `int... nums`).\n- **Anonymous / lambda / arrow** functions.\n- **Recursive** functions — call themselves.\n- **Higher-order** functions — take or return functions (`map`, `filter`, `reduce`, `sorted(key=…)`).\n- **Nested functions & closures**, **generators** (`yield`), **pure** functions (no side effects).\n- Java/C++: **static vs instance** methods, **overloading** (same name, different parameters), **inline** & **pass by value / reference** (C++).",
+   "code": {
+    "python": "def greet():                 # 1. no args, no return\n    print(\"Hi\")\ndef show(x):                 # 2. args, no return\n    print(x)\ndef pi():                    # 3. no args, returns\n    return 3.14\ndef add(a, b):               # 4. args + return\n    return a + b\ndef total(*nums, **info):    # variable-length\n    return sum(nums), info\nsquare = lambda x: x * x     # anonymous\nprint(list(map(square, [1, 2, 3])))   # higher-order → [1, 4, 9]\nprint(total(1, 2, 3, city=\"Pune\"))    # (6, {'city': 'Pune'})",
+    "javascript": "function greet() { console.log(\"Hi\"); }\nfunction add(a, b = 0) { return a + b; }        // default arg\nconst sum = (...nums) => nums.reduce((s, x) => s + x, 0); // rest + arrow\nconst makeCounter = () => { let c = 0; return () => ++c; }; // closure\nconst next = makeCounter(); next(); console.log(next()); // 2\nconsole.log([1, 2, 3].map((x) => x * x));              // higher-order",
+    "java": "static void greet() { System.out.println(\"Hi\"); }      // no args, no return\nstatic int add(int a, int b) { return a + b; }        // args + return\nstatic double add(double a, double b) { return a + b; } // overloading\nstatic int sum(int... nums) { int s = 0; for (int n : nums) s += n; return s; } // varargs\n// lambda: Function<Integer,Integer> sq = x -> x * x;",
+    "cpp": "void greet() { cout << \"Hi\"; }          // no args, no return\nint add(int a, int b = 0) { return a + b; } // default argument\ndouble add(double a, double b) { return a + b; } // overloading\nvoid twice(int &x) { x *= 2; }          // pass by reference\ninline int sq(int x) { return x * x; }  // inline\nauto cube = [](int x) { return x * x * x; }; // lambda"
+   }
+  },
+  {
+   "id": "lambda",
+   "keys": [
+    "lambda",
+    "anonymous function",
+    "arrow function",
+    "arrow functions",
+    "map filter",
+    "filter",
+    "reduce",
+    "higher order function",
+    "higher order",
+    "callback"
+   ],
+   "title": "Lambda, arrow & higher-order functions",
+   "text": "A **lambda / arrow function** is a small unnamed function written inline. A **higher-order function** takes a function as an argument (or returns one) — `map`, `filter`, `reduce`, `sort` with a key. A function passed in is often called a **callback**.",
+   "code": {
+    "python": "nums = [5, 2, 8, 1]\nprint(list(map(lambda x: x * 2, nums)))        # [10, 4, 16, 2]\nprint(list(filter(lambda x: x > 2, nums)))     # [5, 8]\nfrom functools import reduce\nprint(reduce(lambda a, b: a + b, nums))        # 16\nprint(sorted([\"pear\", \"fig\", \"apple\"], key=len))  # ['fig', 'pear', 'apple']",
+    "javascript": "const nums = [5, 2, 8, 1];\nconsole.log(nums.map((x) => x * 2));            // [10, 4, 16, 2]\nconsole.log(nums.filter((x) => x > 2));         // [5, 8]\nconsole.log(nums.reduce((a, b) => a + b, 0));   // 16\nsetTimeout(() => console.log(\"later\"), 100);    // callback",
+    "java": "List<Integer> nums = List.of(5, 2, 8, 1);\nList<Integer> big = nums.stream().filter(x -> x > 2).map(x -> x * 2).toList(); // [10, 16]\nint sum = nums.stream().reduce(0, Integer::sum); // 16",
+    "cpp": "vector<int> v = {5, 2, 8, 1};\nsort(v.begin(), v.end(), [](int a, int b) { return a > b; }); // 8 5 2 1\nint cnt = count_if(v.begin(), v.end(), [](int x) { return x > 2; }); // 2"
+   }
+  },
+  {
+   "id": "recursion",
+   "keys": [
+    "recursion",
+    "recursive",
+    "recursive function",
+    "base case",
+    "factorial",
+    "fibonacci",
+    "recursion types",
+    "types of recursion"
+   ],
+   "title": "Recursion",
+   "text": "**Recursion** = a function that calls itself on a smaller version of the problem.\nEvery recursive function needs:\n1. A **base case** that stops the calls (otherwise: stack overflow / `RecursionError`).\n2. A **recursive case** that moves toward the base case.\n\n**Types of recursion**\n- **Direct** — the function calls itself.\n- **Indirect** — A calls B, B calls A.\n- **Tail** — the recursive call is the *last* thing done (`return f(n-1, acc)`).\n- **Head** — the recursive call happens *first*, work is done while returning.\n- **Tree** — more than one call per step (Fibonacci `fib(n-1) + fib(n-2)`).\n- **Nested** — the argument itself is a recursive call (`f(f(n-1))`).\n\nClassic problems: factorial, Fibonacci, sum of digits, power, reverse a string, palindrome check, GCD, binary search, Tower of Hanoi.",
+   "code": {
+    "python": "def fact(n):                 # direct recursion\n    if n <= 1:               # base case\n        return 1\n    return n * fact(n - 1)   # recursive case\n\ndef fib(n):                  # tree recursion\n    return n if n < 2 else fib(n - 1) + fib(n - 2)\n\ndef fact_tail(n, acc=1):     # tail recursion\n    return acc if n <= 1 else fact_tail(n - 1, acc * n)\n\nprint(fact(5), fib(7), fact_tail(5))   # 120 13 120",
+    "javascript": "function fact(n) {\n  if (n <= 1) return 1;          // base case\n  return n * fact(n - 1);\n}\nconst fib = (n) => (n < 2 ? n : fib(n - 1) + fib(n - 2));\nconsole.log(fact(5), fib(7));    // 120 13",
+    "java": "static int fact(int n) {\n    if (n <= 1) return 1;        // base case\n    return n * fact(n - 1);\n}\nstatic int fib(int n) { return n < 2 ? n : fib(n - 1) + fib(n - 2); }\n// fact(5) = 120, fib(7) = 13",
+    "cpp": "int fact(int n) {\n    if (n <= 1) return 1;        // base case\n    return n * fact(n - 1);\n}\nint fib(int n) { return n < 2 ? n : fib(n - 1) + fib(n - 2); }\n// fact(5) = 120, fib(7) = 13",
+    "sql": "-- Recursive CTE: numbers 1..5\nWITH RECURSIVE nums(n) AS (\n  SELECT 1\n  UNION ALL\n  SELECT n + 1 FROM nums WHERE n < 5\n)\nSELECT n FROM nums;"
+   }
+  },
+  {
+   "id": "oop",
+   "keys": [
+    "oop",
+    "oops",
+    "object oriented",
+    "class",
+    "classes",
+    "object",
+    "objects",
+    "constructor",
+    "self",
+    "this keyword",
+    "instance"
+   ],
+   "title": "Classes & objects (OOP)",
+   "text": "**Object-oriented programming** groups data (attributes) and behaviour (methods) into **classes**. An **object** is one instance of a class.\n- A **constructor** sets up a new object (`__init__` in Python, same-name method in Java/C++, `constructor` in JS).\n- `self` (Python) / `this` (JS, Java, C++) refers to the current object.\n\n**4 pillars:** Encapsulation (hide data, expose methods), Inheritance (a child class reuses a parent), Polymorphism (same method name, different behaviour), Abstraction (show only what is needed).",
+   "code": {
+    "python": "class Student:\n    def __init__(self, name, marks):   # constructor\n        self.name = name\n        self.marks = marks\n    def grade(self):\n        return \"A\" if self.marks >= 90 else \"B\"\n\ns = Student(\"Asha\", 93)\nprint(s.name, s.grade())   # Asha A",
+    "javascript": "class Student {\n  constructor(name, marks) { this.name = name; this.marks = marks; }\n  grade() { return this.marks >= 90 ? \"A\" : \"B\"; }\n}\nconst s = new Student(\"Asha\", 93);\nconsole.log(s.name, s.grade()); // Asha A",
+    "java": "class Student {\n    private String name; private int marks;        // encapsulation\n    Student(String name, int marks) { this.name = name; this.marks = marks; }\n    String grade() { return marks >= 90 ? \"A\" : \"B\"; }\n}\n// Student s = new Student(\"Asha\", 93); s.grade() → \"A\"",
+    "cpp": "class Student {\n    string name; int marks;\npublic:\n    Student(string n, int m) : name(n), marks(m) {}\n    string grade() { return marks >= 90 ? \"A\" : \"B\"; }\n};\n// Student s(\"Asha\", 93); cout << s.grade();"
+   }
+  },
+  {
+   "id": "inheritance",
+   "keys": [
+    "inheritance",
+    "inherit",
+    "polymorphism",
+    "encapsulation",
+    "abstraction",
+    "super",
+    "overriding",
+    "overloading",
+    "interface",
+    "abstract class",
+    "pillars of oop"
+   ],
+   "title": "Inheritance & polymorphism",
+   "text": "- **Inheritance:** a child class gets the parent's attributes and methods (`class Dog(Animal)` / `extends` / `: public`).\n- **Method overriding** (runtime polymorphism): the child redefines a parent method with the same signature.\n- **Method overloading** (compile-time polymorphism, Java/C++): same name, different parameter lists.\n- **Encapsulation:** keep fields private, access via methods (getters/setters).\n- **Abstraction:** abstract classes / interfaces declare *what* to do, subclasses decide *how*.\n- Types of inheritance: single, multilevel, hierarchical, multiple (Python/C++; Java via interfaces), hybrid.",
+   "code": {
+    "python": "class Animal:\n    def speak(self):\n        return \"...\"\nclass Dog(Animal):\n    def speak(self):              # overriding\n        return \"Woof\"\nfor a in [Animal(), Dog()]:\n    print(a.speak())              # ... then Woof (polymorphism)",
+    "java": "class Animal { String speak() { return \"...\"; } }\nclass Dog extends Animal {\n    @Override String speak() { return \"Woof\"; }\n}\nAnimal a = new Dog();\nSystem.out.println(a.speak()); // Woof",
+    "cpp": "class Animal { public: virtual string speak() { return \"...\"; } };\nclass Dog : public Animal { public: string speak() override { return \"Woof\"; } };\nAnimal* a = new Dog();\ncout << a->speak(); // Woof (needs virtual)",
+    "javascript": "class Animal { speak() { return \"...\"; } }\nclass Dog extends Animal { speak() { return \"Woof\"; } }\nconsole.log(new Dog().speak()); // Woof"
+   }
+  },
+  {
+   "id": "exceptions",
+   "keys": [
+    "exception",
+    "exceptions",
+    "exception handling",
+    "try except",
+    "try catch",
+    "finally",
+    "raise",
+    "throw",
+    "error handling"
+   ],
+   "title": "Exception handling",
+   "text": "An **exception** is an error that happens while the program runs. Handle it so the program does not crash:\n- Python: `try / except / else / finally`, raise your own with `raise ValueError(\"…\")`.\n- JS / Java / C++: `try { } catch (e) { }`, Java & JS also have `finally`; throw with `throw`.\n- `finally` always runs (cleanup: closing files, connections).",
+   "code": {
+    "python": "try:\n    n = int(input(\"Number: \"))\n    print(10 / n)\nexcept ValueError:\n    print(\"Not a number\")\nexcept ZeroDivisionError:\n    print(\"Cannot divide by zero\")\nelse:\n    print(\"No errors\")\nfinally:\n    print(\"Done\")",
+    "javascript": "try {\n  JSON.parse(\"{bad json}\");\n} catch (e) {\n  console.log(\"Error:\", e.message);\n} finally {\n  console.log(\"Done\");\n}",
+    "java": "try {\n    int x = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Error: \" + e.getMessage()); // / by zero\n} finally {\n    System.out.println(\"Done\");\n}",
+    "cpp": "try {\n    throw runtime_error(\"something failed\");\n} catch (const exception& e) {\n    cout << \"Error: \" << e.what() << endl;\n}"
+   }
+  },
+  {
+   "id": "pointer",
+   "keys": [
+    "pointer",
+    "pointers",
+    "reference",
+    "references",
+    "address",
+    "dereference",
+    "new delete",
+    "pass by reference",
+    "call by reference",
+    "pass by value",
+    "call by value"
+   ],
+   "title": "Pointers & references (C++)",
+   "text": "- A **pointer** stores a memory address: `int* p = &x;` — `&x` gives the address, `*p` reads/writes the value at it.\n- A **reference** is another name for an existing variable: `int& r = x;` (cannot be null, cannot be re-seated).\n- **Pass by value** copies the argument; **pass by reference** (`int& x`) lets the function change the caller's variable.\n- Python, JS and Java pass *object references by value*: mutating a list/object inside a function is visible outside, but reassigning the parameter is not.",
+   "code": {
+    "cpp": "int x = 10;\nint* p = &x;      // p holds the address of x\n*p = 20;          // changes x\nint& r = x;       // r is another name for x\nr++;\ncout << x << endl; // 21\n\nvoid byValue(int a) { a = 99; }   // caller unchanged\nvoid byRef(int& a) { a = 99; }    // caller changed",
+    "python": "def change(lst):\n    lst.append(4)     # visible outside\n    lst = [0]         # rebinding: NOT visible outside\nnums = [1, 2, 3]\nchange(nums)\nprint(nums)           # [1, 2, 3, 4]"
+   }
+  },
+  {
+   "id": "jsvarletconst",
+   "keys": [
+    "var let const",
+    "let",
+    "const",
+    "var",
+    "hoisting",
+    "temporal dead zone"
+   ],
+   "lang": "javascript",
+   "title": "var vs let vs const",
+   "text": "- `var` — function-scoped, hoisted (usable before its line as `undefined`), can be redeclared. Avoid in modern code.\n- `let` — block-scoped, can be reassigned, not usable before declaration (temporal dead zone).\n- `const` — block-scoped, **cannot be reassigned** (but a const object/array can still be mutated).\n- **Hoisting:** declarations are moved to the top of their scope; function declarations are fully hoisted.",
+   "code": {
+    "javascript": "console.log(a); // undefined (var is hoisted)\nvar a = 1;\n// console.log(b); // ReferenceError (TDZ)\nlet b = 2;\nconst arr = [1];\narr.push(2);     // OK — mutating\n// arr = [];     // TypeError: Assignment to constant variable"
+   }
+  },
+  {
+   "id": "jsasync",
+   "keys": [
+    "promise",
+    "promises",
+    "async",
+    "await",
+    "async await",
+    "settimeout",
+    "event loop",
+    "fetch"
+   ],
+   "lang": "javascript",
+   "title": "Promises and async/await",
+   "text": "JavaScript runs one thing at a time; slow work (timers, network) is **asynchronous**.\n- A **Promise** represents a future value: pending → fulfilled / rejected. Use `.then()` / `.catch()`.\n- `async` functions always return a Promise; `await` pauses inside them until the Promise settles.\n- The **event loop** runs callbacks after the current code finishes — that is why `setTimeout(fn, 0)` runs *after* synchronous logs.",
+   "code": {
+    "javascript": "const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));\nasync function main() {\n  console.log(\"start\");\n  await wait(500);\n  console.log(\"after 0.5s\");\n}\nmain();\nconsole.log(\"sync\");  // prints before \"after 0.5s\""
+   }
+  },
+  {
+   "id": "closure",
+   "keys": [
+    "closure",
+    "closures"
+   ],
+   "title": "Closures",
+   "text": "A **closure** is a function that remembers variables from the scope where it was created, even after that outer function has returned. Used for counters, data privacy and function factories.",
+   "code": {
+    "javascript": "function makeCounter() {\n  let count = 0;\n  return () => ++count;\n}\nconst c = makeCounter();\nc(); c();\nconsole.log(c()); // 3",
+    "python": "def make_counter():\n    count = 0\n    def inc():\n        nonlocal count\n        count += 1\n        return count\n    return inc\nc = make_counter(); c(); c()\nprint(c())   # 3"
+   }
+  },
+  {
+   "id": "javabasics",
+   "keys": [
+    "jvm",
+    "jdk",
+    "jre",
+    "public static void main",
+    "main method",
+    "static",
+    "final",
+    "access modifier",
+    "access modifiers",
+    "wrapper class",
+    "autoboxing",
+    "bytecode"
+   ],
+   "lang": "java",
+   "title": "Java essentials",
+   "text": "- **JDK** (tools + compiler `javac`) ⊃ **JRE** (runtime) ⊃ **JVM** (runs bytecode). Java compiles to `.class` bytecode → \"write once, run anywhere\".\n- `public static void main(String[] args)` is the entry point: `public` (callable by the JVM), `static` (no object needed), `void` (returns nothing).\n- `static` members belong to the class, not to objects. `final` = cannot change (variable), cannot override (method), cannot extend (class).\n- Access modifiers: `private` < default (package) < `protected` < `public`.\n- **Wrapper classes** (`Integer`, `Double`, …) let primitives live in collections; conversion is automatic (autoboxing).",
+   "code": {
+    "java": "public class Main {\n    static int counter = 0;          // shared by all objects\n    final double PI = 3.14159;       // constant\n    public static void main(String[] args) {\n        ArrayList<Integer> list = new ArrayList<>();\n        list.add(5);                  // autoboxing int → Integer\n        System.out.println(list.get(0) + 1); // 6\n    }\n}"
+   }
+  },
+  {
+   "id": "stringbuilder",
+   "keys": [
+    "stringbuilder",
+    "string builder",
+    "string buffer",
+    "stringbuffer",
+    "string immutable",
+    "immutable string"
+   ],
+   "lang": "java",
+   "title": "String vs StringBuilder (Java)",
+   "text": "`String` is **immutable** — every `+` creates a new object, which is slow inside loops. `StringBuilder` is **mutable** and fast (`append`, `insert`, `reverse`, `deleteCharAt`). `StringBuffer` is the thread-safe (slower) version.",
+   "code": {
+    "java": "StringBuilder sb = new StringBuilder();\nfor (int i = 1; i <= 5; i++) sb.append(i).append(\",\");\nsb.setLength(sb.length() - 1);   // remove last comma\nSystem.out.println(sb);            // 1,2,3,4,5\nSystem.out.println(sb.reverse());  // 5,4,3,2,1"
+   }
+  },
+  {
+   "id": "cppbasics",
+   "keys": [
+    "iostream",
+    "namespace",
+    "using namespace std",
+    "header file",
+    "include",
+    "bits/stdc++",
+    "endl",
+    "struct",
+    "stl",
+    "standard template library",
+    "iterator",
+    "iterators",
+    "auto"
+   ],
+   "lang": "cpp",
+   "title": "C++ essentials",
+   "text": "- `#include <iostream>` brings in `cin`/`cout`; `using namespace std;` lets you skip the `std::` prefix.\n- Every program starts at `int main()`; `return 0;` means success.\n- The **STL** gives ready containers (`vector`, `string`, `map`, `set`, `stack`, `queue`, `pair`), **algorithms** (`sort`, `reverse`, `find`, `count`, `max_element`, `binary_search`) and **iterators** (`v.begin()`, `v.end()`).\n- `struct` members are public by default, `class` members are private by default.\n- `auto` lets the compiler infer the type.",
+   "code": {
+    "cpp": "#include <bits/stdc++.h>\nusing namespace std;\nint main() {\n    vector<int> v = {4, 1, 3};\n    sort(v.begin(), v.end());\n    cout << *max_element(v.begin(), v.end()) << endl; // 4\n    for (auto x : v) cout << x << \" \";               // 1 3 4\n    return 0;\n}"
+   }
+  },
+  {
+   "id": "pythonbasics",
+   "keys": [
+    "indentation",
+    "none",
+    "enumerate",
+    "zip",
+    "range function",
+    "f string",
+    "fstring",
+    "format",
+    "module",
+    "import",
+    "pip",
+    "len"
+   ],
+   "lang": "python",
+   "title": "Python essentials",
+   "text": "- Python uses **indentation** (4 spaces) instead of braces — wrong indentation gives `IndentationError`.\n- `None` means \"no value\" (like `null`).\n- Handy built-ins: `len`, `range`, `enumerate` (index + value), `zip` (walk lists together), `sorted`, `sum`, `min`, `max`, `abs`, `round`, `type`, `isinstance`.\n- **f-strings** format text: `f\"{name} scored {marks:.1f}\"`.\n- `import math` / `from random import randint` to use modules.",
+   "code": {
+    "python": "names = [\"asha\", \"ravi\"]\nmarks = [91.5, 78]\nfor i, (n, m) in enumerate(zip(names, marks), start=1):\n    print(f\"{i}. {n.title()} scored {m:.1f}\")\n# 1. Asha scored 91.5\n# 2. Ravi scored 78.0\nimport math\nprint(math.sqrt(16), round(3.14159, 2))  # 4.0 3.14"
+   }
+  },
+  {
+   "id": "generator",
+   "keys": [
+    "generator",
+    "generators",
+    "yield",
+    "iterator protocol",
+    "decorator",
+    "decorators"
+   ],
+   "lang": "python",
+   "title": "Generators & decorators",
+   "text": "- A **generator** function uses `yield` to produce values one at a time (lazy, memory-friendly).\n- A **decorator** wraps a function to add behaviour: `@timer` above `def`.",
+   "code": {
+    "python": "def countdown(n):\n    while n > 0:\n        yield n\n        n -= 1\nprint(list(countdown(3)))   # [3, 2, 1]\n\ndef shout(fn):\n    def wrapper(*a):\n        return fn(*a).upper()\n    return wrapper\n@shout\ndef hello(name):\n    return \"hi \" + name\nprint(hello(\"asha\"))        # HI ASHA"
+   }
+  },
+  {
+   "id": "file",
+   "keys": [
+    "file handling",
+    "file",
+    "read file",
+    "write file",
+    "open file",
+    "with open"
+   ],
+   "title": "File handling",
+   "text": "Open a file, read or write, then close it. In Python use `with open(...)` so the file closes automatically. Modes: `\"r\"` read, `\"w\"` write (overwrites), `\"a\"` append.",
+   "code": {
+    "python": "with open(\"notes.txt\", \"w\") as f:\n    f.write(\"line 1\\nline 2\\n\")\nwith open(\"notes.txt\") as f:\n    for line in f:\n        print(line.strip())",
+    "java": "Files.writeString(Path.of(\"notes.txt\"), \"line 1\\n\");\nString text = Files.readString(Path.of(\"notes.txt\"));",
+    "cpp": "ofstream out(\"notes.txt\"); out << \"line 1\\n\"; out.close();\nifstream in(\"notes.txt\"); string line;\nwhile (getline(in, line)) cout << line << endl;",
+    "javascript": "const fs = require(\"fs\");\nfs.writeFileSync(\"notes.txt\", \"line 1\\n\");\nconsole.log(fs.readFileSync(\"notes.txt\", \"utf8\"));"
+   }
+  },
+  {
+   "id": "complexity",
+   "keys": [
+    "time complexity",
+    "big o",
+    "complexity",
+    "space complexity",
+    "o(n)",
+    "efficiency"
+   ],
+   "title": "Time complexity (Big-O)",
+   "text": "**Big-O** describes how running time grows with input size *n*:\n- `O(1)` constant — index into a list, dict lookup.\n- `O(log n)` — binary search.\n- `O(n)` — one loop over the data.\n- `O(n log n)` — good sorting (merge sort, `sort()`).\n- `O(n²)` — nested loops (bubble sort, most pattern programs).\n- `O(2ⁿ)` — naive recursive Fibonacci.\nDrop constants and keep the biggest term: `3n² + 5n` → `O(n²)`."
+  },
+  {
+   "id": "searching",
+   "keys": [
+    "binary search",
+    "linear search",
+    "searching",
+    "search algorithm"
+   ],
+   "title": "Linear vs binary search",
+   "text": "- **Linear search:** check each item one by one — `O(n)`, works on any list.\n- **Binary search:** only on a **sorted** list; compare with the middle and discard half each step — `O(log n)`.",
+   "code": {
+    "python": "def binary_search(arr, target):\n    lo, hi = 0, len(arr) - 1\n    while lo <= hi:\n        mid = (lo + hi) // 2\n        if arr[mid] == target:\n            return mid\n        if arr[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1\n    return -1\nprint(binary_search([2, 5, 8, 12, 16], 12))   # 3",
+    "java": "static int binarySearch(int[] a, int t) {\n    int lo = 0, hi = a.length - 1;\n    while (lo <= hi) {\n        int mid = (lo + hi) / 2;\n        if (a[mid] == t) return mid;\n        if (a[mid] < t) lo = mid + 1; else hi = mid - 1;\n    }\n    return -1;\n}",
+    "cpp": "int binarySearch(vector<int>& a, int t) {\n    int lo = 0, hi = a.size() - 1;\n    while (lo <= hi) {\n        int mid = (lo + hi) / 2;\n        if (a[mid] == t) return mid;\n        if (a[mid] < t) lo = mid + 1; else hi = mid - 1;\n    }\n    return -1;\n}",
+    "javascript": "function binarySearch(a, t) {\n  let lo = 0, hi = a.length - 1;\n  while (lo <= hi) {\n    const mid = Math.floor((lo + hi) / 2);\n    if (a[mid] === t) return mid;\n    if (a[mid] < t) lo = mid + 1; else hi = mid - 1;\n  }\n  return -1;\n}"
+   }
+  },
+  {
+   "id": "sorting",
+   "keys": [
+    "sorting",
+    "sort",
+    "bubble sort",
+    "selection sort",
+    "insertion sort",
+    "merge sort",
+    "quick sort",
+    "sort algorithm"
+   ],
+   "title": "Sorting",
+   "text": "In real code use the built-in sort (`sorted()` / `list.sort()`, `arr.sort((a, b) => a - b)`, `Arrays.sort`, `std::sort`) — it is `O(n log n)`. For learning, **bubble sort** repeatedly swaps neighbours that are in the wrong order (`O(n²)`); **selection sort** picks the minimum each pass; **insertion sort** inserts each item into the sorted left part; **merge sort** and **quick sort** divide and conquer (`O(n log n)`).\n\nJavaScript trap: `[10, 9, 1].sort()` gives `[1, 10, 9]` (it compares as strings) — always pass `(a, b) => a - b` for numbers.",
+   "code": {
+    "python": "def bubble_sort(a):\n    n = len(a)\n    for i in range(n - 1):\n        for j in range(n - 1 - i):\n            if a[j] > a[j + 1]:\n                a[j], a[j + 1] = a[j + 1], a[j]\n    return a\nprint(bubble_sort([5, 1, 4, 2]))              # [1, 2, 4, 5]\nprint(sorted([\"b\", \"A\", \"c\"], key=str.lower))  # ['A', 'b', 'c']",
+    "javascript": "const a = [10, 9, 1];\nconsole.log([...a].sort());                 // [1, 10, 9]  (string order!)\nconsole.log([...a].sort((x, y) => x - y));  // [1, 9, 10]",
+    "java": "int[] a = {5, 1, 4, 2};\nArrays.sort(a);   // [1, 2, 4, 5]\nInteger[] b = {5, 1, 4};\nArrays.sort(b, Collections.reverseOrder()); // [5, 4, 1]",
+    "cpp": "vector<int> v = {5, 1, 4, 2};\nsort(v.begin(), v.end());              // 1 2 4 5\nsort(v.begin(), v.end(), greater<int>()); // 5 4 2 1"
+   }
+  },
+  {
+   "id": "compiler",
+   "keys": [
+    "compiler",
+    "interpreter",
+    "compiled",
+    "interpreted",
+    "compile"
+   ],
+   "title": "Compiler vs interpreter",
+   "text": "- A **compiler** translates the whole program to machine code (or bytecode) before running — C++ (machine code), Java (bytecode for the JVM). Errors are reported before the program runs; execution is fast.\n- An **interpreter** reads and runs the program line by line — Python, JavaScript (modern engines also use JIT compilation). Easier to experiment; errors appear when that line runs."
+  },
+  {
+   "id": "sqlsub",
+   "keys": [
+    "sql sub languages",
+    "sublanguages",
+    "types of sql commands",
+    "sql commands",
+    "categories of sql",
+    "ddl dml",
+    "types of sql"
+   ],
+   "lang": "sql",
+   "title": "SQL sub-languages",
+   "text": "SQL commands are grouped into 5 sub-languages:\n- **DDL** (Data Definition) — structure: `CREATE`, `ALTER`, `DROP`, `TRUNCATE`, `RENAME`.\n- **DML** (Data Manipulation) — rows: `INSERT`, `UPDATE`, `DELETE` (`MERGE`).\n- **DQL** (Data Query) — reading: `SELECT`.\n- **DCL** (Data Control) — permissions: `GRANT`, `REVOKE`.\n- **TCL** (Transaction Control) — `COMMIT`, `ROLLBACK`, `SAVEPOINT`, (`BEGIN`/`START TRANSACTION`).\nTip: DDL commands auto-commit in MySQL/Oracle, so they usually cannot be rolled back."
+  },
+  {
+   "id": "ddl",
+   "keys": [
+    "ddl",
+    "create table",
+    "alter table",
+    "drop table",
+    "truncate",
+    "rename table",
+    "data definition language",
+    "create",
+    "alter",
+    "drop"
+   ],
+   "lang": "sql",
+   "title": "DDL — CREATE, ALTER, DROP, TRUNCATE",
+   "text": "**DDL** defines or changes the *structure* of database objects.\n- `CREATE TABLE` — make a table with columns, types and constraints.\n- `ALTER TABLE` — add / drop / rename / modify columns.\n- `DROP TABLE` — delete the table **and** its data completely.\n- `TRUNCATE TABLE` — delete **all rows** quickly but keep the structure.",
+   "code": {
+    "sql": "CREATE TABLE students (\n  id     INT PRIMARY KEY,\n  name   VARCHAR(50) NOT NULL,\n  email  VARCHAR(100) UNIQUE,\n  age    INT CHECK (age >= 16),\n  city   VARCHAR(30) DEFAULT 'Mumbai'\n);\nALTER TABLE students ADD COLUMN phone VARCHAR(15);\nALTER TABLE students RENAME COLUMN city TO hometown;\nTRUNCATE TABLE students;   -- rows gone, table stays\nDROP TABLE students;       -- table gone"
+   }
+  },
+  {
+   "id": "constraints",
+   "keys": [
+    "constraint",
+    "constraints",
+    "primary key",
+    "foreign key",
+    "unique",
+    "not null",
+    "check constraint",
+    "default constraint",
+    "candidate key",
+    "composite key",
+    "keys in sql"
+   ],
+   "lang": "sql",
+   "title": "Constraints & keys",
+   "text": "**Constraints** are rules that keep data valid:\n- `PRIMARY KEY` — uniquely identifies each row (unique + not null, one per table, may be composite).\n- `FOREIGN KEY` — a column that must match a primary key in another table (referential integrity). `ON DELETE CASCADE` deletes child rows automatically.\n- `UNIQUE` — no duplicates (NULLs allowed). `NOT NULL` — value required. `CHECK` — condition must be true. `DEFAULT` — value used when none is given.",
+   "code": {
+    "sql": "CREATE TABLE departments (\n  dept_id INT PRIMARY KEY,\n  name    VARCHAR(40) UNIQUE NOT NULL\n);\nCREATE TABLE employees (\n  emp_id  INT PRIMARY KEY,\n  name    VARCHAR(50) NOT NULL,\n  salary  DECIMAL(10,2) CHECK (salary > 0),\n  dept_id INT,\n  FOREIGN KEY (dept_id) REFERENCES departments(dept_id) ON DELETE CASCADE\n);"
+   }
+  },
+  {
+   "id": "dml",
+   "keys": [
+    "dml",
+    "insert",
+    "insert into",
+    "update",
+    "delete",
+    "data manipulation language",
+    "update query",
+    "delete query"
+   ],
+   "lang": "sql",
+   "title": "DML — INSERT, UPDATE, DELETE",
+   "text": "**DML** changes the *rows* inside tables.\n- `INSERT INTO t (cols) VALUES (...)` — add rows (many rows in one statement is allowed).\n- `UPDATE t SET col = value WHERE ...` — change rows. **Forgetting `WHERE` updates every row!**\n- `DELETE FROM t WHERE ...` — remove rows (without `WHERE` it removes all rows, but can be rolled back inside a transaction, unlike `TRUNCATE`).",
+   "code": {
+    "sql": "INSERT INTO students (id, name, age) VALUES (1, 'Asha', 20), (2, 'Ravi', 22);\nUPDATE students SET age = age + 1 WHERE name = 'Ravi';\nDELETE FROM students WHERE age < 18;"
+   }
+  },
+  {
+   "id": "dql",
+   "keys": [
+    "dql",
+    "select",
+    "where",
+    "select query",
+    "data query language",
+    "distinct",
+    "like",
+    "between",
+    "in operator",
+    "is null",
+    "wildcard",
+    "order by",
+    "limit",
+    "alias",
+    "top"
+   ],
+   "lang": "sql",
+   "title": "DQL — SELECT and filtering",
+   "text": "`SELECT` reads data. Clause order: **SELECT → FROM → WHERE → GROUP BY → HAVING → ORDER BY → LIMIT**.\n- `WHERE` filters rows: `=`, `<>`, `>`, `BETWEEN a AND b` (inclusive), `IN (...)`, `LIKE 'A%'` (`%` any chars, `_` one char), `IS NULL` (never `= NULL`).\n- `DISTINCT` removes duplicate rows. `AS` gives an alias. `ORDER BY col DESC` sorts. `LIMIT n OFFSET k` pages results.",
+   "code": {
+    "sql": "SELECT DISTINCT city FROM students;\nSELECT name, age AS years\nFROM students\nWHERE age BETWEEN 18 AND 25\n  AND name LIKE 'A%'\n  AND email IS NOT NULL\nORDER BY age DESC, name\nLIMIT 5;"
+   }
+  },
+  {
+   "id": "aggregate",
+   "keys": [
+    "aggregate",
+    "aggregate functions",
+    "group by",
+    "having",
+    "count",
+    "sum",
+    "avg",
+    "max",
+    "min",
+    "group"
+   ],
+   "lang": "sql",
+   "title": "Aggregates, GROUP BY and HAVING",
+   "text": "**Aggregate functions** summarise many rows into one value: `COUNT(*)`, `COUNT(col)` (ignores NULL), `SUM`, `AVG`, `MIN`, `MAX`.\n- `GROUP BY col` makes one result row per group.\n- `HAVING` filters **groups** (after aggregation); `WHERE` filters **rows** (before). You cannot use aggregates in `WHERE`.\n- Every selected column must be either grouped or aggregated.",
+   "code": {
+    "sql": "SELECT dept, COUNT(*) AS staff, AVG(salary) AS avg_sal\nFROM employees\nWHERE salary > 20000        -- rows first\nGROUP BY dept\nHAVING COUNT(*) >= 3        -- then groups\nORDER BY avg_sal DESC;"
+   }
+  },
+  {
+   "id": "joins",
+   "keys": [
+    "join",
+    "joins",
+    "inner join",
+    "left join",
+    "right join",
+    "full join",
+    "outer join",
+    "self join",
+    "cross join",
+    "types of join",
+    "types of joins"
+   ],
+   "lang": "sql",
+   "title": "JOINs",
+   "text": "A **JOIN** combines rows from two tables using a related column.\n- `INNER JOIN` — only rows that match in **both** tables.\n- `LEFT JOIN` — **all** rows from the left table + matches from the right (NULL where no match).\n- `RIGHT JOIN` — all rows from the right table + matches from the left.\n- `FULL OUTER JOIN` — all rows from both sides.\n- `CROSS JOIN` — every combination (m × n rows).\n- **Self join** — a table joined with itself (e.g. employee → manager).",
+   "code": {
+    "sql": "-- employees with their department name (only matching rows)\nSELECT e.name, d.name AS dept\nFROM employees e\nINNER JOIN departments d ON e.dept_id = d.dept_id;\n\n-- every department, even ones with no employees\nSELECT d.name, COUNT(e.emp_id) AS staff\nFROM departments d\nLEFT JOIN employees e ON e.dept_id = d.dept_id\nGROUP BY d.name;\n\n-- self join: employee and manager\nSELECT e.name, m.name AS manager\nFROM employees e LEFT JOIN employees m ON e.manager_id = m.emp_id;"
+   }
+  },
+  {
+   "id": "subquery",
+   "keys": [
+    "subquery",
+    "subqueries",
+    "nested query",
+    "correlated subquery",
+    "exists",
+    "union",
+    "union all",
+    "intersect",
+    "except",
+    "set operations",
+    "cte",
+    "with clause"
+   ],
+   "lang": "sql",
+   "title": "Subqueries & set operations",
+   "text": "- A **subquery** is a SELECT inside another query (in `WHERE`, `FROM` or `SELECT`). A **correlated** subquery refers to the outer row and runs once per row.\n- `EXISTS (subquery)` is true if the subquery returns any row.\n- **Set operations** combine results of queries with the same number of columns: `UNION` (removes duplicates), `UNION ALL` (keeps them), `INTERSECT`, `EXCEPT` / `MINUS`.\n- A **CTE** (`WITH name AS (...)`) names a subquery to make long queries readable.",
+   "code": {
+    "sql": "-- employees earning more than the average\nSELECT name, salary FROM employees\nWHERE salary > (SELECT AVG(salary) FROM employees);\n\n-- highest-paid in each department (correlated)\nSELECT name, dept, salary FROM employees e\nWHERE salary = (SELECT MAX(salary) FROM employees WHERE dept = e.dept);\n\nSELECT city FROM students UNION SELECT city FROM teachers;"
+   }
+  },
+  {
+   "id": "sqlfunctions",
+   "keys": [
+    "sql functions",
+    "built in functions",
+    "string functions sql",
+    "date functions",
+    "upper",
+    "lower",
+    "length",
+    "substr",
+    "round",
+    "coalesce",
+    "ifnull",
+    "concat",
+    "now"
+   ],
+   "lang": "sql",
+   "title": "SQL built-in functions",
+   "text": "- **String:** `UPPER`, `LOWER`, `LENGTH`, `SUBSTR(s, start, len)`, `TRIM`, `REPLACE`, `CONCAT` / `||`, `INSTR`.\n- **Numeric:** `ROUND(x, d)`, `ABS`, `CEIL`, `FLOOR`, `MOD`.\n- **Date:** `CURRENT_DATE`, `NOW()`, `DATE()`, `strftime` (SQLite), `YEAR()` (MySQL).\n- **NULL handling:** `COALESCE(a, b, …)` returns the first non-NULL; `IFNULL` / `NVL`.",
+   "code": {
+    "sql": "SELECT UPPER(name), LENGTH(name), SUBSTR(name, 1, 3),\n       ROUND(salary / 12, 2) AS monthly,\n       COALESCE(phone, 'not given') AS phone\nFROM employees;"
+   }
+  },
+  {
+   "id": "tcl",
+   "keys": [
+    "tcl",
+    "transaction",
+    "transactions",
+    "commit",
+    "rollback",
+    "savepoint",
+    "acid",
+    "begin transaction",
+    "transaction control language"
+   ],
+   "lang": "sql",
+   "title": "TCL — transactions",
+   "text": "A **transaction** is a group of statements that succeed or fail **together**.\n- `BEGIN` / `START TRANSACTION` — start.\n- `COMMIT` — make all changes permanent.\n- `ROLLBACK` — undo everything since the start (or since a savepoint: `ROLLBACK TO sp`).\n- `SAVEPOINT sp` — a checkpoint inside a transaction.\n\n**ACID:** Atomicity (all or nothing), Consistency (rules always hold), Isolation (transactions do not disturb each other), Durability (committed data survives crashes).",
+   "code": {
+    "sql": "BEGIN;\nUPDATE accounts SET balance = balance - 500 WHERE id = 1;\nSAVEPOINT after_debit;\nUPDATE accounts SET balance = balance + 500 WHERE id = 2;\n-- something went wrong with the credit?\nROLLBACK TO after_debit;   -- undo only the second update\nCOMMIT;                    -- keep the first one"
+   }
+  },
+  {
+   "id": "dcl",
+   "keys": [
+    "dcl",
+    "grant",
+    "revoke",
+    "privileges",
+    "permissions",
+    "data control language",
+    "user permissions",
+    "roles"
+   ],
+   "lang": "sql",
+   "title": "DCL — GRANT and REVOKE",
+   "text": "**DCL** controls who may do what.\n- `GRANT privilege ON object TO user` — give permission (`SELECT`, `INSERT`, `UPDATE`, `DELETE`, `ALL PRIVILEGES`…).\n- `REVOKE privilege ON object FROM user` — take it back.\n- `WITH GRANT OPTION` lets that user grant the privilege to others.\n- Roles group privileges: `CREATE ROLE analyst; GRANT SELECT ON sales TO analyst; GRANT analyst TO ravi;`\n(SQLite has no users, so in the games DCL questions are concept-based; the syntax below is MySQL/PostgreSQL.)",
+   "code": {
+    "sql": "GRANT SELECT, INSERT ON school.students TO 'ravi'@'localhost';\nGRANT ALL PRIVILEGES ON school.* TO 'admin'@'localhost' WITH GRANT OPTION;\nREVOKE INSERT ON school.students FROM 'ravi'@'localhost';"
+   }
+  },
+  {
+   "id": "views",
+   "keys": [
+    "view",
+    "views",
+    "index",
+    "indexes",
+    "indexing",
+    "window function",
+    "window functions",
+    "row_number",
+    "rank",
+    "dense_rank",
+    "partition by",
+    "over"
+   ],
+   "lang": "sql",
+   "title": "Views, indexes & window functions",
+   "text": "- A **view** is a saved SELECT that behaves like a virtual table (`CREATE VIEW … AS SELECT …`).\n- An **index** speeds up searches on a column (like a book index) but slows down inserts/updates slightly.\n- **Window functions** compute over a set of rows *without* collapsing them: `ROW_NUMBER()`, `RANK()` (gaps after ties), `DENSE_RANK()` (no gaps), `SUM() OVER (...)`, `LAG`, `LEAD`. `PARTITION BY` restarts the calculation for each group.",
+   "code": {
+    "sql": "CREATE VIEW toppers AS\n  SELECT name, marks FROM students WHERE marks >= 90;\n\nCREATE INDEX idx_students_city ON students(city);\n\nSELECT name, dept, salary,\n       RANK() OVER (PARTITION BY dept ORDER BY salary DESC) AS pos,\n       SUM(salary) OVER (PARTITION BY dept) AS dept_total\nFROM employees;"
+   }
+  },
+  {
+   "id": "normalization",
+   "keys": [
+    "normalization",
+    "normalisation",
+    "normal form",
+    "1nf",
+    "2nf",
+    "3nf",
+    "bcnf",
+    "redundancy"
+   ],
+   "lang": "sql",
+   "title": "Normalization",
+   "text": "**Normalization** organises tables to remove duplicate data and update anomalies.\n- **1NF:** each cell holds one atomic value; no repeating groups.\n- **2NF:** 1NF + every non-key column depends on the **whole** primary key (no partial dependency).\n- **3NF:** 2NF + no non-key column depends on another non-key column (no transitive dependency).\n- **BCNF:** every determinant is a candidate key."
+  },
+  {
+   "id": "null",
+   "keys": [
+    "null",
+    "null value",
+    "undefined",
+    "nan"
+   ],
+   "title": "NULL / None / undefined",
+   "text": "- **SQL `NULL`** means \"unknown\". Any comparison with NULL is unknown, so use `IS NULL` / `IS NOT NULL`; aggregates like `AVG` skip NULLs.\n- **Python** uses `None`; test with `x is None`.\n- **JavaScript** has `undefined` (declared but no value) and `null` (intentionally empty); `null == undefined` is true, `null === undefined` is false. `NaN` (\"not a number\") is not equal even to itself — use `Number.isNaN`.\n- **Java** `null` for references → `NullPointerException` if you call a method on it. **C++** uses `nullptr` for pointers."
+  }
+ ],
+ "comparisons": [
+  {
+   "id": "list-tuple",
+   "terms": [
+    [
+     "list",
+     "lists"
+    ],
+    [
+     "tuple",
+     "tuples"
+    ]
+   ],
+   "title": "List vs tuple",
+   "text": "| | List | Tuple |\n|---|---|---|\n| Syntax | `[1, 2]` | `(1, 2)` |\n| Mutable? | Yes | **No** |\n| Methods | many (`append`, `sort`…) | only `count`, `index` |\n| Speed / memory | slower, more memory | faster, less memory |\n| Dict key? | No | Yes (if items are immutable) |\nUse a **tuple** for fixed data (coordinates, days of week) and a **list** when items change."
+  },
+  {
+   "id": "list-set",
+   "terms": [
+    [
+     "list",
+     "lists"
+    ],
+    [
+     "set",
+     "sets"
+    ]
+   ],
+   "title": "List vs set",
+   "text": "- **List:** ordered, allows duplicates, indexable (`lst[0]`).\n- **Set:** unordered, **unique** items only, no indexing, very fast `in` checks, supports union/intersection.\n`list(set(lst))` removes duplicates (order not guaranteed; use `list(dict.fromkeys(lst))` to keep order)."
+  },
+  {
+   "id": "list-dict",
+   "terms": [
+    [
+     "list",
+     "lists"
+    ],
+    [
+     "dictionary",
+     "dict",
+     "dictionaries"
+    ]
+   ],
+   "title": "List vs dictionary",
+   "text": "- **List:** values accessed by numeric position `lst[2]`.\n- **Dictionary:** values accessed by a **key** `d[\"name\"]`; keys are unique; lookup is O(1) on average.\nUse a dict when each value has a meaningful label."
+  },
+  {
+   "id": "tuple-set",
+   "terms": [
+    [
+     "tuple"
+    ],
+    [
+     "set"
+    ]
+   ],
+   "title": "Tuple vs set",
+   "text": "- **Tuple:** ordered, immutable, duplicates allowed, indexable.\n- **Set:** unordered, mutable (you can add/remove), **unique** items, not indexable."
+  },
+  {
+   "id": "append-extend",
+   "terms": [
+    [
+     "append"
+    ],
+    [
+     "extend"
+    ]
+   ],
+   "title": "append() vs extend()",
+   "text": "- `append(x)` adds **one** item (even if it is a list → nested): `[1, 2].append([3, 4])` → `[1, 2, [3, 4]]`.\n- `extend(iterable)` adds **each** item: `[1, 2].extend([3, 4])` → `[1, 2, 3, 4]`."
+  },
+  {
+   "id": "remove-pop",
+   "terms": [
+    [
+     "remove"
+    ],
+    [
+     "pop",
+     "del"
+    ]
+   ],
+   "title": "remove() vs pop() vs del",
+   "text": "- `remove(x)` deletes the first item **equal to x** (ValueError if missing), returns None.\n- `pop(i)` deletes by **index** (default last) and **returns** the item.\n- `del lst[i]` / `del lst[a:b]` deletes by index or slice, returns nothing."
+  },
+  {
+   "id": "sort-sorted",
+   "terms": [
+    [
+     "sort"
+    ],
+    [
+     "sorted"
+    ]
+   ],
+   "title": "sort() vs sorted()",
+   "text": "- `lst.sort()` sorts the list **in place** and returns `None`.\n- `sorted(iterable)` returns a **new** sorted list and works on any iterable (strings, tuples, dicts).\nBoth accept `key=` and `reverse=True`."
+  },
+  {
+   "id": "eq-is",
+   "terms": [
+    [
+     "=="
+    ],
+    [
+     " is ",
+     "is operator",
+     "identity"
+    ]
+   ],
+   "title": "== vs is (Python)",
+   "text": "- `==` compares **values** (are they equal?).\n- `is` compares **identity** (are they the same object in memory?).\n`[1] == [1]` → True but `[1] is [1]` → False. Use `is` only for `None`: `if x is None`."
+  },
+  {
+   "id": "eq-eqq",
+   "terms": [
+    [
+     "=="
+    ],
+    [
+     "==="
+    ]
+   ],
+   "title": "== vs === (JavaScript)",
+   "text": "- `==` (loose) converts types before comparing: `5 == \"5\"` → true, `0 == false` → true.\n- `===` (strict) needs the same type **and** value: `5 === \"5\"` → false.\nAlways prefer `===`."
+  },
+  {
+   "id": "var-let",
+   "terms": [
+    [
+     "var"
+    ],
+    [
+     "let",
+     "const"
+    ]
+   ],
+   "title": "var vs let vs const",
+   "text": "| | var | let | const |\n|---|---|---|---|\n| Scope | function | block | block |\n| Reassign | yes | yes | **no** |\n| Redeclare | yes | no | no |\n| Hoisted usable before line | yes (`undefined`) | no (TDZ) | no (TDZ) |"
+  },
+  {
+   "id": "null-undefined",
+   "terms": [
+    [
+     "null"
+    ],
+    [
+     "undefined"
+    ]
+   ],
+   "title": "null vs undefined",
+   "text": "- `undefined`: a variable exists but has no value yet (also missing properties, functions with no return).\n- `null`: a value you set on purpose to mean \"empty\".\n`typeof undefined` → \"undefined\", `typeof null` → \"object\" (a historic bug). `null == undefined` true, `===` false."
+  },
+  {
+   "id": "for-while",
+   "terms": [
+    [
+     "for loop",
+     "for"
+    ],
+    [
+     "while loop",
+     "while"
+    ]
+   ],
+   "title": "for vs while loop",
+   "text": "- Use **for** when the number of iterations is known or you walk over a collection.\n- Use **while** when you repeat until a condition changes (unknown count), e.g. reading input until \"quit\".\nAny for loop can be rewritten as a while loop."
+  },
+  {
+   "id": "while-dowhile",
+   "terms": [
+    [
+     "while"
+    ],
+    [
+     "do while",
+     "do-while"
+    ]
+   ],
+   "title": "while vs do-while",
+   "text": "- `while` checks the condition **first** — the body may run 0 times.\n- `do { } while (cond);` checks **after** — the body always runs **at least once**. (Python has no do-while.)"
+  },
+  {
+   "id": "break-continue",
+   "terms": [
+    [
+     "break"
+    ],
+    [
+     "continue"
+    ]
+   ],
+   "title": "break vs continue",
+   "text": "- `break` **exits** the whole loop.\n- `continue` **skips** only the current iteration and continues with the next one."
+  },
+  {
+   "id": "recursion-iteration",
+   "terms": [
+    [
+     "recursion",
+     "recursive"
+    ],
+    [
+     "iteration",
+     "loop",
+     "iterative"
+    ]
+   ],
+   "title": "Recursion vs iteration",
+   "text": "- **Recursion:** a function calls itself; elegant for trees, divide & conquer, backtracking; uses the call stack (risk of stack overflow), usually slower.\n- **Iteration:** loops; uses constant extra memory and is usually faster.\nEvery recursive solution can be written iteratively (sometimes with an explicit stack)."
+  },
+  {
+   "id": "param-arg",
+   "terms": [
+    [
+     "parameter",
+     "parameters"
+    ],
+    [
+     "argument",
+     "arguments"
+    ]
+   ],
+   "title": "Parameter vs argument",
+   "text": "- **Parameter:** the variable name in the function **definition** — `def add(a, b)`.\n- **Argument:** the actual value passed in the **call** — `add(2, 3)`."
+  },
+  {
+   "id": "value-reference",
+   "terms": [
+    [
+     "call by value",
+     "pass by value"
+    ],
+    [
+     "call by reference",
+     "pass by reference"
+    ]
+   ],
+   "title": "Call by value vs call by reference",
+   "text": "- **By value:** the function gets a **copy**; changes do not affect the caller (`void f(int x)` in C++, all primitives in Java).\n- **By reference:** the function works on the **original** (`void f(int& x)` in C++).\nJava/Python/JS pass object references by value: you can mutate the object, but reassigning the parameter does not affect the caller."
+  },
+  {
+   "id": "overload-override",
+   "terms": [
+    [
+     "overloading",
+     "overload"
+    ],
+    [
+     "overriding",
+     "override"
+    ]
+   ],
+   "title": "Method overloading vs overriding",
+   "text": "| | Overloading | Overriding |\n|---|---|---|\n| Where | same class | parent → child class |\n| Signature | **different** parameters | **same** signature |\n| Polymorphism | compile-time | runtime |\n| Example | `add(int,int)` & `add(double,double)` | `Dog.speak()` replaces `Animal.speak()` |"
+  },
+  {
+   "id": "class-object",
+   "terms": [
+    [
+     "class"
+    ],
+    [
+     "object"
+    ]
+   ],
+   "title": "Class vs object",
+   "text": "- A **class** is the blueprint (e.g. `Car` with fields `color`, `speed` and method `drive()`).\n- An **object** is a real instance built from it (`myCar = Car(\"red\")`). One class → many objects."
+  },
+  {
+   "id": "abstract-interface",
+   "terms": [
+    [
+     "abstract class"
+    ],
+    [
+     "interface"
+    ]
+   ],
+   "title": "Abstract class vs interface (Java)",
+   "text": "- **Abstract class:** can have fields, constructors, and both abstract and concrete methods; a class can extend only **one**.\n- **Interface:** a contract of methods (plus default/static methods); a class can implement **many**.\nUse an interface for \"can do\" (Comparable, Runnable), an abstract class for a shared base with common code."
+  },
+  {
+   "id": "array-arraylist",
+   "terms": [
+    [
+     "array"
+    ],
+    [
+     "arraylist"
+    ]
+   ],
+   "title": "Array vs ArrayList (Java)",
+   "text": "- **Array:** fixed size, can hold primitives (`int[]`), `a.length`, fast.\n- **ArrayList:** grows automatically, holds objects only (`ArrayList<Integer>`), `list.size()`, methods `add/get/set/remove/contains`."
+  },
+  {
+   "id": "array-vector",
+   "terms": [
+    [
+     "array"
+    ],
+    [
+     "vector"
+    ]
+   ],
+   "title": "Array vs vector (C++)",
+   "text": "- **Array** `int a[5]`: fixed size known at compile time, no size() method.\n- **vector** `vector<int> v`: dynamic size (`push_back`, `pop_back`), knows its `size()`, works with STL algorithms. Prefer `vector`."
+  },
+  {
+   "id": "string-stringbuilder",
+   "terms": [
+    [
+     "string"
+    ],
+    [
+     "stringbuilder",
+     "string builder"
+    ]
+   ],
+   "title": "String vs StringBuilder (Java)",
+   "text": "- `String` is **immutable** — each change makes a new object (slow in loops).\n- `StringBuilder` is **mutable** — `append`, `insert`, `reverse` modify it in place (fast). `StringBuffer` is the synchronized version."
+  },
+  {
+   "id": "map-unordered",
+   "terms": [
+    [
+     "map"
+    ],
+    [
+     "unordered_map",
+     "unordered map"
+    ]
+   ],
+   "title": "map vs unordered_map (C++)",
+   "text": "- `map`: keys kept **sorted** (red-black tree), operations O(log n).\n- `unordered_map`: no order (hash table), average O(1), worst O(n)."
+  },
+  {
+   "id": "pointer-reference",
+   "terms": [
+    [
+     "pointer",
+     "pointers"
+    ],
+    [
+     "reference",
+     "references"
+    ]
+   ],
+   "title": "Pointer vs reference (C++)",
+   "text": "- **Pointer** `int* p`: holds an address, can be null, can be re-pointed, needs `*` to access, supports arithmetic.\n- **Reference** `int& r`: an alias, must be initialised, cannot be null or re-bound, used like the variable itself."
+  },
+  {
+   "id": "struct-class",
+   "terms": [
+    [
+     "struct"
+    ],
+    [
+     "class"
+    ]
+   ],
+   "title": "struct vs class (C++)",
+   "text": "They are almost identical in C++; the only difference is the default access: `struct` members are **public** by default, `class` members are **private** by default. By convention, use `struct` for plain data and `class` for objects with behaviour."
+  },
+  {
+   "id": "compiler-interpreter",
+   "terms": [
+    [
+     "compiler"
+    ],
+    [
+     "interpreter"
+    ]
+   ],
+   "title": "Compiler vs interpreter",
+   "text": "- **Compiler:** translates the whole program before running (C++, Java→bytecode); errors listed up front; fast execution.\n- **Interpreter:** translates and runs line by line (Python, JavaScript); stops at the first runtime error; quicker to try things."
+  },
+  {
+   "id": "python-java",
+   "terms": [
+    [
+     "python"
+    ],
+    [
+     "java"
+    ]
+   ],
+   "title": "Python vs Java",
+   "text": "- **Python:** dynamically typed, indentation-based, very short code, interpreted; great for beginners, data science, automation.\n- **Java:** statically typed, braces + semicolons, compiled to JVM bytecode, verbose but fast and strict; used for Android, enterprise back-ends."
+  },
+  {
+   "id": "java-javascript",
+   "terms": [
+    [
+     "java "
+    ],
+    [
+     "javascript"
+    ]
+   ],
+   "title": "Java vs JavaScript",
+   "text": "Despite the name they are unrelated languages.\n- **Java:** statically typed, compiled to bytecode, class-based, runs on the JVM.\n- **JavaScript:** dynamically typed, interpreted/JIT, runs in browsers and Node.js, prototype-based objects, first-class functions."
+  },
+  {
+   "id": "c-cpp",
+   "terms": [
+    [
+     "c language",
+     " c "
+    ],
+    [
+     "c++",
+     "cpp"
+    ]
+   ],
+   "title": "C vs C++",
+   "text": "- **C:** procedural, no classes, `printf/scanf`, manual memory with `malloc/free`.\n- **C++:** C plus OOP (classes, inheritance), templates, the STL, references, `cin/cout`, `new/delete`, exceptions."
+  },
+  {
+   "id": "delete-truncate",
+   "terms": [
+    [
+     "delete"
+    ],
+    [
+     "truncate",
+     "drop"
+    ]
+   ],
+   "title": "DELETE vs TRUNCATE vs DROP",
+   "text": "| | DELETE | TRUNCATE | DROP |\n|---|---|---|---|\n| Type | DML | DDL | DDL |\n| Removes | chosen rows (`WHERE`) | **all** rows | whole table (structure + data) |\n| WHERE allowed | yes | no | no |\n| Rollback | yes (in a transaction) | usually no | usually no |\n| Speed | slower (row by row) | fast | fast |"
+  },
+  {
+   "id": "where-having",
+   "terms": [
+    [
+     "where"
+    ],
+    [
+     "having"
+    ]
+   ],
+   "title": "WHERE vs HAVING",
+   "text": "- `WHERE` filters **rows before** grouping; cannot use aggregate functions.\n- `HAVING` filters **groups after** `GROUP BY`; can use aggregates (`HAVING COUNT(*) > 2`).\nA query can use both: `WHERE salary > 0 GROUP BY dept HAVING AVG(salary) > 50000`."
+  },
+  {
+   "id": "inner-left",
+   "terms": [
+    [
+     "inner join",
+     "inner"
+    ],
+    [
+     "left join",
+     "left",
+     "outer join",
+     "outer"
+    ]
+   ],
+   "title": "INNER JOIN vs LEFT JOIN",
+   "text": "- `INNER JOIN` returns only rows with a match in **both** tables.\n- `LEFT JOIN` returns **every** row of the left table; columns from the right are NULL when there is no match. Use it to find \"customers with no orders\" (`WHERE o.id IS NULL`)."
+  },
+  {
+   "id": "primary-foreign",
+   "terms": [
+    [
+     "primary key",
+     "primary"
+    ],
+    [
+     "foreign key",
+     "foreign"
+    ]
+   ],
+   "title": "Primary key vs foreign key",
+   "text": "- **Primary key:** uniquely identifies each row of *its own* table; unique + NOT NULL; one per table.\n- **Foreign key:** a column that points to the primary key of *another* table; can repeat and can be NULL; enforces referential integrity."
+  },
+  {
+   "id": "primary-unique",
+   "terms": [
+    [
+     "primary key"
+    ],
+    [
+     "unique"
+    ]
+   ],
+   "title": "PRIMARY KEY vs UNIQUE",
+   "text": "- **PRIMARY KEY:** only one per table, never NULL.\n- **UNIQUE:** many per table allowed, NULL values allowed (in most databases)."
+  },
+  {
+   "id": "char-varchar",
+   "terms": [
+    [
+     "char"
+    ],
+    [
+     "varchar"
+    ]
+   ],
+   "title": "CHAR vs VARCHAR",
+   "text": "- `CHAR(n)`: fixed length — always uses n characters (padded with spaces). Good for fixed codes like `CHAR(2)` state codes.\n- `VARCHAR(n)`: variable length up to n — stores only what you type. Good for names, emails."
+  },
+  {
+   "id": "union-unionall",
+   "terms": [
+    [
+     "union all"
+    ],
+    [
+     "union"
+    ]
+   ],
+   "title": "UNION vs UNION ALL",
+   "text": "- `UNION` combines results and **removes duplicates** (slower, extra sort).\n- `UNION ALL` keeps **all** rows including duplicates (faster)."
+  },
+  {
+   "id": "commit-rollback",
+   "terms": [
+    [
+     "commit"
+    ],
+    [
+     "rollback"
+    ]
+   ],
+   "title": "COMMIT vs ROLLBACK",
+   "text": "- `COMMIT` saves all changes of the current transaction permanently.\n- `ROLLBACK` cancels all changes since the transaction began (or since a SAVEPOINT)."
+  },
+  {
+   "id": "grant-revoke",
+   "terms": [
+    [
+     "grant"
+    ],
+    [
+     "revoke"
+    ]
+   ],
+   "title": "GRANT vs REVOKE",
+   "text": "- `GRANT` gives a privilege to a user/role: `GRANT SELECT ON emp TO ravi;`\n- `REVOKE` takes it away: `REVOKE SELECT ON emp FROM ravi;`\nBoth are DCL commands."
+  },
+  {
+   "id": "ddl-dml",
+   "terms": [
+    [
+     "ddl"
+    ],
+    [
+     "dml"
+    ]
+   ],
+   "title": "DDL vs DML",
+   "text": "- **DDL** changes the **structure** (tables, columns): `CREATE`, `ALTER`, `DROP`, `TRUNCATE`; auto-committed in most databases.\n- **DML** changes the **data** (rows): `INSERT`, `UPDATE`, `DELETE`; can be rolled back inside a transaction."
+  },
+  {
+   "id": "rank-denserank",
+   "terms": [
+    [
+     "rank"
+    ],
+    [
+     "dense_rank",
+     "dense rank",
+     "row_number"
+    ]
+   ],
+   "title": "ROW_NUMBER vs RANK vs DENSE_RANK",
+   "text": "For scores 90, 90, 80:\n- `ROW_NUMBER()` → 1, 2, 3 (always unique)\n- `RANK()` → 1, 1, **3** (gap after a tie)\n- `DENSE_RANK()` → 1, 1, **2** (no gap)"
+  },
+  {
+   "id": "stack-queue",
+   "terms": [
+    [
+     "stack"
+    ],
+    [
+     "queue"
+    ]
+   ],
+   "title": "Stack vs queue",
+   "text": "- **Stack:** LIFO — the last item pushed is the first popped (undo button, function call stack).\n- **Queue:** FIFO — the first item added is the first removed (print jobs, BFS)."
+  },
+  {
+   "id": "linear-binary",
+   "terms": [
+    [
+     "linear search",
+     "linear"
+    ],
+    [
+     "binary search",
+     "binary"
+    ]
+   ],
+   "title": "Linear vs binary search",
+   "text": "- **Linear:** checks every element, works on unsorted data, O(n).\n- **Binary:** needs **sorted** data, halves the range each step, O(log n)."
+  },
+  {
+   "id": "mutable-immutable",
+   "terms": [
+    [
+     "mutable"
+    ],
+    [
+     "immutable"
+    ]
+   ],
+   "title": "Mutable vs immutable",
+   "text": "- **Mutable** objects can change after creation: Python `list`, `dict`, `set`; JS arrays/objects; Java `StringBuilder`, `ArrayList`.\n- **Immutable** objects cannot: Python `int`, `float`, `str`, `tuple`, `frozenset`; Java `String`; JS primitives.\n\"Changing\" an immutable value actually creates a new object."
+  },
+  {
+   "id": "local-global",
+   "terms": [
+    [
+     "local"
+    ],
+    [
+     "global"
+    ]
+   ],
+   "title": "Local vs global variables",
+   "text": "- **Local:** created inside a function, only visible there, destroyed when it returns.\n- **Global:** created outside functions, visible everywhere in the file. In Python you need `global name` to *reassign* it inside a function."
+  },
+  {
+   "id": "print-return",
+   "terms": [
+    [
+     "print"
+    ],
+    [
+     "return"
+    ]
+   ],
+   "title": "print vs return",
+   "text": "- `print` only **shows** a value on the screen.\n- `return` **sends** a value back to the caller so it can be stored or used (`total = add(2, 3)`). A function that only prints returns `None`."
+  }
+ ],
+ "errors": [
+  {
+   "pattern": "indentationerror|unexpected indent|expected an indented block|unindent does not match",
+   "flags": "i",
+   "lang": "python",
+   "title": "IndentationError",
+   "text": "Python uses indentation to know which lines belong to a block.\n- After every line ending in `:` (`if`, `for`, `while`, `def`, `class`) the next line must be indented (4 spaces).\n- Lines in the same block must line up exactly — don't mix tabs and spaces."
+  },
+  {
+   "pattern": "syntaxerror|invalid syntax",
+   "flags": "i",
+   "lang": "python",
+   "title": "SyntaxError",
+   "text": "The code breaks Python's grammar. Most common causes:\n- Missing colon `:` after `if/for/while/def/else`.\n- Using `=` instead of `==` inside a condition.\n- Unclosed brackets or quotes (the error often points at the *next* line).\n- Writing `else if` instead of `elif`."
+  },
+  {
+   "pattern": "nameerror|is not defined",
+   "flags": "i",
+   "title": "NameError / \"is not defined\"",
+   "text": "You used a name Python/JavaScript doesn't know:\n- A typo in the variable/function name (names are case-sensitive: `Total` ≠ `total`).\n- Using a variable before assigning it, or outside its scope.\n- Forgetting quotes around text: `print(hello)` instead of `print(\"hello\")`.\n- Forgetting an import (`math.sqrt` without `import math`)."
+  },
+  {
+   "pattern": "typeerror.*(concatenate|can only concatenate|unsupported operand|must be str)",
+   "flags": "i",
+   "lang": "python",
+   "title": "TypeError: can only concatenate str",
+   "text": "You tried to combine a `str` with a number: `\"Age: \" + 21`.\nFix: convert first — `\"Age: \" + str(21)` — or use an f-string: `f\"Age: {21}\"`."
+  },
+  {
+   "pattern": "typeerror.*not subscriptable",
+   "flags": "i",
+   "lang": "python",
+   "title": "TypeError: object is not subscriptable",
+   "text": "You used `[ ]` on something that isn't a sequence/mapping — often an `int` or `None`. Check what the variable really contains with `print(type(x))`. A common cause: `x = lst.sort()` (sort returns None)."
+  },
+  {
+   "pattern": "typeerror.*nonetype|'nonetype' object",
+   "flags": "i",
+   "lang": "python",
+   "title": "TypeError / AttributeError with 'NoneType'",
+   "text": "A variable is `None` where you expected a value. Usually a function has no `return`, or you stored the result of an in-place method (`lst = lst.sort()`, `lst = lst.append(x)` — both return None)."
+  },
+  {
+   "pattern": "typeerror.*(missing \\d+ required positional argument|takes \\d+ positional argument)",
+   "flags": "i",
+   "lang": "python",
+   "title": "TypeError: wrong number of arguments",
+   "text": "The call passes a different number of arguments than the function defines. Compare `def f(a, b)` with the call `f(1)`. Inside a class, remember the first parameter `self`."
+  },
+  {
+   "pattern": "indexerror|index out of range|arrayindexoutofboundsexception|out_of_range|index \\d+ out of bounds",
+   "flags": "i",
+   "title": "Index out of range",
+   "text": "You accessed a position that doesn't exist. Valid indexes are `0` to `len - 1`.\n- Loop with `range(len(lst))`, not `range(len(lst) + 1)`; in Java/C++ use `i < n`, not `i <= n`.\n- An empty list has no `lst[0]`."
+  },
+  {
+   "pattern": "keyerror",
+   "flags": "i",
+   "lang": "python",
+   "title": "KeyError",
+   "text": "The dictionary has no such key. Use `d.get(key, default)` or check with `if key in d:` first. Remember keys are case-sensitive."
+  },
+  {
+   "pattern": "valueerror.*invalid literal for int",
+   "flags": "i",
+   "lang": "python",
+   "title": "ValueError: invalid literal for int()",
+   "text": "`int()` got text that isn't a whole number (e.g. `\"12.5\"`, `\"abc\"`, `\"\"`). Use `float()` for decimals, strip spaces, or wrap in `try/except ValueError`."
+  },
+  {
+   "pattern": "zerodivisionerror|division by zero|\\/ by zero|arithmeticexception",
+   "flags": "i",
+   "title": "Division by zero",
+   "text": "You divided by 0. Check the divisor first: `if b != 0:`. (JavaScript returns `Infinity` instead of throwing; C++ integer division by zero crashes.)"
+  },
+  {
+   "pattern": "attributeerror",
+   "flags": "i",
+   "lang": "python",
+   "title": "AttributeError",
+   "text": "The object has no such method/attribute — e.g. `\"abc\".push()` (strings have no push), `lst.length` (use `len(lst)`), or a typo like `.apend`. Use `dir(obj)` to list what exists."
+  },
+  {
+   "pattern": "modulenotfounderror|no module named",
+   "flags": "i",
+   "lang": "python",
+   "title": "ModuleNotFoundError",
+   "text": "The module isn't installed or the name is misspelled. Install it with `pip install name` and check the spelling. Don't name your own file the same as a module (e.g. `random.py`)."
+  },
+  {
+   "pattern": "recursionerror|maximum recursion depth|stackoverflowerror|maximum call stack",
+   "flags": "i",
+   "title": "Stack overflow (too deep recursion)",
+   "text": "A recursive function keeps calling itself without stopping. Check that:\n1. There is a **base case**.\n2. Every call moves **toward** it (e.g. `n - 1`, not `n`).\n3. The input can actually reach it (negative numbers?)."
+  },
+  {
+   "pattern": "referenceerror",
+   "flags": "i",
+   "lang": "javascript",
+   "title": "ReferenceError",
+   "text": "JavaScript can't find that variable — a typo, it is out of scope, or you used a `let`/`const` before its declaration line (temporal dead zone)."
+  },
+  {
+   "pattern": "is not a function",
+   "flags": "i",
+   "lang": "javascript",
+   "title": "TypeError: x is not a function",
+   "text": "You called something that isn't a function — a typo (`arr.lenght()`), calling a property (`arr.length()` — length is not a function), or using an array method on a non-array (e.g. `.map` on an object or a string)."
+  },
+  {
+   "pattern": "cannot read propert(y|ies) of (undefined|null)",
+   "flags": "i",
+   "lang": "javascript",
+   "title": "TypeError: Cannot read properties of undefined",
+   "text": "You accessed `.something` on a value that is `undefined`/`null` — maybe an array index past the end, a missing object key, or data that hasn't loaded yet. Use optional chaining `obj?.prop` or check first."
+  },
+  {
+   "pattern": "nullpointerexception",
+   "flags": "i",
+   "lang": "java",
+   "title": "NullPointerException",
+   "text": "You called a method or accessed a field on a reference that is `null` — an object that was never created with `new`, an uninitialised array element, or a map `get()` that returned null. Initialise objects and check `if (x != null)`."
+  },
+  {
+   "pattern": "cannot find symbol",
+   "flags": "i",
+   "lang": "java",
+   "title": "error: cannot find symbol",
+   "text": "The compiler doesn't know a name: a typo (Java is case-sensitive: `string` vs `String`, `system` vs `System`), a variable used outside its block, or a missing `import` (e.g. `import java.util.*;` for `ArrayList`, `Scanner`)."
+  },
+  {
+   "pattern": "numberformatexception",
+   "flags": "i",
+   "lang": "java",
+   "title": "NumberFormatException",
+   "text": "`Integer.parseInt()` got text that isn't a valid integer (spaces, decimals, letters, empty string). Trim it and validate, or catch the exception."
+  },
+  {
+   "pattern": "classcastexception",
+   "flags": "i",
+   "lang": "java",
+   "title": "ClassCastException",
+   "text": "You cast an object to a type it isn't (e.g. `(String) someInteger`). Check with `instanceof` before casting, and use generics (`ArrayList<String>`) to avoid raw types."
+  },
+  {
+   "pattern": "missing return statement",
+   "flags": "i",
+   "lang": "java",
+   "title": "missing return statement",
+   "text": "A non-void method has a path that ends without `return`. Make sure every `if/else` branch returns, or add a final `return` after the if-block."
+  },
+  {
+   "pattern": "incompatible types|possible lossy conversion",
+   "flags": "i",
+   "lang": "java",
+   "title": "incompatible types / lossy conversion",
+   "text": "You assigned a value of a wider type into a narrower one (`int x = 3.5;`, `int y = someLong;`). Cast explicitly `(int) 3.5` if that's what you want, or change the variable's type."
+  },
+  {
+   "pattern": "';' expected|expected ';'|expected ‘;’",
+   "flags": "i",
+   "title": "Missing semicolon",
+   "text": "Java, C++ and (optionally) JavaScript end statements with `;`. The error usually points to the line **after** the missing semicolon — check the end of the previous line."
+  },
+  {
+   "pattern": "segmentation fault|segfault|core dumped",
+   "flags": "i",
+   "lang": "cpp",
+   "title": "Segmentation fault",
+   "text": "The program touched memory it shouldn't:\n- Array/vector index out of range (`v[n]` when size is n).\n- Dereferencing a null or uninitialised pointer.\n- Infinite recursion (stack overflow).\n- Using memory after `delete`.\nTip: use `v.at(i)` instead of `v[i]` to get a clear exception."
+  },
+  {
+   "pattern": "was not declared in this scope|not declared",
+   "flags": "i",
+   "lang": "cpp",
+   "title": "'x' was not declared in this scope",
+   "text": "The compiler can't see that name: a typo, a missing `#include` (e.g. `<vector>`, `<algorithm>`, `<string>`), forgetting `std::` / `using namespace std;`, or using a variable outside the `{ }` where it was declared."
+  },
+  {
+   "pattern": "undefined reference to",
+   "flags": "i",
+   "lang": "cpp",
+   "title": "undefined reference (linker error)",
+   "text": "A function was declared but never defined (or the file defining it wasn't compiled/linked). Check the spelling and signature match exactly, and that `main` exists."
+  },
+  {
+   "pattern": "no such table",
+   "flags": "i",
+   "lang": "sql",
+   "title": "no such table",
+   "text": "The table doesn't exist (yet): check the spelling, the database you are connected to, and that `CREATE TABLE` ran first."
+  },
+  {
+   "pattern": "no such column|unknown column|invalid column name",
+   "flags": "i",
+   "lang": "sql",
+   "title": "no such column",
+   "text": "Check the column spelling and table alias. Text values need single quotes: `WHERE name = 'Asha'` — without quotes SQL thinks `Asha` is a column. Also, column aliases from SELECT can't be used in WHERE."
+  },
+  {
+   "pattern": "unique constraint failed|duplicate entry|duplicate key",
+   "flags": "i",
+   "lang": "sql",
+   "title": "UNIQUE / PRIMARY KEY violation",
+   "text": "You inserted a value that already exists in a PRIMARY KEY or UNIQUE column. Use a different value, `UPDATE` the existing row, or `INSERT … ON CONFLICT` / `INSERT IGNORE`."
+  },
+  {
+   "pattern": "not null constraint failed|cannot be null",
+   "flags": "i",
+   "lang": "sql",
+   "title": "NOT NULL constraint failed",
+   "text": "A NOT NULL column didn't get a value. Include that column in your INSERT or give it a DEFAULT."
+  },
+  {
+   "pattern": "foreign key constraint failed|foreign key constraint fails",
+   "flags": "i",
+   "lang": "sql",
+   "title": "FOREIGN KEY constraint failed",
+   "text": "The value doesn't exist in the parent table (or you deleted a parent that still has children). Insert the parent row first, or use `ON DELETE CASCADE`."
+  },
+  {
+   "pattern": "ambiguous column",
+   "flags": "i",
+   "lang": "sql",
+   "title": "ambiguous column name",
+   "text": "Both joined tables have that column. Prefix it with the table or alias: `e.dept_id` instead of `dept_id`."
+  },
+  {
+   "pattern": "must appear in the group by|not a group by expression|misuse of aggregate",
+   "flags": "i",
+   "lang": "sql",
+   "title": "GROUP BY / aggregate error",
+   "text": "Every column in SELECT must be inside an aggregate or listed in GROUP BY. And aggregates can't go in WHERE — use HAVING instead."
+  },
+  {
+   "pattern": "near \".*\": syntax error|syntax error at or near|you have an error in your sql syntax",
+   "flags": "i",
+   "lang": "sql",
+   "title": "SQL syntax error",
+   "text": "Look just before the word mentioned in the error. Common causes: missing comma between columns, a trailing comma before `FROM`, wrong clause order (WHERE must come before GROUP BY/ORDER BY), double quotes instead of single quotes for text, or a reserved word used as a name."
+  }
+ ]
+}

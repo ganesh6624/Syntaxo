@@ -1,0 +1,2245 @@
+{
+ "languages": [
+  {
+   "id": "python",
+   "name": "Python",
+   "icon": "Py",
+   "color": "#3b82f6",
+   "tagline": "Readable, powerful, and beginner-friendly.",
+   "levels": [
+    {
+     "level": 1,
+     "title": "Variables, Data Types & Operators",
+     "topic": "variables",
+     "premium": false,
+     "lesson": {
+      "summary": "Variables are created by assignment — no declaration needed. Core types: int, float, complex, str, bool, None, plus list, tuple, dict and set. Operators: + - * / (true division) // (floor division) % (remainder) ** (power). `and`/`or` return one of their operands; comparisons can be chained (1 < x < 10).",
+      "code": "name = \"Ada\"        # str\nage = 36            # int\npi = 3.14           # float\nok = True           # bool\nprint(7 / 2, 7 // 2, 7 % 2, 2 ** 3)   # 3.5 3 1 8\nprint(type(pi).__name__)              # float\nprint(int(\"12\") + 3, str(5) + \"5\")    # 15 55",
+      "sheet": [
+       [
+        "type(x)",
+        "type of a value"
+       ],
+       [
+        "int() float() str() bool()",
+        "type conversion"
+       ],
+       [
+        "round(x, n)",
+        "round (ties → even)"
+       ],
+       [
+        "abs(), pow(), divmod()",
+        "number built-ins"
+       ],
+       [
+        "//  %  **",
+        "floor div, remainder, power"
+       ],
+       [
+        "f\"{x:.2f}\"",
+        "formatted string"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 2,
+     "title": "Strings & String Methods",
+     "topic": "strings",
+     "premium": false,
+     "lesson": {
+      "summary": "Strings are IMMUTABLE sequences of characters. Index with s[0] / s[-1], slice with s[start:stop:step] (stop excluded). Methods return NEW strings: upper, lower, title, capitalize, swapcase, strip, replace, split, join, find/index, count, startswith/endswith, isdigit/isalpha/…, center/ljust/rjust/zfill, partition, removeprefix/removesuffix.",
+      "code": "s = \"  Hello World  \"\nprint(s.strip())            # \"Hello World\"\nprint(s.lower().count(\"o\")) # 2\nt = \"python\"\nprint(t[0], t[-1], t[1:4])  # p n yth\nprint(t[::-1])              # nohtyp\nprint(\"-\".join(\"a b c\".split()))  # a-b-c",
+      "sheet": [
+       [
+        "s.upper()",
+        "returns a copy with every letter in uppercase"
+       ],
+       [
+        "s.lower()",
+        "returns a copy with every letter in lowercase"
+       ],
+       [
+        "s.title()",
+        "capitalises the first letter of every word"
+       ],
+       [
+        "s.capitalize()",
+        "capitalises only the first character of the string and lowercases the rest"
+       ],
+       [
+        "s.swapcase()",
+        "turns uppercase letters into lowercase and vice versa"
+       ],
+       [
+        "s.casefold()",
+        "returns an aggressively lowercased copy for caseless comparison"
+       ],
+       [
+        "s.strip()",
+        "removes leading and trailing whitespace (or given characters)"
+       ],
+       [
+        "s.lstrip()",
+        "removes characters from the left (start) only"
+       ],
+       [
+        "s.rstrip()",
+        "removes characters from the right (end) only"
+       ],
+       [
+        "s.find()",
+        "returns the lowest index of a substring, or -1 if not found"
+       ],
+       [
+        "s.rfind()",
+        "returns the highest index of a substring, or -1 if not found"
+       ],
+       [
+        "s.index()",
+        "returns the lowest index of a substring but raises ValueError if missing"
+       ],
+       [
+        "s.count()",
+        "returns how many non-overlapping times a substring occurs"
+       ],
+       [
+        "s.startswith()",
+        "checks whether the string begins with a given prefix"
+       ],
+       [
+        "s.endswith()",
+        "checks whether the string ends with a given suffix"
+       ],
+       [
+        "s.isdigit()",
+        "is True if all characters are digits"
+       ],
+       [
+        "s.isalpha()",
+        "is True if all characters are letters"
+       ],
+       [
+        "s.isalnum()",
+        "is True if all characters are letters or digits"
+       ],
+       [
+        "s.isspace()",
+        "is True if all characters are whitespace"
+       ],
+       [
+        "s.isupper()",
+        "is True if all cased letters are uppercase"
+       ],
+       [
+        "s.islower()",
+        "is True if all cased letters are lowercase"
+       ],
+       [
+        "s.istitle()",
+        "is True if every word starts with an uppercase letter followed by lowercase"
+       ],
+       [
+        "s.center()",
+        "centres the string in a field of a given width"
+       ],
+       [
+        "s.ljust()",
+        "left-aligns the string in a field of a given width"
+       ],
+       [
+        "s.rjust()",
+        "right-aligns the string in a field of a given width"
+       ],
+       [
+        "s.zfill()",
+        "pads the string on the left with zeros to a given width"
+       ],
+       [
+        "s.replace()",
+        "returns a copy with all occurrences of a substring replaced"
+       ],
+       [
+        "s.split()",
+        "breaks the string into a list using a separator"
+       ],
+       [
+        "s.rsplit()",
+        "splits from the right, useful with a max-split count"
+       ],
+       [
+        "s.partition()",
+        "splits at the first separator into a 3-tuple (before, sep, after)"
+       ],
+       [
+        "s.rpartition()",
+        "splits at the last separator into a 3-tuple"
+       ],
+       [
+        "s.join()",
+        "concatenates an iterable of strings using the string as separator"
+       ],
+       [
+        "s.removeprefix()",
+        "removes a given prefix if the string starts with it"
+       ],
+       [
+        "s.removesuffix()",
+        "removes a given suffix if the string ends with it"
+       ],
+       [
+        "len(s)",
+        "number of characters"
+       ],
+       [
+        "ord(c) / chr(n)",
+        "char ↔ code"
+       ],
+       [
+        "s[a:b:c]",
+        "slice"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 3,
+     "title": "Lists & List Methods",
+     "topic": "lists",
+     "premium": true,
+     "lesson": {
+      "summary": "Lists are ordered and MUTABLE. Methods change the list in place (and return None): append, extend, insert, remove, pop, clear, sort, reverse; index and count search it; copy makes a shallow copy. Built-ins: len, sum, min, max, sorted, reversed, enumerate, zip, any, all. Comprehensions: [expr for x in it if cond].",
+      "code": "nums = [3, 1, 4]\nnums.append(1)        # [3, 1, 4, 1]\nnums.insert(0, 9)     # [9, 3, 1, 4, 1]\nnums.remove(1)        # [9, 3, 4, 1]\nlast = nums.pop()     # 1 → [9, 3, 4]\nprint(sorted(nums), nums.index(4))\nprint([x * 2 for x in nums if x > 3])",
+      "sheet": [
+       [
+        "append(x)",
+        "adds one item to the end of the list"
+       ],
+       [
+        "extend(iterable)",
+        "adds every item of an iterable to the end"
+       ],
+       [
+        "insert(i, x)",
+        "inserts an item at a given position"
+       ],
+       [
+        "remove(x)",
+        "removes the first item equal to x"
+       ],
+       [
+        "pop()",
+        "removes and returns the last item"
+       ],
+       [
+        "pop(i)",
+        "removes and returns the item at index i"
+       ],
+       [
+        "clear()",
+        "removes every item from the list"
+       ],
+       [
+        "index(x)",
+        "returns the position of the first item equal to x"
+       ],
+       [
+        "count(x)",
+        "returns how many times x appears"
+       ],
+       [
+        "sort()",
+        "sorts the list in place and returns None"
+       ],
+       [
+        "reverse()",
+        "reverses the list in place"
+       ],
+       [
+        "copy()",
+        "returns a shallow copy of the list"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 4,
+     "title": "Tuples",
+     "topic": "tuples",
+     "premium": true,
+     "lesson": {
+      "summary": "Tuples are ordered and IMMUTABLE — created with commas: t = (1, 2, 3) or t = 1, 2, 3. A single-item tuple needs a trailing comma: (5,). Only two methods: count() and index(). They support indexing, slicing, +, *, in, unpacking (a, *rest = t), and — being hashable — can be dict keys.",
+      "code": "t = (10, 20, 30, 20)\nprint(t[1], t[-1], t[1:3])   # 20 20 (20, 30)\nprint(t.count(20), t.index(30))  # 2 2\na, *rest = t                 # a=10, rest=[20, 30, 20]\nprint(type((5)).__name__, type((5,)).__name__)  # int tuple\n# t[0] = 1  → TypeError",
+      "sheet": [
+       [
+        "t.count(x)",
+        "occurrences of x"
+       ],
+       [
+        "t.index(x)",
+        "first position of x"
+       ],
+       [
+        "len(t)",
+        "number of items"
+       ],
+       [
+        "tuple(it)",
+        "build from iterable"
+       ],
+       [
+        "a, b = t",
+        "unpacking"
+       ],
+       [
+        "a, *rest = t",
+        "star unpacking"
+       ],
+       [
+        "t1 + t2, t * n",
+        "concat / repeat"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 5,
+     "title": "Dictionaries & Dict Methods",
+     "topic": "dictionaries",
+     "premium": true,
+     "lesson": {
+      "summary": "A dict maps unique, hashable KEYS to values and keeps insertion order. d[k] reads (KeyError if missing) — d.get(k, default) is safe. Methods: keys, values, items, update, pop, popitem, setdefault, clear, copy, fromkeys. `in` checks keys. Comprehension: {k: v for …}.",
+      "code": "ages = {\"Asha\": 21, \"Ravi\": 25}\nages[\"Neha\"] = 23          # add\nages[\"Asha\"] = 22          # update\nprint(ages.get(\"Dev\", 0))  # 0\nprint(list(ages.keys()))   # ['Asha', 'Ravi', 'Neha']\nfor name, age in ages.items():\n    print(name, age)",
+      "sheet": [
+       [
+        "get(k, default)",
+        "returns the value for k, or default if k is missing"
+       ],
+       [
+        "keys()",
+        "returns a view of all keys"
+       ],
+       [
+        "values()",
+        "returns a view of all values"
+       ],
+       [
+        "items()",
+        "returns a view of (key, value) pairs"
+       ],
+       [
+        "update(other)",
+        "adds or overwrites pairs from another dict"
+       ],
+       [
+        "pop(k)",
+        "removes key k and returns its value"
+       ],
+       [
+        "popitem()",
+        "removes and returns the last inserted pair"
+       ],
+       [
+        "setdefault(k, v)",
+        "returns d[k], inserting v first if k is missing"
+       ],
+       [
+        "clear()",
+        "removes every pair"
+       ],
+       [
+        "copy()",
+        "returns a shallow copy"
+       ],
+       [
+        "fromkeys(keys, v)",
+        "creates a dict with the given keys all set to v"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 6,
+     "title": "Sets & Set Methods",
+     "topic": "sets",
+     "premium": true,
+     "lesson": {
+      "summary": "A set is an UNORDERED collection of UNIQUE, hashable items: {1, 2, 3} or set(iterable) — {} is an empty dict! Methods: add, update, remove (KeyError if missing), discard (safe), pop, clear, union |, intersection &, difference -, symmetric_difference ^, issubset <=, issuperset >=, isdisjoint. frozenset is the immutable version.",
+      "code": "a = {1, 2, 3, 4}\nb = {3, 4, 5}\nprint(a | b, a & b)   # {1, 2, 3, 4, 5} {3, 4}\nprint(a - b, a ^ b)   # {1, 2} {1, 2, 5}\na.add(3)              # no change — already there\nprint(len(set(\"banana\")))  # 3",
+      "sheet": [
+       [
+        "add(x)",
+        "adds one element"
+       ],
+       [
+        "update(iterable)",
+        "adds every element of an iterable"
+       ],
+       [
+        "remove(x)",
+        "removes x and raises KeyError if it is missing"
+       ],
+       [
+        "discard(x)",
+        "removes x if present, without error"
+       ],
+       [
+        "pop()",
+        "removes and returns an arbitrary element"
+       ],
+       [
+        "clear()",
+        "removes all elements"
+       ],
+       [
+        "union(b)",
+        "returns elements in either set (a | b)"
+       ],
+       [
+        "intersection(b)",
+        "returns elements in both sets (a & b)"
+       ],
+       [
+        "difference(b)",
+        "returns elements in a but not in b (a - b)"
+       ],
+       [
+        "symmetric_difference(b)",
+        "returns elements in exactly one of the sets (a ^ b)"
+       ],
+       [
+        "issubset(b)",
+        "checks whether every element of a is in b"
+       ],
+       [
+        "issuperset(b)",
+        "checks whether a contains every element of b"
+       ],
+       [
+        "isdisjoint(b)",
+        "checks whether the sets share no elements"
+       ],
+       [
+        "copy()",
+        "returns a shallow copy of the set"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 7,
+     "title": "Conditional Statements",
+     "topic": "conditionals",
+     "premium": true,
+     "lesson": {
+      "summary": "if / elif / else run the FIRST branch whose condition is true. Combine conditions with and / or / not (short-circuit). Nest ifs for dependent checks. One-line choice: a if cond else b. match/case (3.10+) compares a value against patterns. Falsy values: 0, 0.0, \"\", [], {}, (), None, False.",
+      "code": "score = 82\nif score >= 90:\n    grade = \"A\"\nelif score >= 75:\n    grade = \"B\"\nelse:\n    grade = \"C\"\nlabel = \"pass\" if score >= 40 else \"fail\"\nprint(grade, label)   # B pass",
+      "sheet": [
+       [
+        "if / elif / else",
+        "branching"
+       ],
+       [
+        "and, or, not",
+        "logical operators"
+       ],
+       [
+        "a if c else b",
+        "conditional expression"
+       ],
+       [
+        "match x: case 1 | 2:",
+        "pattern matching"
+       ],
+       [
+        "1 < x < 10",
+        "chained comparison"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 8,
+     "title": "Loops (for, while, break, continue)",
+     "topic": "loops",
+     "premium": true,
+     "lesson": {
+      "summary": "`for` iterates over any iterable (range, str, list, dict…). range(start, stop, step) excludes stop. `while` repeats while a condition is true. `break` exits, `continue` skips to the next iteration, and a loop's `else` runs only if no break happened. Nested loops multiply the work.",
+      "code": "for i in range(1, 10, 3):\n    print(i, end=\" \")      # 1 4 7\nn = 1234\ntotal = 0\nwhile n > 0:\n    total += n % 10\n    n //= 10\nprint(total)               # 10",
+      "sheet": [
+       [
+        "range(a, b, s)",
+        "a … b-1 by s"
+       ],
+       [
+        "enumerate(it)",
+        "index + item"
+       ],
+       [
+        "break",
+        "exit loop"
+       ],
+       [
+        "continue",
+        "next iteration"
+       ],
+       [
+        "for … else",
+        "runs if no break"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 9,
+     "title": "Pattern Problems",
+     "topic": "patterns",
+     "premium": true,
+     "lesson": {
+      "summary": "Pattern programs train nested-loop thinking. The OUTER loop picks the row; INNER loops (or string repetition like \"*\" * k) print the spaces and characters for that row. Classic shapes: right triangle, pyramid, inverted pyramid, diamond, hourglass, rhombus, butterfly, rainbow (arch), heart, hollow square, number & alphabet triangles.",
+      "code": "n = 3\nfor i in range(1, n + 1):          # butterfly — top half\n    print(\"*\" * i + \" \" * (2 * (n - i)) + \"*\" * i)\nfor i in range(n, 0, -1):          # bottom half\n    print(\"*\" * i + \" \" * (2 * (n - i)) + \"*\" * i)",
+      "sheet": [
+       [
+        "pyramid row i",
+        "\" \" * (n - i) + \"*\" * (2*i - 1)"
+       ],
+       [
+        "rhombus row i",
+        "\" \" * (n - i) + \"*\" * n"
+       ],
+       [
+        "butterfly row i",
+        "\"*\" * i + \" \" * (2*(n - i)) + \"*\" * i"
+       ],
+       [
+        "diamond",
+        "pyramid + inverted pyramid"
+       ],
+       [
+        "heart",
+        "two lobes + inverted triangle"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 10,
+     "title": "Functions & Types of Functions",
+     "topic": "functions",
+     "premium": true,
+     "lesson": {
+      "summary": "Types of functions: BUILT-IN (len, print…), USER-DEFINED (def), LAMBDA (anonymous one-liners), RECURSIVE (call themselves), HIGHER-ORDER (take/return functions: map, filter, sorted(key=)), NESTED & CLOSURES, GENERATORS (yield) and DECORATORS (@wrap). Parameters: positional, keyword, default, *args (tuple), **kwargs (dict). Scope follows LEGB; use global/nonlocal to assign outer variables.",
+      "code": "def power(base, exp=2):          # default parameter\n    return base ** exp\n\nsquare = lambda x: x * x         # lambda\nprint(power(3), power(2, 5))     # 9 32\nprint(list(map(square, [1, 2, 3])))   # [1, 4, 9]\n\ndef gen(n):                      # generator\n    for i in range(n):\n        yield i",
+      "sheet": [
+       [
+        "def f(a, b=2):",
+        "user-defined + default"
+       ],
+       [
+        "lambda x: x * 2",
+        "anonymous function"
+       ],
+       [
+        "*args / **kwargs",
+        "variable arguments"
+       ],
+       [
+        "map / filter / reduce",
+        "higher-order"
+       ],
+       [
+        "yield",
+        "generator"
+       ],
+       [
+        "@decorator",
+        "wrap a function"
+       ],
+       [
+        "global / nonlocal",
+        "assign outer names"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 11,
+     "title": "Recursion & Types of Recursion",
+     "topic": "recursion",
+     "premium": true,
+     "lesson": {
+      "summary": "A recursive function calls itself on a smaller input until it reaches a BASE CASE. Types: direct, indirect (mutual), tail (call is last), head (call first), linear (one call), tree (several calls, e.g. Fibonacci) and nested (a call inside the argument: f(f(n))). Deep recursion raises RecursionError (~1000 frames); memoize repeated calls with functools.lru_cache.",
+      "code": "def fact(n):\n    if n <= 1:          # base case\n        return 1\n    return n * fact(n - 1)\n\ndef fib(n):             # tree recursion\n    return n if n < 2 else fib(n - 1) + fib(n - 2)\nprint(fact(5), fib(7))  # 120 13",
+      "sheet": [
+       [
+        "Base case",
+        "stops recursion"
+       ],
+       [
+        "Tail",
+        "call is the last action"
+       ],
+       [
+        "Head",
+        "call before the work"
+       ],
+       [
+        "Tree",
+        "two+ calls per call"
+       ],
+       [
+        "Indirect",
+        "A → B → A"
+       ],
+       [
+        "Nested",
+        "f(f(n))"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "javascript",
+   "name": "JavaScript",
+   "icon": "JS",
+   "color": "#eab308",
+   "tagline": "The language of the web.",
+   "levels": [
+    {
+     "level": 1,
+     "title": "Variables, Types & Operators",
+     "topic": "variables",
+     "premium": false,
+     "lesson": {
+      "summary": "Declare with const (default) or let (reassignable); avoid var (function-scoped, hoisted). Types: number, bigint, string, boolean, undefined, null, symbol, object. + with a string concatenates, other math operators convert to numbers. Use === (strict) rather than ==. Math has round, floor, ceil, trunc, max, min, abs, pow, sqrt.",
+      "code": "const name = \"Ada\";\nlet age = 36;\nage += 1;\nconsole.log(typeof age);      // \"number\"\nconsole.log(\"5\" + 3, \"5\" - 3); // \"53\" 2\nconsole.log(7 / 2, 7 % 2);     // 3.5 1\nconsole.log(5 === \"5\");        // false",
+      "sheet": [
+       [
+        "const / let / var",
+        "declarations"
+       ],
+       [
+        "typeof x",
+        "type as string"
+       ],
+       [
+        "=== / !==",
+        "strict equality"
+       ],
+       [
+        "Math.round/floor/ceil",
+        "rounding"
+       ],
+       [
+        "Number() parseInt()",
+        "conversion"
+       ],
+       [
+        "a ?? b",
+        "nullish default"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 2,
+     "title": "Strings & String Methods",
+     "topic": "strings",
+     "premium": false,
+     "lesson": {
+      "summary": "Strings are immutable. Read characters with s[i] or s.at(-1). Methods return new strings: toUpperCase, toLowerCase, trim, slice, substring, indexOf, includes, startsWith, endsWith, replace (first match), replaceAll, split, repeat, padStart, padEnd, charAt, charCodeAt, concat. Template literals: `Hi ${name}`.",
+      "code": "const s = \"  Hello World  \";\nconsole.log(s.trim());                 // \"Hello World\"\nconsole.log(s.includes(\"World\"));      // true\nconst t = \"javascript\";\nconsole.log(t.slice(0, 4), t.at(-1));  // \"java\" \"t\"\nconsole.log(t.split(\"\").reverse().join(\"\"));",
+      "sheet": [
+       [
+        "s.toUpperCase()",
+        "returns the string in uppercase"
+       ],
+       [
+        "s.toLowerCase()",
+        "returns the string in lowercase"
+       ],
+       [
+        "s.trim()",
+        "removes whitespace from both ends"
+       ],
+       [
+        "s.trimStart()",
+        "removes whitespace from the start"
+       ],
+       [
+        "s.trimEnd()",
+        "removes whitespace from the end"
+       ],
+       [
+        "s.indexOf()",
+        "returns the first index of a substring, or -1"
+       ],
+       [
+        "s.lastIndexOf()",
+        "returns the last index of a substring, or -1"
+       ],
+       [
+        "s.includes()",
+        "checks whether a substring exists (true/false)"
+       ],
+       [
+        "s.startsWith()",
+        "checks whether the string begins with a substring"
+       ],
+       [
+        "s.endsWith()",
+        "checks whether the string ends with a substring"
+       ],
+       [
+        "s.slice()",
+        "extracts a section between two indexes (negative indexes allowed)"
+       ],
+       [
+        "s.substring()",
+        "extracts characters between two indexes (negatives become 0, swaps if start > end)"
+       ],
+       [
+        "s.padStart()",
+        "pads the start to a target length"
+       ],
+       [
+        "s.padEnd()",
+        "pads the end to a target length"
+       ],
+       [
+        "s.replace()",
+        "replaces the FIRST match of a substring"
+       ],
+       [
+        "s.replaceAll()",
+        "replaces EVERY match of a substring"
+       ],
+       [
+        "s.charAt()",
+        "returns the character at an index (\"\" if out of range)"
+       ],
+       [
+        "s.at()",
+        "returns the character at an index, negative counts from the end"
+       ],
+       [
+        "s.charCodeAt()",
+        "returns the UTF-16 code of the character at an index"
+       ],
+       [
+        "s.split()",
+        "splits the string into an array by a separator"
+       ],
+       [
+        "s.repeat()",
+        "repeats the string n times"
+       ],
+       [
+        "s.concat()",
+        "joins strings together"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 3,
+     "title": "Arrays & Array Methods",
+     "topic": "arrays",
+     "premium": true,
+     "lesson": {
+      "summary": "Arrays are ordered lists. Mutating methods: push, pop, shift, unshift, splice, sort, reverse, fill. Non-mutating: slice, concat, map, filter, reduce, find, findIndex, some, every, includes, indexOf, join, flat. sort() compares strings by default — pass (a, b) => a - b for numbers.",
+      "code": "const nums = [5, 1, 10];\nnums.push(3);                           // [5, 1, 10, 3]\nconsole.log(nums.map(n => n * 2));      // [10, 2, 20, 6]\nconsole.log(nums.filter(n => n > 2));   // [5, 10, 3]\nconsole.log(nums.reduce((a, b) => a + b, 0)); // 19\nnums.sort((a, b) => a - b);             // [1, 3, 5, 10]",
+      "sheet": [
+       [
+        "push()",
+        "adds items to the end and returns the new length"
+       ],
+       [
+        "pop()",
+        "removes the last item and returns it"
+       ],
+       [
+        "shift()",
+        "removes the first item and returns it"
+       ],
+       [
+        "unshift()",
+        "adds items to the start and returns the new length"
+       ],
+       [
+        "splice()",
+        "removes/inserts items in place and returns the removed items"
+       ],
+       [
+        "slice()",
+        "returns a shallow copy of a portion without changing the array"
+       ],
+       [
+        "concat()",
+        "returns a new array joined with other arrays"
+       ],
+       [
+        "indexOf()",
+        "returns the first index of a value or -1"
+       ],
+       [
+        "includes()",
+        "checks whether a value is present"
+       ],
+       [
+        "find()",
+        "returns the first element that passes a test"
+       ],
+       [
+        "findIndex()",
+        "returns the index of the first element that passes a test"
+       ],
+       [
+        "filter()",
+        "returns a new array of elements that pass a test"
+       ],
+       [
+        "map()",
+        "returns a new array with a function applied to every element"
+       ],
+       [
+        "reduce()",
+        "folds the array into a single value"
+       ],
+       [
+        "forEach()",
+        "runs a function for each element and returns undefined"
+       ],
+       [
+        "some()",
+        "checks whether at least one element passes a test"
+       ],
+       [
+        "every()",
+        "checks whether all elements pass a test"
+       ],
+       [
+        "sort()",
+        "sorts in place (as strings by default)"
+       ],
+       [
+        "reverse()",
+        "reverses the array in place"
+       ],
+       [
+        "join()",
+        "joins all elements into a string"
+       ],
+       [
+        "flat()",
+        "flattens nested arrays"
+       ],
+       [
+        "fill()",
+        "fills elements with a static value"
+       ],
+       [
+        "at()",
+        "returns the element at an index (negative from the end)"
+       ],
+       [
+        "Array.from()",
+        "creates an array from an iterable or array-like object"
+       ],
+       [
+        "Array.isArray()",
+        "checks whether a value is an array"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 4,
+     "title": "Objects & Object Methods",
+     "topic": "objects",
+     "premium": true,
+     "lesson": {
+      "summary": "Objects store key–value properties. Read with obj.key or obj[key]; missing properties are undefined. Add, change and delete freely (even with const). Object.keys/values/entries, Object.assign, spread {...obj} (shallow copy), destructuring { a, b: renamed, c = default }, JSON.stringify/parse, optional chaining ?.",
+      "code": "const user = { name: \"Asha\", age: 21 };\nuser.city = \"Pune\";\ndelete user.age;\nconsole.log(Object.keys(user));     // [\"name\", \"city\"]\nconst { name, role = \"user\" } = user;\nconst copy = { ...user, name: \"Ravi\" };\nconsole.log(user.address?.zip);     // undefined",
+      "sheet": [
+       [
+        "Object.keys/values/entries",
+        "arrays of parts"
+       ],
+       [
+        "Object.assign(t, s)",
+        "copy props"
+       ],
+       [
+        "{ ...obj }",
+        "shallow copy"
+       ],
+       [
+        "const { a } = obj",
+        "destructuring"
+       ],
+       [
+        "JSON.stringify / parse",
+        "to/from JSON"
+       ],
+       [
+        "Object.freeze",
+        "make immutable"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 5,
+     "title": "Sets & Maps",
+     "topic": "sets-maps",
+     "premium": true,
+     "lesson": {
+      "summary": "Set: unique values in insertion order — add, has, delete, size, clear; [...new Set(arr)] removes duplicates. Map: key → value pairs where keys can be ANY type — set, get, has, delete, size, keys(), values(), entries(). Both are iterable with for...of.",
+      "code": "const s = new Set([1, 2, 2, 3]);\ns.add(4);\nconsole.log(s.size, s.has(2));    // 4 true\nconst m = new Map();\nm.set(\"Asha\", 91).set(\"Ravi\", 78);\nconsole.log(m.get(\"Asha\"));       // 91\nfor (const [k, v] of m) console.log(k, v);",
+      "sheet": [
+       [
+        "new Set(arr)",
+        "unique values"
+       ],
+       [
+        "set.add/has/delete",
+        "modify & test"
+       ],
+       [
+        "set.size",
+        "count"
+       ],
+       [
+        "new Map()",
+        "any-type keys"
+       ],
+       [
+        "map.set/get/has",
+        "entries"
+       ],
+       [
+        "[...map.keys()]",
+        "keys array"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 6,
+     "title": "Conditional Statements",
+     "topic": "conditionals",
+     "premium": true,
+     "lesson": {
+      "summary": "if / else if / else run the first matching branch. switch compares one value against cases — remember break, or execution falls through. Ternary: cond ? a : b. Logical operators && || ! short-circuit; ?? provides defaults for null/undefined. Falsy values: false, 0, \"\", null, undefined, NaN.",
+      "code": "const score = 82;\nlet grade;\nif (score >= 90) grade = \"A\";\nelse if (score >= 75) grade = \"B\";\nelse grade = \"C\";\nswitch (grade) {\n  case \"A\": console.log(\"Excellent\"); break;\n  case \"B\": console.log(\"Good\"); break;\n  default: console.log(\"Keep going\");\n}",
+      "sheet": [
+       [
+        "if / else if / else",
+        "branching"
+       ],
+       [
+        "switch + break",
+        "multi-way"
+       ],
+       [
+        "c ? a : b",
+        "ternary"
+       ],
+       [
+        "&& || !",
+        "logic"
+       ],
+       [
+        "??",
+        "nullish default"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 7,
+     "title": "Loops",
+     "topic": "loops",
+     "premium": true,
+     "lesson": {
+      "summary": "for (init; condition; update), while, do...while (runs at least once), for...of (values of arrays/strings/Sets/Maps) and for...in (keys of objects). break exits, continue skips to the next iteration.",
+      "code": "for (let i = 0; i < 3; i++) console.log(i);\nlet n = 0;\ndo { n++; } while (n < 3);\nfor (const ch of \"hi\") console.log(ch);\nfor (const key in { a: 1, b: 2 }) console.log(key);",
+      "sheet": [
+       [
+        "for (…;…;…)",
+        "counted loop"
+       ],
+       [
+        "while / do…while",
+        "condition loops"
+       ],
+       [
+        "for…of",
+        "values"
+       ],
+       [
+        "for…in",
+        "keys"
+       ],
+       [
+        "break / continue",
+        "control"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 8,
+     "title": "Pattern Problems",
+     "topic": "patterns",
+     "premium": true,
+     "lesson": {
+      "summary": "Build each row as a string, then console.log it: \" \".repeat(n - i) + \"*\".repeat(2 * i - 1). The outer loop picks the row, the inner loops (or repeat) fill it. Shapes: triangles, pyramids, diamond, hourglass, rhombus, butterfly, rainbow, heart, hollow square, number/alphabet triangles.",
+      "code": "const n = 3;\nfor (let i = 1; i <= n; i++) {          // rhombus\n  console.log(\" \".repeat(n - i) + \"*\".repeat(n));\n}\nfor (let i = 1; i <= n; i++) {          // butterfly top\n  console.log(\"*\".repeat(i) + \" \".repeat(2 * (n - i)) + \"*\".repeat(i));\n}",
+      "sheet": [
+       [
+        "pyramid",
+        "\" \".repeat(n-i) + \"*\".repeat(2*i-1)"
+       ],
+       [
+        "rhombus",
+        "\" \".repeat(n-i) + \"*\".repeat(n)"
+       ],
+       [
+        "butterfly",
+        "\"*\".repeat(i) + \" \".repeat(2*(n-i)) + \"*\".repeat(i)"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 9,
+     "title": "Functions & Types of Functions",
+     "topic": "functions",
+     "premium": true,
+     "lesson": {
+      "summary": "Types: function DECLARATION (hoisted), function EXPRESSION, ARROW function (=>, no own this), IIFE, CALLBACK, HIGHER-ORDER (takes/returns functions), CLOSURE, GENERATOR (function*), ASYNC, RECURSIVE. Parameters can have defaults (used for undefined) and ...rest. Primitives are passed by value, objects by reference.",
+      "code": "function add(a, b = 1) { return a + b; }   // declaration + default\nconst mul = (a, b) => a * b;               // arrow\nconst counter = (() => {                   // IIFE + closure\n  let c = 0;\n  return () => ++c;\n})();\nconsole.log(add(2), mul(3, 4), counter(), counter()); // 3 12 1 2",
+      "sheet": [
+       [
+        "function f() {}",
+        "declaration"
+       ],
+       [
+        "const f = () => {}",
+        "arrow"
+       ],
+       [
+        "(function(){})()",
+        "IIFE"
+       ],
+       [
+        "(...args)",
+        "rest params"
+       ],
+       [
+        "function* g()",
+        "generator"
+       ],
+       [
+        "async / await",
+        "async function"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 10,
+     "title": "Recursion & Types of Recursion",
+     "topic": "recursion",
+     "premium": true,
+     "lesson": {
+      "summary": "A recursive function calls itself with a smaller input until it hits a BASE CASE. Types: direct, indirect (mutual), tail, head, linear, tree (e.g. Fibonacci) and nested (f(f(n))). Too-deep recursion throws RangeError: Maximum call stack size exceeded.",
+      "code": "function fact(n) {\n  if (n <= 1) return 1;     // base case\n  return n * fact(n - 1);\n}\nconst fib = n => (n < 2 ? n : fib(n - 1) + fib(n - 2));\nconsole.log(fact(5), fib(7)); // 120 13",
+      "sheet": [
+       [
+        "Base case",
+        "stops recursion"
+       ],
+       [
+        "Tail",
+        "call is last"
+       ],
+       [
+        "Head",
+        "call first"
+       ],
+       [
+        "Tree",
+        "multiple calls"
+       ],
+       [
+        "Indirect",
+        "A ↔ B"
+       ],
+       [
+        "Nested",
+        "f(f(n))"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "java",
+   "name": "Java",
+   "icon": "Java",
+   "color": "#f97316",
+   "tagline": "Strongly typed, object-oriented, runs everywhere.",
+   "levels": [
+    {
+     "level": 1,
+     "title": "Syntax, Types & Operators",
+     "topic": "variables",
+     "premium": false,
+     "lesson": {
+      "summary": "Every variable has a declared type: byte, short, int, long, float, double, char, boolean (primitives) or a class like String. int / int is integer division; cast with (double) for decimals. + concatenates as soon as a String is involved (left to right). Casting a double to int truncates. Compound assignments include an implicit cast.",
+      "code": "int a = 7, b = 2;\nSystem.out.println(a / b);          // 3\nSystem.out.println((double) a / b); // 3.5\nSystem.out.println(a % b);          // 1\nSystem.out.println(\"\" + a + b);     // 72\nSystem.out.println(a + b + \"\");     // 9\nchar c = 'A';\nSystem.out.println((char) (c + 2)); // C",
+      "sheet": [
+       [
+        "int / double / char / boolean",
+        "primitives"
+       ],
+       [
+        "(int) x",
+        "cast (truncates)"
+       ],
+       [
+        "Math.max/min/abs/pow/sqrt",
+        "Math helpers"
+       ],
+       [
+        "Integer.parseInt(s)",
+        "text → int"
+       ],
+       [
+        "String.valueOf(x)",
+        "anything → String"
+       ],
+       [
+        "& | ^ << >>",
+        "bitwise"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 2,
+     "title": "Strings & String Methods",
+     "topic": "strings",
+     "premium": false,
+     "lesson": {
+      "summary": "Strings are immutable objects. Key methods: length(), charAt(i), substring(a, b), indexOf, lastIndexOf, contains, startsWith, endsWith, toUpperCase, toLowerCase, trim/strip, replace, split, repeat, isEmpty/isBlank, equals, equalsIgnoreCase, compareTo. Compare text with equals(), never ==. StringBuilder is the mutable alternative (append, insert, reverse, deleteCharAt).",
+      "code": "String s = \"Hello World\";\nSystem.out.println(s.length());          // 11\nSystem.out.println(s.substring(0, 5));   // Hello\nSystem.out.println(s.indexOf(\"o\"));      // 4\nSystem.out.println(s.toUpperCase());\nStringBuilder sb = new StringBuilder(\"abc\");\nSystem.out.println(sb.reverse());        // cba",
+      "sheet": [
+       [
+        "s.length()",
+        "returns the number of characters"
+       ],
+       [
+        "s.toUpperCase()",
+        "returns the string in uppercase"
+       ],
+       [
+        "s.toLowerCase()",
+        "returns the string in lowercase"
+       ],
+       [
+        "s.trim()",
+        "removes leading and trailing whitespace"
+       ],
+       [
+        "s.strip()",
+        "removes leading and trailing Unicode whitespace (Java 11)"
+       ],
+       [
+        "s.isEmpty()",
+        "is true when the length is 0"
+       ],
+       [
+        "s.isBlank()",
+        "is true when the string is empty or only whitespace (Java 11)"
+       ],
+       [
+        "s.charAt()",
+        "returns the char at an index"
+       ],
+       [
+        "s.indexOf()",
+        "returns the first index of a char/substring, or -1"
+       ],
+       [
+        "s.lastIndexOf()",
+        "returns the last index of a char/substring, or -1"
+       ],
+       [
+        "s.contains()",
+        "checks whether a substring is present"
+       ],
+       [
+        "s.startsWith()",
+        "checks whether the string starts with a prefix"
+       ],
+       [
+        "s.endsWith()",
+        "checks whether the string ends with a suffix"
+       ],
+       [
+        "s.substring()",
+        "returns the characters from beginIndex up to (not including) endIndex"
+       ],
+       [
+        "s.replace()",
+        "replaces every occurrence of a char/substring"
+       ],
+       [
+        "s.equals()",
+        "compares the text of two strings (case-sensitive)"
+       ],
+       [
+        "s.equalsIgnoreCase()",
+        "compares text ignoring case"
+       ],
+       [
+        "s.compareTo()",
+        "compares strings lexicographically and returns an int"
+       ],
+       [
+        "s.concat()",
+        "appends another string"
+       ],
+       [
+        "s.repeat()",
+        "repeats the string n times (Java 11)"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 3,
+     "title": "Arrays & the Arrays Class",
+     "topic": "arrays",
+     "premium": true,
+     "lesson": {
+      "summary": "Arrays have a FIXED length (arr.length) and default values (0, false, null). Index from 0 to length − 1 or get ArrayIndexOutOfBoundsException. java.util.Arrays: sort, toString, fill, copyOf, copyOfRange, equals, binarySearch, asList, stream. Array variables are references — use clone() to copy.",
+      "code": "int[] a = {5, 2, 9, 1};\nArrays.sort(a);\nSystem.out.println(Arrays.toString(a)); // [1, 2, 5, 9]\nint[] b = Arrays.copyOf(a, 6);           // [1, 2, 5, 9, 0, 0]\nint[][] m = {{1, 2}, {3, 4}};\nSystem.out.println(m[1][0]);             // 3",
+      "sheet": [
+       [
+        "arr.length",
+        "size"
+       ],
+       [
+        "Arrays.sort(a)",
+        "sort"
+       ],
+       [
+        "Arrays.toString(a)",
+        "print"
+       ],
+       [
+        "Arrays.fill(a, v)",
+        "fill"
+       ],
+       [
+        "Arrays.copyOf(a, n)",
+        "copy/resize"
+       ],
+       [
+        "Arrays.equals(a, b)",
+        "compare content"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 4,
+     "title": "ArrayList & Collections",
+     "topic": "arraylist",
+     "premium": true,
+     "lesson": {
+      "summary": "ArrayList<Integer> is a resizable list: add, add(i, x), get, set, remove(int index) vs remove(Object), size, contains, indexOf, clear, isEmpty, subList. Collections: sort, reverse, max, min, frequency, swap. List.of is immutable, Arrays.asList is fixed-size. Stack/ArrayDeque are LIFO, Queue/LinkedList FIFO.",
+      "code": "List<Integer> list = new ArrayList<>();\nlist.add(10); list.add(20); list.add(1, 15);   // [10, 15, 20]\nlist.remove(0);                                 // [15, 20]  (by index)\nlist.remove(Integer.valueOf(20));               // [15]      (by value)\nCollections.addAll(list, 7, 3);\nCollections.sort(list);\nSystem.out.println(list);                       // [3, 7, 15]",
+      "sheet": [
+       [
+        "add / add(i, x)",
+        "insert"
+       ],
+       [
+        "get / set",
+        "read / replace"
+       ],
+       [
+        "remove(i) / remove(obj)",
+        "delete"
+       ],
+       [
+        "size / contains / indexOf",
+        "query"
+       ],
+       [
+        "Collections.sort/max/min",
+        "utilities"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 5,
+     "title": "HashMap, HashSet & TreeMap",
+     "topic": "maps-sets",
+     "premium": true,
+     "lesson": {
+      "summary": "Map<K, V>: put (returns old value), get (null if missing), getOrDefault, containsKey, remove, putIfAbsent, merge, keySet, values, entrySet. HashMap = no order, LinkedHashMap = insertion order, TreeMap = sorted keys. Set<E>: add (false if duplicate), contains, remove, size; HashSet / LinkedHashSet / TreeSet (sorted, first/last). addAll/retainAll/removeAll = union/intersection/difference.",
+      "code": "Map<String, Integer> ages = new TreeMap<>();\nages.put(\"Ravi\", 25);\nages.put(\"Asha\", 21);\nSystem.out.println(ages);                       // {Asha=21, Ravi=25}\nSystem.out.println(ages.getOrDefault(\"Dev\", 0)); // 0\nSet<Integer> s = new TreeSet<>(List.of(3, 1, 3));\nSystem.out.println(s);                          // [1, 3]",
+      "sheet": [
+       [
+        "put / get",
+        "write / read"
+       ],
+       [
+        "getOrDefault",
+        "safe read"
+       ],
+       [
+        "merge(k, 1, Integer::sum)",
+        "count"
+       ],
+       [
+        "entrySet()",
+        "iterate pairs"
+       ],
+       [
+        "TreeSet first/last",
+        "sorted set"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 6,
+     "title": "Conditional Statements",
+     "topic": "conditionals",
+     "premium": true,
+     "lesson": {
+      "summary": "if / else if / else — conditions must be boolean. switch (int, char, String, enum) jumps to a case and falls through until break. Ternary: cond ? a : b. && and || short-circuit. Compare Strings with equals().",
+      "code": "int score = 82;\nString grade;\nif (score >= 90) grade = \"A\";\nelse if (score >= 75) grade = \"B\";\nelse grade = \"C\";\nswitch (grade) {\n    case \"A\": System.out.println(\"Excellent\"); break;\n    case \"B\": System.out.println(\"Good\"); break;\n    default: System.out.println(\"Keep going\");\n}",
+      "sheet": [
+       [
+        "if / else if / else",
+        "branch"
+       ],
+       [
+        "switch + break",
+        "multi-way"
+       ],
+       [
+        "c ? a : b",
+        "ternary"
+       ],
+       [
+        "&& || !",
+        "logic"
+       ],
+       [
+        "a.equals(b)",
+        "String compare"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 7,
+     "title": "Loops",
+     "topic": "loops",
+     "premium": true,
+     "lesson": {
+      "summary": "for (init; condition; update), while, do-while (runs at least once) and the enhanced for (for (int x : arr)). break exits the loop, continue skips to the next iteration. The loop variable of an index loop keeps its final value if declared outside.",
+      "code": "for (int i = 0; i < 3; i++) System.out.print(i + \" \");\nint n = 0;\ndo { n++; } while (n < 3);\nint[] a = {1, 2, 3};\nfor (int x : a) System.out.print(x);",
+      "sheet": [
+       [
+        "for",
+        "counted"
+       ],
+       [
+        "while / do-while",
+        "condition"
+       ],
+       [
+        "for (T x : coll)",
+        "enhanced for"
+       ],
+       [
+        "break / continue",
+        "control"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 8,
+     "title": "Pattern Problems",
+     "topic": "patterns",
+     "premium": true,
+     "lesson": {
+      "summary": "Use nested loops: the outer loop is the row, the inner loops print spaces and stars with System.out.print, then System.out.println() ends the row. Java 11's \" \".repeat(k) builds a row in one expression.",
+      "code": "int n = 3;\nfor (int i = 1; i <= n; i++) {        // pyramid\n    for (int j = 0; j < n - i; j++) System.out.print(\" \");\n    for (int j = 0; j < 2 * i - 1; j++) System.out.print(\"*\");\n    System.out.println();\n}",
+      "sheet": [
+       [
+        "pyramid",
+        "\" \".repeat(n-i) + \"*\".repeat(2*i-1)"
+       ],
+       [
+        "rhombus",
+        "\" \".repeat(n-i) + \"*\".repeat(n)"
+       ],
+       [
+        "butterfly",
+        "\"*\".repeat(i) + \" \".repeat(2*(n-i)) + \"*\".repeat(i)"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 9,
+     "title": "Methods & Types of Methods",
+     "topic": "functions",
+     "premium": true,
+     "lesson": {
+      "summary": "Types: STATIC methods (belong to the class), INSTANCE methods (use an object's fields), CONSTRUCTORS, OVERLOADED methods (same name, different parameters), VARARGS (int... nums), RECURSIVE, ABSTRACT, and LAMBDAS implementing functional interfaces (Function, Predicate, Supplier, Consumer…). Java is always pass-by-value (references are copied).",
+      "code": "static int add(int a, int b) { return a + b; }\nstatic double add(double a, double b) { return a + b; }  // overload\nstatic int sum(int... nums) {                             // varargs\n    int s = 0;\n    for (int x : nums) s += x;\n    return s;\n}\nFunction<Integer, Integer> twice = x -> x * 2;             // lambda",
+      "sheet": [
+       [
+        "static int f(int x)",
+        "static method"
+       ],
+       [
+        "void m()",
+        "no return"
+       ],
+       [
+        "f(int) / f(double)",
+        "overloading"
+       ],
+       [
+        "int... nums",
+        "varargs"
+       ],
+       [
+        "x -> x * 2",
+        "lambda"
+       ],
+       [
+        "String::length",
+        "method ref"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 10,
+     "title": "Recursion & Types of Recursion",
+     "topic": "recursion",
+     "premium": true,
+     "lesson": {
+      "summary": "A recursive method calls itself with a smaller input until a BASE CASE stops it. Types: direct, indirect (mutual), tail, head, linear, tree and nested recursion. Too-deep recursion throws StackOverflowError.",
+      "code": "static int fact(int n) {\n    if (n <= 1) return 1;          // base case\n    return n * fact(n - 1);\n}\nstatic int fib(int n) {             // tree recursion\n    return n < 2 ? n : fib(n - 1) + fib(n - 2);\n}",
+      "sheet": [
+       [
+        "Base case",
+        "stops recursion"
+       ],
+       [
+        "Tail",
+        "call is last"
+       ],
+       [
+        "Head",
+        "call first"
+       ],
+       [
+        "Tree",
+        "many calls"
+       ],
+       [
+        "Indirect",
+        "A ↔ B"
+       ],
+       [
+        "Nested",
+        "f(f(n))"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "cpp",
+   "name": "C++",
+   "icon": "C++",
+   "color": "#8b5cf6",
+   "tagline": "Fast, powerful and close to the machine.",
+   "levels": [
+    {
+     "level": 1,
+     "title": "Basics, Types & Operators",
+     "topic": "variables",
+     "premium": false,
+     "lesson": {
+      "summary": "Every variable has a type: int, long long, double, char, bool, string. int / int truncates; cast with (double) or static_cast<double>. cout prints doubles with 6 significant digits and drops trailing zeros; bools print as 1/0. char arithmetic uses character codes. Unsigned types wrap; signed overflow is undefined behaviour.",
+      "code": "int a = 7, b = 2;\ncout << a / b << endl;          // 3\ncout << (double) a / b << endl; // 3.5\ncout << a % b << endl;          // 1\ncout << 10.0 / 2 << endl;       // 5\ncout << (a > b) << endl;        // 1\ncout << char('A' + 2) << endl;  // C",
+      "sheet": [
+       [
+        "int / double / char / bool",
+        "types"
+       ],
+       [
+        "static_cast<T>(x)",
+        "cast"
+       ],
+       [
+        "pow / sqrt / abs",
+        "<cmath>"
+       ],
+       [
+        "stoi / to_string",
+        "convert"
+       ],
+       [
+        "fixed << setprecision(n)",
+        "decimals"
+       ],
+       [
+        "boolalpha",
+        "print true/false"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 2,
+     "title": "std::string & String Functions",
+     "topic": "strings",
+     "premium": false,
+     "lesson": {
+      "summary": "std::string is MUTABLE. size()/length(), s[i] and at(i), substr(pos, LEN), find/rfind (npos if missing), append/+=, insert, erase(pos, len), replace(pos, len, str), push_back/pop_back, empty, front/back. Compare with == and <. Convert with stoi/to_string. <algorithm> (sort, reverse, count) works on strings.",
+      "code": "string s = \"Hello World\";\ncout << s.size() << endl;          // 11\ncout << s.substr(6, 5) << endl;    // World\ncout << s.find(\"o\") << endl;       // 4\ns.replace(0, 5, \"Hi\");\ncout << s << endl;                 // Hi World\nreverse(s.begin(), s.end());",
+      "sheet": [
+       [
+        "s.length()",
+        "returns the number of characters"
+       ],
+       [
+        "s.size()",
+        "returns the number of characters (same as length)"
+       ],
+       [
+        "s.empty()",
+        "is true when the string has no characters"
+       ],
+       [
+        "s.front()",
+        "returns the first character"
+       ],
+       [
+        "s.back()",
+        "returns the last character"
+       ],
+       [
+        "s.at()",
+        "returns the char at an index with bounds checking (throws out_of_range)"
+       ],
+       [
+        "s.find()",
+        "returns the first index of a substring or string::npos"
+       ],
+       [
+        "s.rfind()",
+        "returns the last index of a substring or string::npos"
+       ],
+       [
+        "s.find_first_of()",
+        "returns the first index of ANY of the given characters"
+       ],
+       [
+        "s.substr()",
+        "returns len characters starting at pos: substr(pos, len)"
+       ],
+       [
+        "s.append()",
+        "adds text at the end (modifies the string)"
+       ],
+       [
+        "s.insert()",
+        "inserts text at a position"
+       ],
+       [
+        "s.erase()",
+        "removes characters: erase(pos, len)"
+       ],
+       [
+        "s.replace()",
+        "replaces len characters at pos with new text"
+       ],
+       [
+        "s.push_back()",
+        "adds one character at the end"
+       ],
+       [
+        "s.pop_back()",
+        "removes the last character"
+       ],
+       [
+        "s.clear()",
+        "removes all characters"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 3,
+     "title": "Arrays, vector & STL Algorithms",
+     "topic": "arrays",
+     "premium": true,
+     "lesson": {
+      "summary": "C arrays have a fixed size. vector<int> grows: push_back, pop_back, insert/erase with iterators, size, front, back, at (checked), resize, clear. Vectors COPY on assignment. Range-for by reference (int& x) modifies elements. <algorithm>: sort, reverse, max_element, count, find, binary_search, lower_bound, unique; <numeric>: accumulate.",
+      "code": "vector<int> v = {5, 2, 9, 1};\nv.push_back(7);\nsort(v.begin(), v.end());          // 1 2 5 7 9\ncout << *max_element(v.begin(), v.end()) << endl;  // 9\ncout << accumulate(v.begin(), v.end(), 0) << endl; // 24\nfor (int& x : v) x *= 2;           // doubles each element",
+      "sheet": [
+       [
+        "push_back / pop_back",
+        "end ops"
+       ],
+       [
+        "insert / erase",
+        "by iterator"
+       ],
+       [
+        "sort(v.begin(), v.end())",
+        "sort"
+       ],
+       [
+        "*max_element(...)",
+        "max"
+       ],
+       [
+        "accumulate(b, e, 0)",
+        "sum"
+       ],
+       [
+        "for (int& x : v)",
+        "modify"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 4,
+     "title": "map, unordered_map & pair",
+     "topic": "maps",
+     "premium": true,
+     "lesson": {
+      "summary": "map<K, V> keeps keys sorted; unordered_map uses hashing (no order, faster). m[k] inserts a default (0) if missing; at(k) throws; count(k) is 1/0; find returns an iterator or end(); insert does not overwrite. Iterate with for (auto& [k, v] : m). pair/tuple group values; structured bindings unpack them.",
+      "code": "map<string, int> age;\nage[\"Ravi\"] = 25;\nage[\"Asha\"] = 21;\nfor (auto& [k, v] : age) cout << k << \"=\" << v << \" \";  // Asha=21 Ravi=25\ncout << age.count(\"Dev\") << endl;   // 0\nmap<char, int> f;\nfor (char c : string(\"aab\")) f[c]++;",
+      "sheet": [
+       [
+        "m[k]",
+        "access/insert"
+       ],
+       [
+        "m.at(k)",
+        "checked access"
+       ],
+       [
+        "m.count(k)",
+        "exists?"
+       ],
+       [
+        "m.find(k)",
+        "iterator"
+       ],
+       [
+        "auto& [k, v]",
+        "iterate"
+       ],
+       [
+        "pair / make_pair",
+        "two values"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 5,
+     "title": "set, multiset, stack & queue",
+     "topic": "sets",
+     "premium": true,
+     "lesson": {
+      "summary": "set keeps unique sorted values (insert, erase, count, find, lower_bound, begin/rbegin). multiset allows duplicates — erase(value) removes ALL copies. unordered_set is a hash set. Container adaptors: stack (LIFO: push/pop/top), queue (FIFO: push/pop/front), priority_queue (largest first), deque (both ends).",
+      "code": "set<int> s = {5, 1, 5, 3};\nfor (int x : s) cout << x << \" \";   // 1 3 5\nstack<int> st;\nst.push(1); st.push(2);\ncout << st.top() << endl;            // 2\npriority_queue<int> pq;\npq.push(4); pq.push(9);\ncout << pq.top() << endl;            // 9",
+      "sheet": [
+       [
+        "set / multiset",
+        "sorted"
+       ],
+       [
+        "unordered_set",
+        "hashed"
+       ],
+       [
+        "lower_bound",
+        "first ≥ x"
+       ],
+       [
+        "stack",
+        "LIFO"
+       ],
+       [
+        "queue",
+        "FIFO"
+       ],
+       [
+        "priority_queue",
+        "max-heap"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 6,
+     "title": "Conditional Statements",
+     "topic": "conditionals",
+     "premium": true,
+     "lesson": {
+      "summary": "if / else if / else; any non-zero value is true. switch works on integers and chars and falls through until break. Ternary: cond ? a : b. && and || short-circuit. Beware = (assignment) vs == (comparison) inside conditions.",
+      "code": "int score = 82;\nif (score >= 90) cout << \"A\";\nelse if (score >= 75) cout << \"B\";\nelse cout << \"C\";\nswitch (score / 10) {\n    case 9: cout << \"Top\"; break;\n    case 8: cout << \"Great\"; break;\n    default: cout << \"OK\";\n}",
+      "sheet": [
+       [
+        "if / else if / else",
+        "branch"
+       ],
+       [
+        "switch + break",
+        "multi-way"
+       ],
+       [
+        "c ? a : b",
+        "ternary"
+       ],
+       [
+        "&& || !",
+        "logic"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 7,
+     "title": "Loops",
+     "topic": "loops",
+     "premium": true,
+     "lesson": {
+      "summary": "for (init; cond; step), while, do-while (runs at least once) and range-based for (for (int x : v)). break exits, continue skips to the next iteration.",
+      "code": "for (int i = 0; i < 3; i++) cout << i << \" \";\nint n = 0;\ndo { n++; } while (n < 3);\nvector<int> v = {1, 2, 3};\nfor (int x : v) cout << x;",
+      "sheet": [
+       [
+        "for",
+        "counted"
+       ],
+       [
+        "while / do-while",
+        "condition"
+       ],
+       [
+        "for (auto x : v)",
+        "range-for"
+       ],
+       [
+        "break / continue",
+        "control"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 8,
+     "title": "Pattern Problems",
+     "topic": "patterns",
+     "premium": true,
+     "lesson": {
+      "summary": "Nested loops: the outer loop controls rows; inner loops print spaces and stars; cout << endl ends a row. string(k, '*') builds k stars in one go.",
+      "code": "int n = 3;\nfor (int i = 1; i <= n; i++) {          // pyramid\n    cout << string(n - i, ' ') << string(2 * i - 1, '*') << endl;\n}",
+      "sheet": [
+       [
+        "pyramid",
+        "string(n-i,' ') + string(2*i-1,'*')"
+       ],
+       [
+        "rhombus",
+        "string(n-i,' ') + string(n,'*')"
+       ],
+       [
+        "butterfly",
+        "stars(i) + spaces(2*(n-i)) + stars(i)"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 9,
+     "title": "Functions & Types of Functions",
+     "topic": "functions",
+     "premium": true,
+     "lesson": {
+      "summary": "Parameter passing: by VALUE (copy), by REFERENCE (int&), by POINTER (int*). Also: default arguments, overloading, templates (generic T), inline functions, static local variables and lambdas with capture lists ([=], [&], [x], [&x]).",
+      "code": "void byVal(int x) { x = 0; }          // caller unchanged\nvoid byRef(int& x) { x = 0; }         // caller changed\nint area(int w, int h = 3) { return w * h; }\ntemplate <typename T> T big(T a, T b) { return a > b ? a : b; }\nauto twice = [](int x) { return x * 2; };",
+      "sheet": [
+       [
+        "f(int x)",
+        "by value"
+       ],
+       [
+        "f(int& x)",
+        "by reference"
+       ],
+       [
+        "f(int* p)",
+        "by pointer"
+       ],
+       [
+        "int h = 3",
+        "default arg"
+       ],
+       [
+        "template <typename T>",
+        "generic"
+       ],
+       [
+        "[&](int x){…}",
+        "lambda"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 10,
+     "title": "Recursion & Types of Recursion",
+     "topic": "recursion",
+     "premium": true,
+     "lesson": {
+      "summary": "A recursive function calls itself on a smaller problem until a BASE CASE. Types: direct, indirect, tail, head, linear, tree and nested recursion. Deep recursion can overflow the call stack.",
+      "code": "int fact(int n) {\n    if (n <= 1) return 1;       // base case\n    return n * fact(n - 1);\n}\nint fib(int n) {                // tree recursion\n    return n < 2 ? n : fib(n - 1) + fib(n - 2);\n}",
+      "sheet": [
+       [
+        "Base case",
+        "stops recursion"
+       ],
+       [
+        "Tail",
+        "call is last"
+       ],
+       [
+        "Head",
+        "call first"
+       ],
+       [
+        "Tree",
+        "many calls"
+       ],
+       [
+        "Indirect",
+        "A ↔ B"
+       ],
+       [
+        "Nested",
+        "f(f(n))"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "sql",
+   "name": "SQL",
+   "icon": "SQL",
+   "color": "#10b981",
+   "tagline": "Talk to databases — DDL, DML, DQL, DCL & TCL.",
+   "levels": [
+    {
+     "level": 1,
+     "title": "DDL — CREATE, ALTER, DROP & Constraints",
+     "topic": "ddl",
+     "premium": false,
+     "lesson": {
+      "summary": "DDL (Data Definition Language) defines structure: CREATE TABLE, ALTER TABLE (ADD/RENAME/DROP COLUMN, RENAME TO), DROP TABLE, TRUNCATE TABLE. Constraints guard the data: PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL, CHECK, DEFAULT. (The practice engine is SQLite, which uses DELETE FROM instead of TRUNCATE.)",
+      "code": "CREATE TABLE students (\n  id INTEGER PRIMARY KEY,\n  email TEXT UNIQUE NOT NULL,\n  age INTEGER CHECK (age >= 5),\n  city TEXT DEFAULT 'Mumbai'\n);\nALTER TABLE students ADD COLUMN phone TEXT;\nDROP TABLE old_students;",
+      "sheet": [
+       [
+        "CREATE TABLE",
+        "new table"
+       ],
+       [
+        "ALTER TABLE … ADD COLUMN",
+        "change structure"
+       ],
+       [
+        "DROP TABLE",
+        "delete table"
+       ],
+       [
+        "TRUNCATE TABLE",
+        "delete all rows"
+       ],
+       [
+        "PRIMARY KEY / UNIQUE",
+        "no duplicates"
+       ],
+       [
+        "NOT NULL / CHECK / DEFAULT",
+        "rules"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 2,
+     "title": "DML — INSERT, UPDATE, DELETE",
+     "topic": "dml",
+     "premium": false,
+     "lesson": {
+      "summary": "DML (Data Manipulation Language) changes rows: INSERT INTO … VALUES (one or many rows, or INSERT … SELECT), UPDATE … SET … WHERE, DELETE FROM … WHERE. Forgetting WHERE affects EVERY row. Upserts: INSERT OR REPLACE / ON CONFLICT DO UPDATE (MERGE in other databases).",
+      "code": "INSERT INTO emp (name, dept, salary) VALUES ('Asha', 'IT', 50000);\nUPDATE emp SET salary = salary + 5000 WHERE dept = 'IT';\nDELETE FROM emp WHERE salary < 30000;",
+      "sheet": [
+       [
+        "INSERT INTO t (cols) VALUES (…)",
+        "add"
+       ],
+       [
+        "UPDATE t SET c = v WHERE …",
+        "modify"
+       ],
+       [
+        "DELETE FROM t WHERE …",
+        "remove"
+       ],
+       [
+        "INSERT … SELECT",
+        "copy rows"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 3,
+     "title": "DQL — SELECT, WHERE & Operators",
+     "topic": "select",
+     "premium": true,
+     "lesson": {
+      "summary": "DQL (Data Query Language) = SELECT. Choose columns (or expressions), filter rows with WHERE using =, <>, <, >, BETWEEN (inclusive), IN, LIKE (% any, _ one), IS NULL, AND/OR/NOT. DISTINCT removes duplicates. NULL is never equal to anything — use IS NULL.",
+      "code": "SELECT name, salary\nFROM emp\nWHERE dept = 'IT' AND salary BETWEEN 40000 AND 60000;\n\nSELECT DISTINCT city FROM emp WHERE name LIKE 'A%';",
+      "sheet": [
+       [
+        "SELECT cols FROM t",
+        "read"
+       ],
+       [
+        "WHERE cond",
+        "filter"
+       ],
+       [
+        "BETWEEN a AND b",
+        "range"
+       ],
+       [
+        "LIKE 'A%'",
+        "pattern"
+       ],
+       [
+        "IS NULL",
+        "missing"
+       ],
+       [
+        "DISTINCT",
+        "unique rows"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 4,
+     "title": "ORDER BY, LIMIT, Aliases & CASE",
+     "topic": "order-by",
+     "premium": true,
+     "lesson": {
+      "summary": "ORDER BY col [ASC|DESC], extra columns break ties; NULLs sort first in SQLite. LIMIT n OFFSET m for paging (TOP / FETCH FIRST in other databases). AS creates aliases. CASE WHEN … THEN … ELSE … END builds conditional values.",
+      "code": "SELECT name, salary * 12 AS yearly,\n  CASE WHEN salary >= 60000 THEN 'High' ELSE 'Normal' END AS band\nFROM emp\nORDER BY yearly DESC, name\nLIMIT 3 OFFSET 0;",
+      "sheet": [
+       [
+        "ORDER BY c DESC",
+        "sort"
+       ],
+       [
+        "LIMIT n OFFSET m",
+        "paging"
+       ],
+       [
+        "AS alias",
+        "rename"
+       ],
+       [
+        "CASE WHEN … END",
+        "conditional"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 5,
+     "title": "Aggregates, GROUP BY & HAVING",
+     "topic": "group-by",
+     "premium": true,
+     "lesson": {
+      "summary": "COUNT(*), COUNT(col) (non-NULL only), SUM, AVG, MIN, MAX. GROUP BY produces one row per group; HAVING filters groups (WHERE filters rows before grouping). Order: SELECT … FROM … WHERE … GROUP BY … HAVING … ORDER BY … LIMIT.",
+      "code": "SELECT dept, COUNT(*) AS n, AVG(salary)\nFROM emp\nWHERE salary > 30000\nGROUP BY dept\nHAVING COUNT(*) > 1\nORDER BY dept;",
+      "sheet": [
+       [
+        "COUNT(*) / COUNT(c)",
+        "count"
+       ],
+       [
+        "SUM / AVG",
+        "totals"
+       ],
+       [
+        "MIN / MAX",
+        "extremes"
+       ],
+       [
+        "GROUP BY",
+        "groups"
+       ],
+       [
+        "HAVING",
+        "filter groups"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 6,
+     "title": "JOINs",
+     "topic": "joins",
+     "premium": true,
+     "lesson": {
+      "summary": "Combine tables on a condition: INNER JOIN (matches only), LEFT JOIN (all left rows, NULLs for no match), RIGHT JOIN, FULL OUTER JOIN, CROSS JOIN (every combination) and SELF JOIN (a table with itself via aliases).",
+      "code": "SELECT e.name, d.dname\nFROM emp e\nLEFT JOIN dept d ON e.dept_id = d.id;\n\nSELECT e.name, m.name AS manager\nFROM emp e JOIN emp m ON e.manager_id = m.id;",
+      "sheet": [
+       [
+        "INNER JOIN",
+        "matches"
+       ],
+       [
+        "LEFT JOIN",
+        "all left"
+       ],
+       [
+        "RIGHT JOIN",
+        "all right"
+       ],
+       [
+        "FULL OUTER JOIN",
+        "all"
+       ],
+       [
+        "CROSS JOIN",
+        "a × b"
+       ],
+       [
+        "SELF JOIN",
+        "same table"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 7,
+     "title": "Subqueries & Set Operations",
+     "topic": "subqueries",
+     "premium": true,
+     "lesson": {
+      "summary": "Subqueries: scalar (one value), IN (list), EXISTS, correlated (uses the outer row), derived tables in FROM. Set operations combine results: UNION (distinct), UNION ALL, INTERSECT, EXCEPT/MINUS.",
+      "code": "SELECT name FROM emp\nWHERE salary > (SELECT AVG(salary) FROM emp);\n\nSELECT city FROM customers\nUNION\nSELECT city FROM suppliers;",
+      "sheet": [
+       [
+        "(SELECT AVG(…))",
+        "scalar"
+       ],
+       [
+        "IN (SELECT …)",
+        "list"
+       ],
+       [
+        "EXISTS",
+        "any row?"
+       ],
+       [
+        "UNION / UNION ALL",
+        "combine"
+       ],
+       [
+        "INTERSECT / EXCEPT",
+        "common / difference"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 8,
+     "title": "Built-in Functions",
+     "topic": "functions",
+     "premium": true,
+     "lesson": {
+      "summary": "String: UPPER, LOWER, LENGTH, SUBSTR (1-based), REPLACE, TRIM, INSTR, ||. Numeric: ROUND, ABS, %, CAST. NULL handling: COALESCE, IFNULL, NULLIF. Dates (SQLite): date(d, '+7 days'), strftime('%Y', d), julianday.",
+      "code": "SELECT UPPER(name), LENGTH(city), SUBSTR(name, 1, 3),\n       ROUND(salary / 12.0, 2), COALESCE(bonus, 0),\n       date(joined, '+1 month')\nFROM emp;",
+      "sheet": [
+       [
+        "UPPER / LOWER / LENGTH",
+        "text"
+       ],
+       [
+        "SUBSTR(s, i, n)",
+        "slice"
+       ],
+       [
+        "ROUND(x, d)",
+        "round"
+       ],
+       [
+        "COALESCE(a, b)",
+        "first non-NULL"
+       ],
+       [
+        "date(d, '+1 day')",
+        "dates"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 9,
+     "title": "TCL — Transactions (COMMIT, ROLLBACK, SAVEPOINT)",
+     "topic": "transactions",
+     "premium": true,
+     "lesson": {
+      "summary": "TCL (Transaction Control Language): BEGIN starts a transaction, COMMIT saves it permanently, ROLLBACK undoes it, SAVEPOINT marks a point you can ROLLBACK TO. Transactions give ACID guarantees: Atomicity, Consistency, Isolation, Durability.",
+      "code": "BEGIN;\nUPDATE acct SET bal = bal - 500 WHERE id = 1;\nSAVEPOINT after_debit;\nUPDATE acct SET bal = bal + 500 WHERE id = 2;\nROLLBACK TO after_debit;   -- undo only the credit\nCOMMIT;",
+      "sheet": [
+       [
+        "BEGIN",
+        "start"
+       ],
+       [
+        "COMMIT",
+        "save"
+       ],
+       [
+        "ROLLBACK",
+        "undo"
+       ],
+       [
+        "SAVEPOINT s",
+        "checkpoint"
+       ],
+       [
+        "ROLLBACK TO s",
+        "partial undo"
+       ],
+       [
+        "ACID",
+        "guarantees"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 10,
+     "title": "DCL — GRANT & REVOKE (+ SQL sub-languages)",
+     "topic": "dcl",
+     "premium": true,
+     "lesson": {
+      "summary": "DCL (Data Control Language) manages permissions: GRANT privileges ON object TO user [WITH GRANT OPTION]; REVOKE privileges ON object FROM user. Privileges: SELECT, INSERT, UPDATE, DELETE, ALL PRIVILEGES, EXECUTE. SQL commands fall into DDL, DML, DQL, DCL and TCL.",
+      "code": "GRANT SELECT, INSERT ON orders TO ravi;\nGRANT ALL PRIVILEGES ON reports TO manager WITH GRANT OPTION;\nREVOKE INSERT ON orders FROM ravi;",
+      "sheet": [
+       [
+        "GRANT … TO",
+        "give"
+       ],
+       [
+        "REVOKE … FROM",
+        "take away"
+       ],
+       [
+        "WITH GRANT OPTION",
+        "can re-grant"
+       ],
+       [
+        "DDL / DML / DQL",
+        "structure / data / query"
+       ],
+       [
+        "DCL / TCL",
+        "permissions / transactions"
+       ]
+      ]
+     }
+    },
+    {
+     "level": 11,
+     "title": "Views, Indexes & Window Functions",
+     "topic": "advanced",
+     "premium": true,
+     "lesson": {
+      "summary": "VIEW = saved query (virtual table, always current). INDEX = faster lookups (UNIQUE INDEX also blocks duplicates). Window functions compute across rows without grouping them: ROW_NUMBER, RANK, DENSE_RANK, SUM/COUNT OVER (PARTITION BY …), running totals, LAG/LEAD.",
+      "code": "CREATE VIEW it_staff AS SELECT name, salary FROM emp WHERE dept = 'IT';\nCREATE INDEX idx_dept ON emp(dept);\nSELECT name,\n       RANK() OVER (ORDER BY salary DESC) AS rk,\n       SUM(salary) OVER (PARTITION BY dept) AS dept_total\nFROM emp;",
+      "sheet": [
+       [
+        "CREATE VIEW v AS SELECT …",
+        "view"
+       ],
+       [
+        "CREATE INDEX i ON t(c)",
+        "index"
+       ],
+       [
+        "ROW_NUMBER() OVER (…)",
+        "numbering"
+       ],
+       [
+        "RANK / DENSE_RANK",
+        "ranking"
+       ],
+       [
+        "PARTITION BY",
+        "groups"
+       ],
+       [
+        "LAG / LEAD",
+        "neighbours"
+       ]
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Runtime data — never commit: user accounts, passwords (hashed), payments, secret key, backups
+data/*
+!data/.gitkeep
+
+# Local environment / editor files
+.env
+.DS_Store
+.idea/
+.vscode/

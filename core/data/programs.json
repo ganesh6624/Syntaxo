@@ -1,0 +1,333 @@
+[
+ {
+  "id": "prime",
+  "keys": [
+   "prime number",
+   "prime",
+   "primes",
+   "check prime"
+  ],
+  "title": "Prime number check",
+  "idea": "A prime has exactly two divisors: 1 and itself. Test divisors only up to √n — if none divides n, it is prime.",
+  "code": {
+   "python": "def is_prime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True\n\nprint(29, \"is prime?\", is_prime(29))\nprint(\"Primes up to 30:\", [x for x in range(2, 31) if is_prime(x)])",
+   "javascript": "function isPrime(n) {\n  if (n < 2) return false;\n  for (let i = 2; i * i <= n; i++) if (n % i === 0) return false;\n  return true;\n}\nconsole.log(29, \"is prime?\", isPrime(29) ? \"True\" : \"False\");\nconst primes = [];\nfor (let x = 2; x <= 30; x++) if (isPrime(x)) primes.push(x);\nconsole.log(\"Primes up to 30: [\" + primes.join(\", \") + \"]\");",
+   "java": "public class Main {\n    static boolean isPrime(int n) {\n        if (n < 2) return false;\n        for (int i = 2; i * i <= n; i++) if (n % i == 0) return false;\n        return true;\n    }\n    public static void main(String[] args) {\n        System.out.println(\"29 is prime? \" + (isPrime(29) ? \"True\" : \"False\"));\n        StringBuilder sb = new StringBuilder();\n        for (int x = 2; x <= 30; x++) if (isPrime(x)) sb.append(sb.length() > 0 ? \", \" : \"\").append(x);\n        System.out.println(\"Primes up to 30: [\" + sb + \"]\");\n    }\n}",
+   "cpp": "#include <iostream>\nusing namespace std;\n\nbool isPrime(int n) {\n    if (n < 2) return false;\n    for (int i = 2; i * i <= n; i++) if (n % i == 0) return false;\n    return true;\n}\n\nint main() {\n    cout << \"29 is prime? \" << (isPrime(29) ? \"True\" : \"False\") << endl;\n    cout << \"Primes up to 30: [\";\n    bool first = true;\n    for (int x = 2; x <= 30; x++) if (isPrime(x)) { cout << (first ? \"\" : \", \") << x; first = false; }\n    cout << \"]\" << endl;\n    return 0;\n}"
+  },
+  "output": "29 is prime? True\nPrimes up to 30: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]"
+ },
+ {
+  "id": "palindrome",
+  "keys": [
+   "palindrome",
+   "palindrome number",
+   "palindrome string",
+   "check palindrome"
+  ],
+  "title": "Palindrome check",
+  "idea": "A palindrome reads the same forwards and backwards. Compare the text with its reverse (for numbers, reverse the digits).",
+  "code": {
+   "python": "def is_palindrome(s):\n    s = s.lower()\n    return s == s[::-1]\n\nfor w in [\"Madam\", \"coder\", \"121\"]:\n    print(w, \"->\", is_palindrome(w))",
+   "javascript": "const isPalindrome = (s) => {\n  s = s.toLowerCase();\n  return s === [...s].reverse().join(\"\");\n};\nfor (const w of [\"Madam\", \"coder\", \"121\"]) console.log(w, \"->\", isPalindrome(w) ? \"True\" : \"False\");",
+   "java": "public class Main {\n    static boolean isPalindrome(String s) {\n        s = s.toLowerCase();\n        return s.equals(new StringBuilder(s).reverse().toString());\n    }\n    public static void main(String[] args) {\n        for (String w : new String[]{\"Madam\", \"coder\", \"121\"})\n            System.out.println(w + \" -> \" + (isPalindrome(w) ? \"True\" : \"False\"));\n    }\n}",
+   "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\n\nbool isPalindrome(string s) {\n    for (char &c : s) c = tolower(c);\n    string r(s.rbegin(), s.rend());\n    return s == r;\n}\n\nint main() {\n    for (string w : {\"Madam\", \"coder\", \"121\"})\n        cout << w << \" -> \" << (isPalindrome(w) ? \"True\" : \"False\") << endl;\n    return 0;\n}"
+  },
+  "output": "Madam -> True\ncoder -> False\n121 -> True"
+ },
+ {
+  "id": "fibonacci",
+  "keys": [
+   "fibonacci series",
+   "fibonacci",
+   "fibonacci sequence",
+   "fib series"
+  ],
+  "title": "Fibonacci series",
+  "idea": "Each term is the sum of the previous two: 0, 1, 1, 2, 3, 5 … Keep two variables and slide them forward in a loop.",
+  "code": {
+   "python": "n = 10\na, b = 0, 1\nfor _ in range(n):\n    print(a, end=\" \")\n    a, b = b, a + b\nprint()",
+   "javascript": "const n = 10;\nlet a = 0, b = 1;\nconst out = [];\nfor (let i = 0; i < n; i++) {\n  out.push(a);\n  [a, b] = [b, a + b];\n}\nconsole.log(out.join(\" \"));",
+   "java": "public class Main {\n    public static void main(String[] args) {\n        int n = 10, a = 0, b = 1;\n        for (int i = 0; i < n; i++) {\n            System.out.print(a + (i < n - 1 ? \" \" : \"\\n\"));\n            int next = a + b;\n            a = b;\n            b = next;\n        }\n    }\n}",
+   "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n = 10, a = 0, b = 1;\n    for (int i = 0; i < n; i++) {\n        cout << a << (i < n - 1 ? \" \" : \"\\n\");\n        int next = a + b;\n        a = b;\n        b = next;\n    }\n    return 0;\n}"
+  },
+  "output": "0 1 1 2 3 5 8 13 21 34"
+ },
+ {
+  "id": "factorial",
+  "keys": [
+   "factorial",
+   "factorial program",
+   "factorial of a number"
+  ],
+  "title": "Factorial (loop)",
+  "idea": "n! = 1 × 2 × … × n. Start with 1 and multiply in a loop. (Ask me \"recursion\" for the recursive version.)",
+  "code": {
+   "python": "n = 5\nfact = 1\nfor i in range(1, n + 1):\n    fact *= i\nprint(f\"{n}! = {fact}\")",
+   "javascript": "const n = 5;\nlet fact = 1;\nfor (let i = 1; i <= n; i++) fact *= i;\nconsole.log(`${n}! = ${fact}`);",
+   "java": "public class Main {\n    public static void main(String[] args) {\n        int n = 5;\n        long fact = 1;\n        for (int i = 1; i <= n; i++) fact *= i;\n        System.out.println(n + \"! = \" + fact);\n    }\n}",
+   "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n = 5;\n    long long fact = 1;\n    for (int i = 1; i <= n; i++) fact *= i;\n    cout << n << \"! = \" << fact << endl;\n    return 0;\n}"
+  },
+  "output": "5! = 120"
+ },
+ {
+  "id": "reversenum",
+  "keys": [
+   "reverse a number",
+   "reverse number",
+   "reverse the number",
+   "reverse digits",
+   "reverse of a number"
+  ],
+  "title": "Reverse a number",
+  "idea": "Repeatedly take the last digit with `% 10`, append it to the result (`rev * 10 + digit`), and drop it with integer division by 10.",
+  "code": {
+   "python": "n = 12345\nrev = 0\nwhile n > 0:\n    rev = rev * 10 + n % 10\n    n //= 10\nprint(\"Reversed:\", rev)",
+   "javascript": "let n = 12345, rev = 0;\nwhile (n > 0) {\n  rev = rev * 10 + (n % 10);\n  n = Math.floor(n / 10);\n}\nconsole.log(\"Reversed:\", rev);",
+   "java": "public class Main {\n    public static void main(String[] args) {\n        int n = 12345, rev = 0;\n        while (n > 0) {\n            rev = rev * 10 + n % 10;\n            n /= 10;\n        }\n        System.out.println(\"Reversed: \" + rev);\n    }\n}",
+   "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n = 12345, rev = 0;\n    while (n > 0) {\n        rev = rev * 10 + n % 10;\n        n /= 10;\n    }\n    cout << \"Reversed: \" << rev << endl;\n    return 0;\n}"
+  },
+  "output": "Reversed: 54321"
+ },
+ {
+  "id": "sumdigits",
+  "keys": [
+   "sum of digits",
+   "sum of digit",
+   "digit sum",
+   "add digits"
+  ],
+  "title": "Sum of digits",
+  "idea": "Take the last digit with `% 10`, add it, remove it with `// 10` (or `/ 10` for ints) until the number becomes 0.",
+  "code": {
+   "python": "n = 9875\ntotal = 0\nwhile n > 0:\n    total += n % 10\n    n //= 10\nprint(\"Sum of digits:\", total)",
+   "javascript": "let n = 9875, total = 0;\nwhile (n > 0) {\n  total += n % 10;\n  n = Math.floor(n / 10);\n}\nconsole.log(\"Sum of digits:\", total);",
+   "java": "public class Main {\n    public static void main(String[] args) {\n        int n = 9875, total = 0;\n        while (n > 0) {\n            total += n % 10;\n            n /= 10;\n        }\n        System.out.println(\"Sum of digits: \" + total);\n    }\n}",
+   "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n = 9875, total = 0;\n    while (n > 0) {\n        total += n % 10;\n        n /= 10;\n    }\n    cout << \"Sum of digits: \" << total << endl;\n    return 0;\n}"
+  },
+  "output": "Sum of digits: 29"
+ },
+ {
+  "id": "armstrong",
+  "keys": [
+   "armstrong number",
+   "armstrong",
+   "narcissistic number"
+  ],
+  "title": "Armstrong number",
+  "idea": "A number is Armstrong if the sum of each digit raised to the power of the number of digits equals the number (153 = 1³ + 5³ + 3³).",
+  "code": {
+   "python": "def is_armstrong(n):\n    digits = str(n)\n    k = len(digits)\n    return n == sum(int(d) ** k for d in digits)\n\nprint(153, is_armstrong(153))\nprint(\"Armstrong numbers below 1000:\", [x for x in range(1, 1000) if is_armstrong(x)])",
+   "javascript": "function isArmstrong(n) {\n  const digits = String(n);\n  const k = digits.length;\n  return n === [...digits].reduce((s, d) => s + Number(d) ** k, 0);\n}\nconsole.log(153, isArmstrong(153) ? \"True\" : \"False\");\nconst list = [];\nfor (let x = 1; x < 1000; x++) if (isArmstrong(x)) list.push(x);\nconsole.log(\"Armstrong numbers below 1000: [\" + list.join(\", \") + \"]\");",
+   "java": "public class Main {\n    static boolean isArmstrong(int n) {\n        String digits = String.valueOf(n);\n        int k = digits.length(), sum = 0;\n        for (char c : digits.toCharArray()) sum += (int) Math.pow(c - '0', k);\n        return sum == n;\n    }\n    public static void main(String[] args) {\n        System.out.println(\"153 \" + (isArmstrong(153) ? \"True\" : \"False\"));\n        StringBuilder sb = new StringBuilder();\n        for (int x = 1; x < 1000; x++) if (isArmstrong(x)) sb.append(sb.length() > 0 ? \", \" : \"\").append(x);\n        System.out.println(\"Armstrong numbers below 1000: [\" + sb + \"]\");\n    }\n}",
+   "cpp": "#include <iostream>\n#include <string>\n#include <cmath>\nusing namespace std;\n\nbool isArmstrong(int n) {\n    string digits = to_string(n);\n    int k = digits.size(), sum = 0;\n    for (char c : digits) sum += (int) round(pow(c - '0', k));\n    return sum == n;\n}\n\nint main() {\n    cout << \"153 \" << (isArmstrong(153) ? \"True\" : \"False\") << endl;\n    cout << \"Armstrong numbers below 1000: [\";\n    bool first = true;\n    for (int x = 1; x < 1000; x++) if (isArmstrong(x)) { cout << (first ? \"\" : \", \") << x; first = false; }\n    cout << \"]\" << endl;\n    return 0;\n}"
+  },
+  "output": "153 True\nArmstrong numbers below 1000: [1, 2, 3, 4, 5, 6, 7, 8, 9, 153, 370, 371, 407]"
+ },
+ {
+  "id": "leap",
+  "keys": [
+   "leap year",
+   "leap"
+  ],
+  "title": "Leap year check",
+  "idea": "A year is a leap year if it is divisible by 4 **and** not by 100 — unless it is also divisible by 400.",
+  "code": {
+   "python": "def is_leap(y):\n    return (y % 4 == 0 and y % 100 != 0) or y % 400 == 0\n\nfor y in [2024, 1900, 2000, 2023]:\n    print(y, \"leap\" if is_leap(y) else \"not leap\")",
+   "javascript": "const isLeap = (y) => (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;\nfor (const y of [2024, 1900, 2000, 2023]) console.log(y, isLeap(y) ? \"leap\" : \"not leap\");",
+   "java": "public class Main {\n    static boolean isLeap(int y) { return (y % 4 == 0 && y % 100 != 0) || y % 400 == 0; }\n    public static void main(String[] args) {\n        for (int y : new int[]{2024, 1900, 2000, 2023})\n            System.out.println(y + \" \" + (isLeap(y) ? \"leap\" : \"not leap\"));\n    }\n}",
+   "cpp": "#include <iostream>\nusing namespace std;\n\nbool isLeap(int y) { return (y % 4 == 0 && y % 100 != 0) || y % 400 == 0; }\n\nint main() {\n    for (int y : {2024, 1900, 2000, 2023})\n        cout << y << \" \" << (isLeap(y) ? \"leap\" : \"not leap\") << endl;\n    return 0;\n}"
+  },
+  "output": "2024 leap\n1900 not leap\n2000 leap\n2023 not leap"
+ },
+ {
+  "id": "evenodd",
+  "keys": [
+   "even or odd",
+   "even odd",
+   "odd or even",
+   "check even",
+   "even number",
+   "odd number"
+  ],
+  "title": "Even or odd",
+  "idea": "A number is even when the remainder after dividing by 2 is 0: `n % 2 == 0`.",
+  "code": {
+   "python": "for n in [7, 10, 0, -3]:\n    print(n, \"is\", \"even\" if n % 2 == 0 else \"odd\")",
+   "javascript": "for (const n of [7, 10, 0, -3]) console.log(n, \"is\", n % 2 === 0 ? \"even\" : \"odd\");",
+   "java": "public class Main {\n    public static void main(String[] args) {\n        for (int n : new int[]{7, 10, 0, -3})\n            System.out.println(n + \" is \" + (n % 2 == 0 ? \"even\" : \"odd\"));\n    }\n}",
+   "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    for (int n : {7, 10, 0, -3})\n        cout << n << \" is \" << (n % 2 == 0 ? \"even\" : \"odd\") << endl;\n    return 0;\n}"
+  },
+  "output": "7 is odd\n10 is even\n0 is even\n-3 is odd"
+ },
+ {
+  "id": "largest3",
+  "keys": [
+   "largest of three",
+   "greatest of three",
+   "largest of 3",
+   "greatest of 3",
+   "maximum of three",
+   "biggest of three",
+   "largest number",
+   "greatest number"
+  ],
+  "title": "Largest of three numbers",
+  "idea": "Compare with if / else-if — or use the built-in max function.",
+  "code": {
+   "python": "a, b, c = 12, 45, 27\nif a >= b and a >= c:\n    largest = a\nelif b >= c:\n    largest = b\nelse:\n    largest = c\nprint(\"Largest:\", largest)\nprint(\"Using max():\", max(a, b, c))",
+   "javascript": "const a = 12, b = 45, c = 27;\nlet largest;\nif (a >= b && a >= c) largest = a;\nelse if (b >= c) largest = b;\nelse largest = c;\nconsole.log(\"Largest:\", largest);\nconsole.log(\"Using max():\", Math.max(a, b, c));",
+   "java": "public class Main {\n    public static void main(String[] args) {\n        int a = 12, b = 45, c = 27, largest;\n        if (a >= b && a >= c) largest = a;\n        else if (b >= c) largest = b;\n        else largest = c;\n        System.out.println(\"Largest: \" + largest);\n        System.out.println(\"Using max(): \" + Math.max(a, Math.max(b, c)));\n    }\n}",
+   "cpp": "#include <iostream>\n#include <algorithm>\nusing namespace std;\n\nint main() {\n    int a = 12, b = 45, c = 27, largest;\n    if (a >= b && a >= c) largest = a;\n    else if (b >= c) largest = b;\n    else largest = c;\n    cout << \"Largest: \" << largest << endl;\n    cout << \"Using max(): \" << max({a, b, c}) << endl;\n    return 0;\n}"
+  },
+  "output": "Largest: 45\nUsing max(): 45"
+ },
+ {
+  "id": "swap",
+  "keys": [
+   "swap two numbers",
+   "swap two variables",
+   "swap numbers",
+   "swap variables",
+   "swapping",
+   "swap"
+  ],
+  "title": "Swap two numbers",
+  "idea": "Use a temporary variable (works everywhere). Python can swap in one line with tuple unpacking.",
+  "code": {
+   "python": "a, b = 5, 9\nprint(\"Before:\", a, b)\na, b = b, a          # tuple unpacking\nprint(\"After:\", a, b)",
+   "javascript": "let a = 5, b = 9;\nconsole.log(\"Before:\", a, b);\n[a, b] = [b, a];       // destructuring\nconsole.log(\"After:\", a, b);",
+   "java": "public class Main {\n    public static void main(String[] args) {\n        int a = 5, b = 9;\n        System.out.println(\"Before: \" + a + \" \" + b);\n        int temp = a;\n        a = b;\n        b = temp;\n        System.out.println(\"After: \" + a + \" \" + b);\n    }\n}",
+   "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int a = 5, b = 9;\n    cout << \"Before: \" << a << \" \" << b << endl;\n    int temp = a;\n    a = b;\n    b = temp;          // or: swap(a, b);\n    cout << \"After: \" << a << \" \" << b << endl;\n    return 0;\n}"
+  },
+  "output": "Before: 5 9\nAfter: 9 5"
+ },
+ {
+  "id": "gcd",
+  "keys": [
+   "gcd",
+   "hcf",
+   "lcm",
+   "greatest common divisor",
+   "highest common factor",
+   "least common multiple"
+  ],
+  "title": "GCD (HCF) and LCM",
+  "idea": "Euclid's algorithm: gcd(a, b) = gcd(b, a % b) until b is 0. Then lcm = a × b / gcd.",
+  "code": {
+   "python": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a\n\na, b = 12, 18\ng = gcd(a, b)\nprint(\"GCD:\", g)\nprint(\"LCM:\", a * b // g)",
+   "javascript": "function gcd(a, b) {\n  while (b) [a, b] = [b, a % b];\n  return a;\n}\nconst a = 12, b = 18, g = gcd(a, b);\nconsole.log(\"GCD:\", g);\nconsole.log(\"LCM:\", (a * b) / g);",
+   "java": "public class Main {\n    static int gcd(int a, int b) {\n        while (b != 0) { int t = b; b = a % b; a = t; }\n        return a;\n    }\n    public static void main(String[] args) {\n        int a = 12, b = 18, g = gcd(a, b);\n        System.out.println(\"GCD: \" + g);\n        System.out.println(\"LCM: \" + a * b / g);\n    }\n}",
+   "cpp": "#include <iostream>\nusing namespace std;\n\nint gcd(int a, int b) {\n    while (b != 0) { int t = b; b = a % b; a = t; }\n    return a;\n}\n\nint main() {\n    int a = 12, b = 18, g = gcd(a, b);\n    cout << \"GCD: \" << g << endl;\n    cout << \"LCM: \" << a * b / g << endl;\n    return 0;\n}"
+  },
+  "output": "GCD: 6\nLCM: 36"
+ },
+ {
+  "id": "vowels",
+  "keys": [
+   "count vowels",
+   "vowels",
+   "vowel",
+   "count consonants"
+  ],
+  "title": "Count vowels in a string",
+  "idea": "Loop over each character and check whether it is in \"aeiou\" (after converting to lowercase).",
+  "code": {
+   "python": "s = \"Programming Is Fun\"\nvowels = sum(1 for ch in s.lower() if ch in \"aeiou\")\nprint(\"Vowels:\", vowels)",
+   "javascript": "const s = \"Programming Is Fun\";\nlet vowels = 0;\nfor (const ch of s.toLowerCase()) if (\"aeiou\".includes(ch)) vowels++;\nconsole.log(\"Vowels:\", vowels);",
+   "java": "public class Main {\n    public static void main(String[] args) {\n        String s = \"Programming Is Fun\";\n        int vowels = 0;\n        for (char ch : s.toLowerCase().toCharArray())\n            if (\"aeiou\".indexOf(ch) != -1) vowels++;\n        System.out.println(\"Vowels: \" + vowels);\n    }\n}",
+   "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    string s = \"Programming Is Fun\";\n    int vowels = 0;\n    for (char ch : s) {\n        ch = tolower(ch);\n        if (string(\"aeiou\").find(ch) != string::npos) vowels++;\n    }\n    cout << \"Vowels: \" << vowels << endl;\n    return 0;\n}"
+  },
+  "output": "Vowels: 5"
+ },
+ {
+  "id": "reversestr",
+  "keys": [
+   "reverse a string",
+   "reverse string",
+   "reverse the string",
+   "string reverse"
+  ],
+  "title": "Reverse a string",
+  "idea": "Python: slicing `s[::-1]`. JavaScript: split → reverse → join. Java: `StringBuilder.reverse()`. C++: `reverse()` from `<algorithm>`. Or build it yourself with a loop from the end.",
+  "code": {
+   "python": "s = \"coding\"\nprint(s[::-1])\nrev = \"\"\nfor ch in s:\n    rev = ch + rev       # manual way\nprint(rev)",
+   "javascript": "const s = \"coding\";\nconsole.log(s.split(\"\").reverse().join(\"\"));\nlet rev = \"\";\nfor (const ch of s) rev = ch + rev;   // manual way\nconsole.log(rev);",
+   "java": "public class Main {\n    public static void main(String[] args) {\n        String s = \"coding\";\n        System.out.println(new StringBuilder(s).reverse());\n        String rev = \"\";\n        for (int i = s.length() - 1; i >= 0; i--) rev += s.charAt(i);   // manual way\n        System.out.println(rev);\n    }\n}",
+   "cpp": "#include <iostream>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint main() {\n    string s = \"coding\";\n    string r = s;\n    reverse(r.begin(), r.end());\n    cout << r << endl;\n    string rev = \"\";\n    for (int i = s.size() - 1; i >= 0; i--) rev += s[i];   // manual way\n    cout << rev << endl;\n    return 0;\n}"
+  },
+  "output": "gnidoc\ngnidoc"
+ },
+ {
+  "id": "table",
+  "keys": [
+   "multiplication table",
+   "table of",
+   "times table",
+   "print table"
+  ],
+  "title": "Multiplication table",
+  "idea": "A single loop from 1 to 10, printing `n × i` on each line.",
+  "code": {
+   "python": "n = 7\nfor i in range(1, 11):\n    print(f\"{n} x {i} = {n * i}\")",
+   "javascript": "const n = 7;\nfor (let i = 1; i <= 10; i++) console.log(`${n} x ${i} = ${n * i}`);",
+   "java": "public class Main {\n    public static void main(String[] args) {\n        int n = 7;\n        for (int i = 1; i <= 10; i++)\n            System.out.println(n + \" x \" + i + \" = \" + n * i);\n    }\n}",
+   "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n = 7;\n    for (int i = 1; i <= 10; i++)\n        cout << n << \" x \" << i << \" = \" << n * i << endl;\n    return 0;\n}"
+  },
+  "output": "7 x 1 = 7\n7 x 2 = 14\n7 x 3 = 21\n7 x 4 = 28\n7 x 5 = 35\n7 x 6 = 42\n7 x 7 = 49\n7 x 8 = 56\n7 x 9 = 63\n7 x 10 = 70"
+ },
+ {
+  "id": "sumn",
+  "keys": [
+   "sum of n natural numbers",
+   "sum of natural numbers",
+   "sum of first n",
+   "sum of n numbers",
+   "sum 1 to n"
+  ],
+  "title": "Sum of first n natural numbers",
+  "idea": "Add 1..n in a loop — or use the formula n × (n + 1) / 2.",
+  "code": {
+   "python": "n = 100\ntotal = 0\nfor i in range(1, n + 1):\n    total += i\nprint(\"Loop:\", total)\nprint(\"Formula:\", n * (n + 1) // 2)",
+   "javascript": "const n = 100;\nlet total = 0;\nfor (let i = 1; i <= n; i++) total += i;\nconsole.log(\"Loop:\", total);\nconsole.log(\"Formula:\", (n * (n + 1)) / 2);",
+   "java": "public class Main {\n    public static void main(String[] args) {\n        int n = 100, total = 0;\n        for (int i = 1; i <= n; i++) total += i;\n        System.out.println(\"Loop: \" + total);\n        System.out.println(\"Formula: \" + n * (n + 1) / 2);\n    }\n}",
+   "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n = 100, total = 0;\n    for (int i = 1; i <= n; i++) total += i;\n    cout << \"Loop: \" << total << endl;\n    cout << \"Formula: \" << n * (n + 1) / 2 << endl;\n    return 0;\n}"
+  },
+  "output": "Loop: 5050\nFormula: 5050"
+ },
+ {
+  "id": "anagram",
+  "keys": [
+   "anagram",
+   "anagrams",
+   "check anagram"
+  ],
+  "title": "Anagram check",
+  "idea": "Two words are anagrams if they contain the same letters the same number of times — sort both and compare.",
+  "code": {
+   "python": "def is_anagram(a, b):\n    return sorted(a.lower()) == sorted(b.lower())\n\nprint(\"listen/silent:\", is_anagram(\"listen\", \"silent\"))\nprint(\"hello/world:\", is_anagram(\"hello\", \"world\"))",
+   "javascript": "const sortStr = (s) => s.toLowerCase().split(\"\").sort().join(\"\");\nconst isAnagram = (a, b) => sortStr(a) === sortStr(b);\nconsole.log(\"listen/silent:\", isAnagram(\"listen\", \"silent\") ? \"True\" : \"False\");\nconsole.log(\"hello/world:\", isAnagram(\"hello\", \"world\") ? \"True\" : \"False\");",
+   "java": "import java.util.Arrays;\n\npublic class Main {\n    static boolean isAnagram(String a, String b) {\n        char[] x = a.toLowerCase().toCharArray(), y = b.toLowerCase().toCharArray();\n        Arrays.sort(x);\n        Arrays.sort(y);\n        return Arrays.equals(x, y);\n    }\n    public static void main(String[] args) {\n        System.out.println(\"listen/silent: \" + (isAnagram(\"listen\", \"silent\") ? \"True\" : \"False\"));\n        System.out.println(\"hello/world: \" + (isAnagram(\"hello\", \"world\") ? \"True\" : \"False\"));\n    }\n}",
+   "cpp": "#include <iostream>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nbool isAnagram(string a, string b) {\n    sort(a.begin(), a.end());\n    sort(b.begin(), b.end());\n    return a == b;\n}\n\nint main() {\n    cout << \"listen/silent: \" << (isAnagram(\"listen\", \"silent\") ? \"True\" : \"False\") << endl;\n    cout << \"hello/world: \" << (isAnagram(\"hello\", \"world\") ? \"True\" : \"False\") << endl;\n    return 0;\n}"
+  },
+  "output": "listen/silent: True\nhello/world: False"
+ },
+ {
+  "id": "secondlargest",
+  "keys": [
+   "second largest",
+   "second highest",
+   "2nd largest",
+   "second maximum"
+  ],
+  "title": "Second largest element",
+  "idea": "Track the largest and second-largest values in one pass (skip duplicates of the largest).",
+  "code": {
+   "python": "nums = [12, 45, 7, 45, 33]\nfirst = second = float(\"-inf\")\nfor x in nums:\n    if x > first:\n        first, second = x, first\n    elif first > x > second:\n        second = x\nprint(\"Second largest:\", second)",
+   "javascript": "const nums = [12, 45, 7, 45, 33];\nlet first = -Infinity, second = -Infinity;\nfor (const x of nums) {\n  if (x > first) { second = first; first = x; }\n  else if (x < first && x > second) second = x;\n}\nconsole.log(\"Second largest:\", second);",
+   "java": "public class Main {\n    public static void main(String[] args) {\n        int[] nums = {12, 45, 7, 45, 33};\n        int first = Integer.MIN_VALUE, second = Integer.MIN_VALUE;\n        for (int x : nums) {\n            if (x > first) { second = first; first = x; }\n            else if (x < first && x > second) second = x;\n        }\n        System.out.println(\"Second largest: \" + second);\n    }\n}",
+   "cpp": "#include <iostream>\n#include <climits>\nusing namespace std;\n\nint main() {\n    int nums[] = {12, 45, 7, 45, 33};\n    int first = INT_MIN, second = INT_MIN;\n    for (int x : nums) {\n        if (x > first) { second = first; first = x; }\n        else if (x < first && x > second) second = x;\n    }\n    cout << \"Second largest: \" << second << endl;\n    return 0;\n}"
+  },
+  "output": "Second largest: 33"
+ }
+]
